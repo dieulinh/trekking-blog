@@ -7,6 +7,7 @@ class Login < Grape::API
       requires :password, type: String
     end
     post '/' do
+      user = User.find_by(email: params[:email])
     end
   end
 end
