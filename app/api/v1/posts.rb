@@ -4,7 +4,7 @@ module V1
     resource :posts do
       get '/' do
         posts = Post.recent
-        present posts
+        present posts, with: V1::Entities::Post
       end
     end
   end
