@@ -30,6 +30,7 @@ const getters = {
 };
 
 const state = {
+  posts: [],
   added: [],
   all: []
 };
