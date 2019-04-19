@@ -11,10 +11,23 @@
   </head>
 
   <body>
-    <%= render 'shared/sidebar' %>
-    <div class="main">
-      <%= yield %>
+    <div class="container">
+      <div class="sidebar">
+        <button class="menu-btn">Click</button>
+        <div class="sidenav">
+          <div class="sidebar-container">
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Clients</a>
+            <a href="#">Contact</a>
+          </div>
+        </div>
+      </div>
+      <div class="main">
+        <%= yield %>
+      </div>
     </div>
+
 
   </body>
 </html>

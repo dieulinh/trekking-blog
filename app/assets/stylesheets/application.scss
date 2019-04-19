@@ -12,3 +12,23 @@
  *
  */
 @import 'bootstrap';
+
+.sidenav {
+  width: 200px;
+  .active {
+    width: 0;
+  }
+}
+.main {
+  margin-left: 50px;
+  .main-collapse {
+    margin-left: 200px;
+  }
+}
+.sidebar-container {
+  width: 200px;
+  height: 90px;
+  .active {
+    width: 150px;
+  }
+}
