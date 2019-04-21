@@ -8,6 +8,9 @@
 <script>
 export default {
   data: () => ({ products: [{name: 'Shoes', count: 12}]}),
+  created: () => {
+    console.log(this.$store);
+  },
   mounted: () => {
     console.log('mounted products');
   }
