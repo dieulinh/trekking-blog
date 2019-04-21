@@ -10,7 +10,7 @@
 # end
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'http://localhost:3000'
+    origins ENV['TREKKING_APP_URL'] || 'http://localhost:3000'
 
     resource '*',
              headers: ["XMLHttpRequest", "Origin", "X-Requested-With", "Content-Type", "Accept", "Z-Key", "Charset", "Authorization", "Type"],
