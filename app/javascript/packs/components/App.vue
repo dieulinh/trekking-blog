@@ -1,6 +1,6 @@
 <template>
-  <div id="app" class="container">
-    <h1>Test App </h1>
+  <div id="app">
+    <h1>Trekking your way </h1>
     <header-component />
     <router-view />
     <footer-component />

@@ -55,7 +55,6 @@ const state = {
 
 export default new Vuex.Store({
   state,
-  strict: debug,
   getters,
   actions,
   mutations

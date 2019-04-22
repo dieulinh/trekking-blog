@@ -1,9 +1,12 @@
 <template>
-  <b-container>
-    <b-input placeholder="Post title" />
-    <vue-editor v-model="content" />
-    <b-button class="btn btn-primary">Save</b-button>
+  <b-container fluid>
+    <b-form>
+      <b-form-row md="12"><b-col cols="12"><b-input-group><b-form-input placeholder="Post title" /></b-input-group></b-col></b-form-row>
+      <b-form-row md="12"><b-col cols="12"><vue-editor v-model="content" /></b-col></b-form-row>
+      <b-form-row md="12"><b-col cols="12"><b-button type="submit" variant="primary">Save</b-button></b-col></b-form-row>
+    </b-form>
   </b-container>
+  
 </template>
 
 <script>
