@@ -12,7 +12,6 @@ module V1
         requires :content, type: String
       end
       post '/' do
-        byebug
         post = Post.create(declared(params).merge(user_id: User.first.id))
         present post, with: V1::Entities::Post
       end
