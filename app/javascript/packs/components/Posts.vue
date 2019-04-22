@@ -11,7 +11,7 @@
 </template>
 <script>
 import axios from '../common/axios';
-const postApiUrl = 'http://localhost:3000/api/v1/posts';
+const postApiUrl = 'https://trekking-blog.herokuapp.com/api/v1/posts';
 export default {
   data() {
     return { posts: []};
