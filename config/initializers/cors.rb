@@ -1,13 +1,3 @@
-# Rails.application.config.middleware.insert_before 0, Rack::Cors do
-#   allow do
-#     origins 'localhost:3000'
-
-#     resource '*',
-#       headers: :any,
-#       methods:  :any? { |e|  }
-#     end
-#   end
-# end
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
     origins ENV['TREKKING_APP_URL'] || 'http://localhost:3000'

@@ -6,6 +6,16 @@ module V1
         posts = Post.recent
         present posts, with: V1::Entities::Post
       end
+
+      params do
+        requires :title, type: String
+        requires :content, type: String
+      end
+      post '/' do
+        byebug
+        post = Post.create(declared(params).merge(user_id: User.first.id))
+        present post, with: V1::Entities::Post
+      end
     end
   end
 end
