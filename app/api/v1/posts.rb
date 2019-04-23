@@ -9,12 +9,13 @@ module V1
 
       params do
         requires :title, type: String
+        requires :description, type: String
         requires :content, type: String
         requires :user_id, type: Integer
       end
       post '/' do
         sanitized_content = Sanitize.fragment(params[:content], Sanitize::Config::RESTRICTED)
-        post = Post.create(title: params[:title], content: sanitized_content, user_id: params[:user_id])
+        post = Post.create(title: params[:title], content: sanitized_content, user_id: params[:user_id], description: params[:description])
         present post, with: V1::Entities::Post
       end
     end
