@@ -3,15 +3,18 @@
     <b-row v-for="(post, index) in posts" :key="index">
       <div class="card-body">
         <h2 class="card-title">{{ post.title }}</h2>
-        <p class="card-text">{{ post.content }}</p>
-        <a href="#" class="btn btn-primary">Read More →</a>
+        <div class="card-text">{{ post.description }}</div>
+        <router-link :to="{ name: 'Post', params: { postId: post.id } }">
+          Read More
+        </router-link>
       </div>
     </b-row>
   </b-container>
 </template>
 <script>
+import Router from 'vue-router';
 import axios from '../common/axios';
-const postApiUrl = 'https://trekking-blog.herokuapp.com/api/v1/posts';
+const postApiUrl = `${process.env.ROOT_API}/posts`;
 export default {
   data() {
     return { posts: []};
@@ -24,6 +27,5 @@ export default {
       console.log(err);
     });
   }
-  
 }
 </script>

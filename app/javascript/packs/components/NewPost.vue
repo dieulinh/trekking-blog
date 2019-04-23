@@ -12,10 +12,6 @@
 
 <script>
 import sanitizeHtml from 'sanitize-html';
- 
-var dirty = 'some really tacky HTML';
-var clean = sanitizeHtml(dirty);
-
 import axios from '../common/axios';
 import { VueEditor } from 'vue2-editor';
 const postApiUrl = `${process.env.ROOT_API}/posts`;
@@ -35,7 +31,16 @@ export default {
   },
   methods: {
     handlePost() {
-      axios.post(postApiUrl, { title: this.title, description: this.description, user_id: 1, content: sanitizeHtml(this.content)}).then((response) => {
+      let postContent = sanitizeHtml(this.content,
+        {
+          allowedTags: [ 'b', 'i', 'em', 'strong', 'a' , 'img'],
+          allowedAttributes: {
+            'a': [ 'href' ]
+          },
+          allowedSchemes: [ 'data', 'http', 'src' ]
+        }
+      );
+      axios.post(postApiUrl, { title: this.title, description: this.description, user_id: 1, content: this.content }).then((response) => {
       }).catch((err) => {
         console.log(`Error: ${err}`);
       });

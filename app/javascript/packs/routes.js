@@ -3,6 +3,7 @@ import WelcomePage from './components/Welcome.vue';
 import ProductsPage from './components/Products.vue';
 import PostsPage from './components/Posts.vue';
 import NewPostPage from './components/NewPost.vue';
+import PostPage from './components/Post.vue';
 
 
 const routes = [
@@ -21,6 +22,12 @@ const routes = [
   {
     path: '/new_post',
     component: NewPostPage
+  },
+  {
+    path: '/posts/:postId',
+    component: PostPage,
+    props: true,
+    name: 'Post'
   }
 ];
 export default new VueRouter({routes});

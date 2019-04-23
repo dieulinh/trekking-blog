@@ -14,8 +14,12 @@ module V1
         requires :user_id, type: Integer
       end
       post '/' do
-        sanitized_content = Sanitize.fragment(params[:content], Sanitize::Config::RESTRICTED)
-        post = Post.create(title: params[:title], content: sanitized_content, user_id: params[:user_id], description: params[:description])
+        post = Post.create(title: params[:title], content: params[:content].html_safe, user_id: params[:user_id], description: params[:description])
+        present post, with: V1::Entities::Post
+      end
+
+      get '/:id' do
+        post = Post.find(params[:id])
         present post, with: V1::Entities::Post
       end
     end
