@@ -2,6 +2,7 @@ class API < Grape::API
   format :json
   mount Login
   mount V1::Posts
+  mount V1::Uploads
 
   rescue_from Grape::Exceptions::ValidationErrors  do |e|
     rack_response({
