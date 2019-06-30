@@ -3,7 +3,7 @@
     <b-form class="mw-100">
       <b-form-row md="12" sm="12" xs="10" class="mb-2"><b-col cols="12"><b-input-group><b-form-input placeholder="Post title" v-model="title"/></b-input-group></b-col></b-form-row>
       <b-form-row md="12" sm="12" xs="10" class="mb-2"><b-col cols="12"><b-input-group><b-form-input placeholder="Post description" v-model="description"/></b-input-group></b-col></b-form-row>
-      <b-form-row md="12" sm="12" xs="10" class="mb-2"><b-col cols="12"><vue-editor v-model="content" /></b-col></b-form-row>
+      <b-form-row md="12" sm="12" xs="10" class="mb-2"><b-col cols="12"><vue-editor v-model="content" useCustomImageHandler @imageAdded="handleUploadImage" /></b-col></b-form-row>
       <b-form-row md="12" sm="12" xs="10" class="mb-2"><b-col cols="12"><b-button @click="handlePost" variant="primary">Save</b-button></b-col></b-form-row>
     </b-form>
   </b-container>
@@ -15,6 +15,7 @@ import sanitizeHtml from 'sanitize-html';
 import axios from '../common/axios';
 import { VueEditor } from 'vue2-editor';
 const postApiUrl = `${process.env.ROOT_API}/posts`;
+const imageUploadUrl = `${process.env.ROOT_API}/uploads`;
 export default {
    components: {
     VueEditor
@@ -22,14 +23,32 @@ export default {
   data() {
     return {
       title: '',
-      content: 'Some initial content',
-      description: ''
+      description: '',
+      content: 'Some initial content'
     }
   },
   mounted() {
     
   },
   methods: {
+    handleUploadImage(file, Editor, cursorLocation, resetUploader) {
+        var formData = new FormData();
+        formData.append("file", file);
+        axios.post(imageUploadUrl, formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+        })
+        .then((result) => {
+          console.log(result);
+          let url = result.data // Get url from response
+          Editor.insertEmbed(cursorLocation, 'image', url);
+          resetUploader();  
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+    },
     handlePost() {
       let postContent = sanitizeHtml(this.content,
         {
