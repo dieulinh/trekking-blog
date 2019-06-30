@@ -13,7 +13,6 @@ module V1
         requires :content, type: String
       end
       post '/' do
-        byebug
         post = Post.create(title: params[:title], content: params[:content].html_safe, user_id: User.first.id, description: params[:description])
         present post, with: V1::Entities::Post
       end
