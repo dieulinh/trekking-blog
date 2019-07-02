@@ -1,6 +1,7 @@
 class API < Grape::API
   format :json
   rescue_from :all, backtrace: true
+  helpers ::Shared::Helpers
 
   helpers do
     def warden
@@ -9,15 +10,19 @@ class API < Grape::API
 
     def authenticated
       return true if warden.authenticated?
-      params[:access_token] && @user = User.find_by_authentication_token(params[:access_token])
+      token && @user = User.find_by_authentication_token(token)
     end
 
     def current_user
-      warden.user || @user
+      warden.authenticate || @user
+    end
+
+    def token
+      params[:user_token].presence
     end
   end
 
-  mount Login
+  mount V1::Login
   mount V1::Posts
   mount V1::Uploads
 

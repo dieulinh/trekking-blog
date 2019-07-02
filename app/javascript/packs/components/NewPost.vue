@@ -50,16 +50,8 @@ export default {
         })
     },
     handlePost() {
-      let postContent = sanitizeHtml(this.content,
-        {
-          allowedTags: [ 'b', 'i', 'em', 'strong', 'a' , 'img'],
-          allowedAttributes: {
-            'a': [ 'href' ]
-          },
-          allowedSchemes: [ 'data', 'http', 'src' ]
-        }
-      );
       axios.post(postApiUrl, { title: this.title, description: this.description, user_id: 1, content: this.content }).then((response) => {
+        this.$router.push(`/posts/${response.data.id}`);
       }).catch((err) => {
         console.log(`Error: ${err}`);
       });

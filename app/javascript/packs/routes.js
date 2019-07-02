@@ -4,12 +4,17 @@ import ProductsPage from './components/Products.vue';
 import PostsPage from './components/Posts.vue';
 import NewPostPage from './components/NewPost.vue';
 import PostPage from './components/Post.vue';
+import LoginPage from './components/Login.vue'
 
 
 const routes = [
   {
     path: '/',
     component: WelcomePage
+  },
+  {
+    path: '/login',
+    component: LoginPage
   },
   {
     path: '/products',
