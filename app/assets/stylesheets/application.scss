@@ -13,6 +13,50 @@
  */
 @import 'bootstrap';
 
+.fixed {
+  position: fixed;
+  z-index: 5;
+}
+nav {
+    display: block;
+}
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+.logo {
+    height: 50px;
+    margin: 1vw 0 1vw 10vw;
+    position: relative;
+    width: 200px;
+}
+header {
+  display: block;
+}
+header nav {
+    position: fixed;
+    right: 10vw;
+    top: 1vw;
+}
+header nav ul {
+    float: left;
+    list-style: none;
+}
+header nav ul li {
+    float: left;
+    line-height: 50px;
+    margin: 0 10px;
+    width: auto;
+}
+
+.main {
+  margin-top: 85px;
+}
 .sidenav {
   width: 200px;
   .active {

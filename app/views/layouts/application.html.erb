@@ -12,19 +12,9 @@
 
   <body>
     <div id="wrapper">
-      <div id="sidebar-wrapper">
-        <ul class="sidebar-nav">
-          <li><a href="/#/posts"> Posts </a></li>
-          <li><a href="/#/"> Settings </a></li>
-          <li><a href="#"> Logout </a></li>
-        </ul>
-
-      </div>
-
-      <div id="page-content-wrapper">
-        <div class="main container-fluid">
-          <%= yield %>
-        </div>
+      <%= render 'shared/header' %>
+      <div class="main container-fluid">
+        <%= yield %>
       </div>
     </div>
   </body>
