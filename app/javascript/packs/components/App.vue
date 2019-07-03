@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <h1>Trekking your way </h1>
     <header-component />
     <router-view />
     <footer-component />
