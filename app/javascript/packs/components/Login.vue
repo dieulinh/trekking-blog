@@ -10,7 +10,7 @@
         <b-form-row md="12" sm="12" xs="10" class="mb-2"><b-col cols="12"><b-input-group><b-form-input placeholder="User email" v-model="email"/></b-input-group></b-col></b-form-row>
         <b-form-row md="12" sm="12" xs="10" class="mb-2"><b-col cols="12"><b-input-group><b-form-input type="password" placeholder="Password" v-model="password"/></b-input-group></b-col></b-form-row>
       </b-form>
-    <b-button variant="primary" class="m-1">
+    <b-button variant="primary" @click="loginUser" class="m-1">
       Login
     </b-button>
     <b-button class="m-1">
@@ -19,13 +19,29 @@
   </b-container>
 </template>
 <script>
-  import BootstrapVue from 'bootstrap-vue';
+  import axios from '../common/axios';
+  import Vue from 'vue';
+  import VueSession from 'vue-session'
+  Vue.use(VueSession);
+
   export default {
     data() {
       return { email: '', password: '', authenticated: false};
     },
     methods: {
-      
+      loginUser() {
+        axios.post(`${process.env.ROOT_API}/login`, { email: this.email, password: this.password })
+        .then((res) => {
+          if ('authentication_token' in res.data) {
+              this.$session.start();
+              this.$session.set('auth_token', res.data.authentication_token);
+              this.$router.push('/posts');
+            }
+        })
+        .catch(err => {
+          console.log(err);
+        })
+      }
     }
   }
 </script>

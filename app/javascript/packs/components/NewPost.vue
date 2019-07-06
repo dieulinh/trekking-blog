@@ -11,9 +11,13 @@
 </template>
 
 <script>
+import Vue from 'vue';
+import VueSession from 'vue-session';
 import sanitizeHtml from 'sanitize-html';
 import axios from '../common/axios';
 import { VueEditor } from 'vue2-editor';
+
+Vue.use(VueSession);
 const postApiUrl = `${process.env.ROOT_API}/posts`;
 const imageUploadUrl = `${process.env.ROOT_API}/uploads`;
 export default {
@@ -27,27 +31,32 @@ export default {
       content: 'Some initial content'
     }
   },
+  beforeMount() {
+    let authToken = this.$session.get('auth_token');
+    if (!authToken) {
+      this.$router.push('/login');
+    }
+  },
   mounted() {
     
   },
   methods: {
     handleUploadImage(file, Editor, cursorLocation, resetUploader) {
-        var formData = new FormData();
-        formData.append("file", file);
-        axios.post(imageUploadUrl, formData, {
-            headers: {
-              'Content-Type': 'multipart/form-data'
-            }
-        })
-        .then((result) => {
-          console.log(result);
-          let url = result.data // Get url from response
-          Editor.insertEmbed(cursorLocation, 'image', url);
-          resetUploader();  
-        })
-        .catch((err) => {
-          console.log(err);
-        })
+      var formData = new FormData();
+      formData.append("file", file);
+      axios.post(imageUploadUrl, formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+      })
+      .then((result) => {
+        let url = result.data // Get url from response
+        Editor.insertEmbed(cursorLocation, 'image', url);
+        resetUploader();  
+      })
+      .catch((err) => {
+        console.log(err);
+      })
     },
     handlePost() {
       axios.post(postApiUrl, { title: this.title, description: this.description, user_id: 1, content: this.content }).then((response) => {

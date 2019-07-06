@@ -10,6 +10,7 @@
     "vue": "^2.6.10",
     "vue-loader": "^15.7.0",
     "vue-router": "^3.0.5",
+    "vue-session": "^1.0.0",
     "vue-template-compiler": "^2.6.10",
     "vue2-editor": "^2.6.6",
     "vuex": "^3.1.0"
