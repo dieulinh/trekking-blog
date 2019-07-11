@@ -1,5 +1,9 @@
 <template>
-  <div>{{ message }} </div>
+  <div class="row">
+    <div class="card-body text-center" >
+      {{ message }}
+    </div>
+  </div>
 </template>
   
 <script>
