@@ -6,6 +6,7 @@ module V1
       expose :description
       expose :content
       expose :updated_at
+      expose :slug
     end
   end
 end

@@ -4,7 +4,7 @@
       <div class="card-body">
         <h2 class="card-title">{{ post.title }}</h2>
         <div class="card-text">{{ post.description }}</div>
-        <router-link :to="{ name: 'Post', params: { postId: post.id } }">
+        <router-link :to="{ name: 'Post', params: { postId: post.slug|post.id } }">
           Read More
         </router-link>
       </div>

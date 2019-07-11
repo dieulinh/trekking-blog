@@ -846,6 +846,8 @@ GEM
     erubi (1.8.0)
     execjs (2.7.0)
     ffi (1.10.0)
+    friendly_id (5.2.5)
+      activerecord (>= 4.0.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     grape (1.2.3)
@@ -1016,6 +1018,7 @@ DEPENDENCIES
   devise
   devise-token_authenticatable
   dotenv-rails
+  friendly_id (~> 5.2.4)
   grape
   grape-entity
   jbuilder (~> 2.5)

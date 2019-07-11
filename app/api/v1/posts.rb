@@ -18,7 +18,7 @@ module V1
       end
 
       get '/:id' do
-        post = Post.find(params[:id])
+        post = Post.friendly.find(params[:id])
         present post, with: V1::Entities::Post
       end
     end
