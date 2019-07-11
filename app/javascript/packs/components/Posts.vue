@@ -2,9 +2,9 @@
   <b-container>
     <b-row v-for="(post, index) in posts" :key="index">
       <div class="card-body">
-        <h2 class="card-title">{{ post.title }}</h2>
+        <h5 class="card-title">{{ post.title }}</h5>
         <div class="card-text">{{ post.description }}</div>
-        <router-link :to="{ name: 'Post', params: { postId: post.slug|post.id } }">
+        <router-link :to="{ name: 'Post', params: { postId: post.slug } }">
           Read More
         </router-link>
       </div>
