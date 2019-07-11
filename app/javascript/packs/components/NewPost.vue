@@ -68,7 +68,7 @@ export default {
     },
     handlePost() {
       axios.post(postApiUrl, { title: this.title, description: this.description, user_id: 1, content: this.content }).then((response) => {
-        this.$router.push(`/posts/${response.data.id}`);
+        this.$router.push(`/posts/${response.data.slug}`);
       }).catch((err) => {
         console.log(`Error: ${err}`);
       });

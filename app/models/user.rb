@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :token_authenticatable
   before_save :ensure_authentication_token!
 
+  enum role: { user: 0, author: 1, admin: 2 }
+
   def ensure_authentication_token!
     self.authentication_token ||= generate_authentication_token
   end

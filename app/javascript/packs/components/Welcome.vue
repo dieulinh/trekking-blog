@@ -4,6 +4,6 @@
   
 <script>
 export default {
-  data: () => ({ message: 'Hello Vue' })
+  data: () => ({ message: 'Welcome you to E-G Trekker Blog' })
 }
 </script>
