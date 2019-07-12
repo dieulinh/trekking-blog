@@ -14,6 +14,8 @@ gem 'sass-rails', '~> 5.0'
 gem 'coffee-rails', '~> 4.2'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
+# Use active admin for CMS
+gem "activeadmin"
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker'
 gem 'friendly_id', '~> 5.2.4'
