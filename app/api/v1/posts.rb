@@ -11,9 +11,10 @@ module V1
         requires :title, type: String
         requires :description, type: String
         requires :content, type: String
+        requires :category, type: String
       end
       post '/' do
-        post = Post.create(title: params[:title], content: params[:content].html_safe, user_id: User.first.id, description: params[:description])
+        post = Post.create(title: params[:title], category: params[:category], content: params[:content].html_safe, user_id: User.first.id, description: params[:description])
         present post, with: V1::Entities::Post
       end
 
