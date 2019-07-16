@@ -19,7 +19,7 @@ ActiveAdmin.register Post do
     h3 post.title
 
     div do
-      image_tag post.post_thumbnails.variant(resize: "100x100")
+      image_tag url_for(post.post_thumbnails.variant(resize: "100x100").processed)
     end
 
   end
