@@ -14,11 +14,11 @@
               class="blog-entry element-animate fadeIn element-animated"
               data-animate-effect="fadeIn"
             >
-              <img src="images/img_5.jpg" alt="Image placeholder" />
+              <span>User</span>
               <div class="blog-content-body">
                 <div class="post-meta">
                   <span class="author mr-2">
-                    <img src="images/person_1.jpg" alt="E-G Trekker" /> E-G Trekker
+                    E-G Trekker
                   </span>•
                   <span class="mr-2">March 15, 2018</span> •
                   <span class="ml-2">
@@ -31,15 +31,15 @@
           </div>
           <div class="col-md-6">
             <a
-              href="blog-single.html"
+              href="/"
               class="blog-entry element-animate fadeIn element-animated"
               data-animate-effect="fadeIn"
             >
-              <img src="images/img_6.jpg" alt="Image placeholder" />
+              <span>User</span>
               <div class="blog-content-body">
                 <div class="post-meta">
                   <span class="author mr-2">
-                    <img src="images/person_1.jpg" alt="E-G Trekker" /> E-G Trekker
+                    E-G Trekker
                   </span>•
                   <span class="mr-2">March 15, 2018</span> •
                   <span class="ml-2">
@@ -52,15 +52,15 @@
           </div>
           <div class="col-md-6">
             <a
-              href="blog-single.html"
+              href="/"
               class="blog-entry element-animate fadeIn element-animated"
               data-animate-effect="fadeIn"
             >
-              <img src="images/img_7.jpg" alt="Image placeholder" />
+              <span>User</span>
               <div class="blog-content-body">
                 <div class="post-meta">
                   <span class="author mr-2">
-                    <img src="images/person_1.jpg" alt="E-G Trekker" /> E-G Trekker
+                    E-G Trekker
                   </span>•
                   <span class="mr-2">March 15, 2018</span> •
                   <span class="ml-2">
@@ -73,15 +73,15 @@
           </div>
           <div class="col-md-6">
             <a
-              href="blog-single.html"
+              href="/"
               class="blog-entry element-animate fadeIn element-animated"
               data-animate-effect="fadeIn"
             >
-              <img src="images/img_8.jpg" alt="Image placeholder" />
+              <span>User2</span>
               <div class="blog-content-body">
                 <div class="post-meta">
                   <span class="author mr-2">
-                    <img src="images/person_1.jpg" alt="E-G Trekker" /> E-G Trekker
+                    E-G Trekker
                   </span>•
                   <span class="mr-2">March 15, 2018</span> •
                   <span class="ml-2">
@@ -94,15 +94,15 @@
           </div>
           <div class="col-md-6">
             <a
-              href="blog-single.html"
+              href="/"
               class="blog-entry element-animate"
               data-animate-effect="fadeIn"
             >
-              <img src="images/img_9.jpg" alt="Image placeholder" />
+              <span> User 3</span>
               <div class="blog-content-body">
                 <div class="post-meta">
                   <span class="author mr-2">
-                    <img src="images/person_1.jpg" alt="E-G Trekker" /> E-G Trekker
+                    E-G Trekker
                   </span>•
                   <span class="mr-2">March 15, 2018</span> •
                   <span class="ml-2">
@@ -115,15 +115,15 @@
           </div>
           <div class="col-md-6">
             <a
-              href="blog-single.html"
+              href="/"
               class="blog-entry element-animate"
               data-animate-effect="fadeIn"
             >
-              <img src="images/img_10.jpg" alt="Image placeholder" />
+              <span>User 4</span>
               <div class="blog-content-body">
                 <div class="post-meta">
                   <span class="author mr-2">
-                    <img src="images/person_1.jpg" alt="E-G Trekker" /> E-G Trekker
+                    E-G Trekker
                   </span>•
                   <span class="mr-2">March 15, 2018</span> •
                   <span class="ml-2">
@@ -136,15 +136,15 @@
           </div>
           <div class="col-md-6">
             <a
-              href="blog-single.html"
+              href="/"
               class="blog-entry element-animate"
               data-animate-effect="fadeIn"
             >
-              <img src="images/img_11.jpg" alt="Image placeholder" />
+              <span> user 5</span>
               <div class="blog-content-body">
                 <div class="post-meta">
                   <span class="author mr-2">
-                    <img src="images/person_1.jpg" alt="E-G Trekker" /> E-G Trekker
+                    E-G Trekker
                   </span>•
                   <span class="mr-2">March 15, 2018</span> •
                   <span class="ml-2">
@@ -157,15 +157,15 @@
           </div>
           <div class="col-md-6">
             <a
-              href="blog-single.html"
+              href="/"
               class="blog-entry element-animate"
               data-animate-effect="fadeIn"
             >
-              <img src="images/img_12.jpg" alt="Image placeholder" />
+              <span> User </span>
               <div class="blog-content-body">
                 <div class="post-meta">
                   <span class="author mr-2">
-                    <img src="images/person_1.jpg" alt="E-G Trekker" /> E-G Trekker
+                    E-G Trekker
                   </span>•
                   <span class="mr-2">March 15, 2018</span> •
                   <span class="ml-2">
@@ -255,8 +255,8 @@
           <div class="post-entry-sidebar">
             <ul>
               <li>
-                <a href>
-                  <img src="images/img_2.jpg" alt="Image placeholder" class="mr-4" />
+                <a href='/'>
+                  <span class="mr-4">Test</span>
                   <div class="text">
                     <h4>How to Find the Video Games of Your Youth</h4>
                     <div class="post-meta">
@@ -267,7 +267,7 @@
               </li>
               <li>
                 <a href>
-                  <img src="images/img_4.jpg" alt="Image placeholder" class="mr-4" />
+                  <span class="mr-4">Test 1</span>
                   <div class="text">
                     <h4>How to Find the Video Games of Your Youth</h4>
                     <div class="post-meta">
@@ -278,7 +278,7 @@
               </li>
               <li>
                 <a href>
-                  <img src="images/img_12.jpg" alt="Image placeholder" class="mr-4" />
+                  <span class="mr-4">Test 2</span>
                   <div class="text">
                     <h4>How to Find the Video Games of Your Youth</h4>
                     <div class="post-meta">
@@ -348,24 +348,6 @@
             <li>
               <a href="#">Freelancing</a>
             </li>
-            <li>
-              <a href="#">Travel</a>
-            </li>
-            <li>
-              <a href="#">Adventure</a>
-            </li>
-            <li>
-              <a href="#">Food</a>
-            </li>
-            <li>
-              <a href="#">Lifestyle</a>
-            </li>
-            <li>
-              <a href="#">Business</a>
-            </li>
-            <li>
-              <a href="#">Freelancing</a>
-            </li>
           </ul>
         </div>
       </div>
@@ -375,6 +357,6 @@
 
 <script>
 export default {
-  data: () => ({ message: "Welcome you to E-G Trekker Blog" })
+  
 };
 </script>
