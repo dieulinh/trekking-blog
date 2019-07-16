@@ -25,7 +25,9 @@ nav {
     display: block;
     float: left;
 }
-
+a:hover {
+  text-decoration: none;
+}
 .logo {
     height: 50px;
     color: #b53a65;
