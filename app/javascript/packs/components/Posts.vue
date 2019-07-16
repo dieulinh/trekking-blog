@@ -2,6 +2,7 @@
   <b-container>
     <b-row v-for="(post, index) in posts" :key="index">
       <div class="card-body">
+        <img src="post.post_image" />
         <h5 class="card-title">{{ post.title }}</h5>
         <div class="card-text">{{ post.description }}</div>
         <router-link :to="{ name: 'Post', params: { postId: post.slug } }">
