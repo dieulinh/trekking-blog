@@ -11,5 +11,12 @@ ActiveAdmin.register Post do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
+  permit_params :title, :post_thumbnails
+  # member_action :comments do
+  #   @post = resource
+  #   # This will render app/views/admin/posts/comments.html.erb
+  # end
+
+  form partial: 'form'
 
 end

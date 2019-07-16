@@ -7,10 +7,10 @@ module V1
       end
       post '/' do
         # Create a S3 client
-        region = 'ap-southeast-1'
+        region = ENV['AWS_REGION']
         client = Aws::S3::Client.new(region: region)
 
-        bucket = 'trekking-app'
+        bucket = ENV['AWS_S3_BUCKET']
         # Sets a bucket to public-read
         client.put_bucket_acl({
           acl: "public-read",
