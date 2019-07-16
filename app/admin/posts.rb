@@ -18,7 +18,9 @@ ActiveAdmin.register Post do
   show do
     h3 post.title
 
-    image_tag url_for(post.post_thumbnails)
+    div do
+      image_tag post.post_thumbnails.variant(resize: "100x100")
+    end
 
   end
 
