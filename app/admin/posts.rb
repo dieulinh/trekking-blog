@@ -12,11 +12,14 @@ ActiveAdmin.register Post do
 #   permitted
 # end
   permit_params :title, :post_thumbnails
-  # member_action :comments do
-  #   @post = resource
-  #   # This will render app/views/admin/posts/comments.html.erb
-  # end
 
   form partial: 'form'
+
+  show do
+    h3 post.title
+
+    image_tag url_for(post.post_thumbnails)
+
+  end
 
 end
