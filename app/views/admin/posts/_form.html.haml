@@ -1,5 +1,7 @@
 = semantic_form_for [:admin, @post], builder: ActiveAdmin::FormBuilder do |f|
   = f.inputs do
     = f.input :title
+    = f.input :description
+    = f.input :category
     = f.input :post_thumbnails, as: :file
     = f.actions
