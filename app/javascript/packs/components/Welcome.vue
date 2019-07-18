@@ -98,7 +98,7 @@
               class="blog-entry element-animate"
               data-animate-effect="fadeIn"
             >
-              <span> User 3</span>
+              <span> Linh Nguyen</span>
               <div class="blog-content-body">
                 <div class="post-meta">
                   <span class="author mr-2">
@@ -228,7 +228,26 @@
             <img src="https://avatars1.githubusercontent.com/u/700688?s=400&u=f9cba118e292a1197d7a2e033f1f248933833a4a&v=4" alt="Image Placeholder" class="img-fluid" />
             <div class="bio-body">
               <h2>Linh Nguyen</h2>
-              <p>I am an avid trekker and a freelance web developer majoring in Ruby on Rails.</p>
+              <p>I am a traveler and a freelance fullstack web developer.</p>
+              <pre>Full-Stack Developer
+5+ years of experience.
+
+experienced working as a team member
+and work independent.
+
+
+MY SKILLS
+
+- Ruby on Rails ( ♥ )
+- Javascript (Angular, Vue, React)
+- SQL (MySQL, Postgres)
+- CSS (SASS/LESS)
+- MongoDB
+- Redis
+- AWS
+- Docker
+
+              </pre>
               <p>
                 <a href="#" class="btn btn-primary btn-sm rounded">Read my bio</a>
               </p>

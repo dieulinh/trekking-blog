@@ -11,7 +11,6 @@ Vue.use(VueRouter);
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // var store = new Vuex.Store({});
   var app = new Vue({
     el: '#app',
     store: store,
