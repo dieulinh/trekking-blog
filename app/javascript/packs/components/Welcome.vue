@@ -228,12 +228,12 @@
             <img src="https://avatars1.githubusercontent.com/u/700688?s=400&u=f9cba118e292a1197d7a2e033f1f248933833a4a&v=4" alt="Image Placeholder" class="img-fluid" />
             <div class="bio-body">
               <h2>Linh Nguyen</h2>
-              <p>I am a traveler and a freelance fullstack web developer.</p>
-              <pre>Full-Stack Developer
+              <p>I am a freelance Full-stack web developer.</p>
+              <pre>
 5+ years of experience.
 
-experienced working as a team member
-and work independent.
+Experienced working with team
+or working independently.
 
 
 MY SKILLS

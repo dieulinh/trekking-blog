@@ -4,6 +4,7 @@ module V1
       expose :id
       expose :title
       expose :description
+      expose :category
       expose :content
       expose :updated_at
       expose :slug
