@@ -1,10 +1,8 @@
 <template>
   <b-container class="md-offset-4">
-    <b-row>
-      <b-col cols="3">Login</b-col>
-      <b-col cols="4"></b-col>
-      <b-col cols="4"></b-col>
-    </b-row>
+    <div class="alert alert-danger" role="alert" v-if="errors">
+      <strong>{{errors}}</strong>
+    </div>
     
     <b-form class="mw-100">
       <b-form-row md="12" sm="12" xs="10" class="mb-2"><b-col cols="12"><b-input-group><b-form-input placeholder="User email" v-model="email"/></b-input-group></b-col></b-form-row>
@@ -26,7 +24,9 @@
 
   export default {
     data() {
-      return { email: '', password: '', authenticated: false};
+      return { email: '', password: '', authenticated: false,
+        errors: null
+      };
     },
     methods: {
       loginUser() {
@@ -36,10 +36,16 @@
               this.$session.start();
               this.$session.set('auth_token', res.data.authentication_token);
               this.$router.push('/posts');
-            }
+          } else {
+            this.errors = res.errors;
+          }
         })
         .catch(err => {
           console.log(err);
+          if (err.response.status === 401) {
+            this.errors = "Invalid email or password";
+          }
+          
         })
       }
     }
