@@ -9,6 +9,16 @@ class Post < ApplicationRecord
   validates :title, presence: true
 
   def thumb_url
-    Rails.application.routes.url_helpers.rails_representation_url(post_thumbnails.variant(resize: "250x250").processed, only_path: true) if post_thumbnails.attached?
+    Rails.application.routes.url_helpers.rails_representation_url(post_thumbnails.variant(
+      combine_options: [
+        [:resize, "250x250^"],
+        [:gravity, "center"],
+        [:crop, "250x250+0+0"],
+        [:strip, true],
+        [:quality, "70"],
+        [:repage, nil], [:+, nil], # +repage
+        [:distort, nil], [:+, "Perspective"]
+      ]
+    ).processed, only_path: true) if post_thumbnails.attached?
   end
 end

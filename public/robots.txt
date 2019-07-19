@@ -1,2 +1,2 @@
 User-agent: *
-Disallow: 
+Sitemap: http://eagertrekker.com/sitemap.xml
