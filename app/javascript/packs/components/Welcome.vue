@@ -1,8 +1,21 @@
 <template>
   <div class="container">
+    <div class="row align-items-center text-center text-md-left">
+      <div class="col-md-10 col-lg-10 mb-5 mb-md-0">
+        <h1>Travel more to discover yourself</h1>
+        <p>If there were a list of the top three things that I would like to do in life,
+           to travel more is among them. Over the past few years, I have traveled a lot, and thoroughly enjoyed every second. I went to Australia multiple times, took my sisters to the Philippines, went to Malaysia with my friend. I’ve been to the other side of the country and back multiple times, with many stops in between.
+           I have learnt a lot from my trips and I would like to share to you all </p>
+        <a class="button button-hero mt-4" href="#/posts">Get Started</a>
+      </div>
+      
+      <div class="col-md-12 col-lg-12 col-xl-12 offset-xl-1">
+        <img class="img-fluid" src="img/home/hero-img.png" alt />
+      </div>
+    </div>
     <div class="row">
       <div class="col-md-6">
-        <h4 class="mb-4">Latest Posts</h4>
+        <h3 class="mb-4">Latest Posts</h3>
       </div>
     </div>
     <div class="row blog-entries">
@@ -17,15 +30,13 @@
               <span>Zodiac</span>
               <div class="blog-content-body">
                 <div class="post-meta">
-                  <span class="author mr-2">
-                    E-G Trekker
-                  </span>•
+                  <span class="author mr-2">E-G Trekker</span>•
                   <span class="mr-2">July 119, 2019</span> •
                   <span class="ml-2">
                     <span class="fa fa-comments"></span> 3
                   </span>
                 </div>
-                <h4>12 Cung hoang dao</h4>
+                <h4>12 Cung hoàng đạo</h4>
               </div>
             </a>
           </div>
@@ -38,15 +49,13 @@
               <span>Green</span>
               <div class="blog-content-body">
                 <div class="post-meta">
-                  <span class="author mr-2">
-                    E-G Trekker
-                  </span>•
+                  <span class="author mr-2">E-G Trekker</span>•
                   <span class="mr-2">March 15, 2019</span> •
                   <span class="ml-2">
                     <span class="fa fa-comments"></span> 3
                   </span>
                 </div>
-                <h4>How you help your environment</h4>
+                <h4>Community contribution</h4>
               </div>
             </a>
           </div>
@@ -56,18 +65,16 @@
               class="blog-entry element-animate fadeIn element-animated"
               data-animate-effect="fadeIn"
             >
-              <span>User</span>
+              <span>Travel</span>
               <div class="blog-content-body">
                 <div class="post-meta">
-                  <span class="author mr-2">
-                    E-G Trekker
-                  </span>•
+                  <span class="author mr-2">E-G Trekker</span>•
                   <span class="mr-2">March 15, 2018</span> •
                   <span class="ml-2">
                     <span class="fa fa-comments"></span> 3
                   </span>
                 </div>
-                <h4>How to Find the Video Games of Your Youth</h4>
+                <h4>Travel experience</h4>
               </div>
             </a>
           </div>
@@ -77,102 +84,46 @@
               class="blog-entry element-animate fadeIn element-animated"
               data-animate-effect="fadeIn"
             >
-              <span>User2</span>
+              <span>Lifestyle</span>
               <div class="blog-content-body">
                 <div class="post-meta">
-                  <span class="author mr-2">
-                    E-G Trekker
-                  </span>•
+                  <span class="author mr-2">E-G Trekker</span>•
                   <span class="mr-2">March 15, 2018</span> •
                   <span class="ml-2">
                     <span class="fa fa-comments"></span> 3
                   </span>
                 </div>
-                <h4>How to Find the Video Games of Your Youth</h4>
+                <h4>Science</h4>
               </div>
             </a>
           </div>
           <div class="col-md-6">
-            <a
-              href="/"
-              class="blog-entry element-animate"
-              data-animate-effect="fadeIn"
-            >
-              <span> Linh Nguyen</span>
+            <a href="/" class="blog-entry element-animate" data-animate-effect="fadeIn">
+              <span>Culture</span>
               <div class="blog-content-body">
                 <div class="post-meta">
-                  <span class="author mr-2">
-                    E-G Trekker
-                  </span>•
+                  <span class="author mr-2">E-G Trekker</span>•
                   <span class="mr-2">March 15, 2018</span> •
                   <span class="ml-2">
                     <span class="fa fa-comments"></span> 3
                   </span>
                 </div>
-                <h4>How to Find the Video Games of Your Youth</h4>
+                <h4>Culture and language</h4>
               </div>
             </a>
           </div>
           <div class="col-md-6">
-            <a
-              href="/"
-              class="blog-entry element-animate"
-              data-animate-effect="fadeIn"
-            >
-              <span>User 4</span>
+            <a href="/" class="blog-entry element-animate" data-animate-effect="fadeIn">
+              <span>Food</span>
               <div class="blog-content-body">
                 <div class="post-meta">
-                  <span class="author mr-2">
-                    E-G Trekker
-                  </span>•
+                  <span class="author mr-2">E-G Trekker</span>•
                   <span class="mr-2">March 15, 2018</span> •
                   <span class="ml-2">
                     <span class="fa fa-comments"></span> 3
                   </span>
                 </div>
-                <h4>How to Find the Video Games of Your Youth</h4>
-              </div>
-            </a>
-          </div>
-          <div class="col-md-6">
-            <a
-              href="/"
-              class="blog-entry element-animate"
-              data-animate-effect="fadeIn"
-            >
-              <span> user 5</span>
-              <div class="blog-content-body">
-                <div class="post-meta">
-                  <span class="author mr-2">
-                    E-G Trekker
-                  </span>•
-                  <span class="mr-2">March 15, 2018</span> •
-                  <span class="ml-2">
-                    <span class="fa fa-comments"></span> 3
-                  </span>
-                </div>
-                <h4>How to Find the Video Games of Your Youth</h4>
-              </div>
-            </a>
-          </div>
-          <div class="col-md-6">
-            <a
-              href="/"
-              class="blog-entry element-animate"
-              data-animate-effect="fadeIn"
-            >
-              <span> User </span>
-              <div class="blog-content-body">
-                <div class="post-meta">
-                  <span class="author mr-2">
-                    E-G Trekker
-                  </span>•
-                  <span class="mr-2">March 15, 2018</span> •
-                  <span class="ml-2">
-                    <span class="fa fa-comments"></span> 3
-                  </span>
-                </div>
-                <h4>How to Find the Video Games of Your Youth</h4>
+                <h4>Good food for life</h4>
               </div>
             </a>
           </div>
@@ -225,9 +176,13 @@
 
         <div class="sidebar-box">
           <div class="bio text-center">
-            <img src="https://avatars1.githubusercontent.com/u/700688?s=400&u=f9cba118e292a1197d7a2e033f1f248933833a4a&v=4" alt="Image Placeholder" class="img-fluid" />
+            <img
+              src="https://avatars1.githubusercontent.com/u/700688?s=400&u=f9cba118e292a1197d7a2e033f1f248933833a4a&v=4"
+              alt="Image Placeholder"
+              class="img-fluid"
+            />
             <div class="bio-body">
-              <h4>Linh Nguyen</h4>
+              <h3>Linh Nguyen</h3>
               <p>I am a freelance Full-stack web developer.</p>
               <pre>
 5+ years of experience.
@@ -274,7 +229,7 @@ MY SKILLS
           <div class="post-entry-sidebar">
             <ul>
               <li>
-                <a href='/'>
+                <a href="/">
                   <span class="mr-4">Test</span>
                   <div class="text">
                     <h4>How to Find the Video Games of Your Youth</h4>
@@ -375,7 +330,5 @@ MY SKILLS
 </template>
 
 <script>
-export default {
-  
-};
+export default {};
 </script>

@@ -3,7 +3,7 @@ class Post < ApplicationRecord
   friendly_id :title, use: :slugged
   has_one_attached :post_thumbnails
 
-  enum category: [:travel, :health, :food, :beauty, :green, :technology, :music, :design, :art, :education, :psychology, :fashion, :photography, :culture, :politic, :history, :science, :movie, :lifestyle, :sport, :freelance, :wildlife, :seo]
+  enum category: [:travel, :health, :food, :beauty, :green, :technology, :music, :design, :art, :education, :psychology, :fashion, :photography, :culture, :politic, :history, :science, :movie, :lifestyle, :sport, :freelance, :wildlife, :seo, :zodiac]
   scope :recent, -> { order('updated_at desc').limit(10) }
   belongs_to :user
   validates :title, presence: true
