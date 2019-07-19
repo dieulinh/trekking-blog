@@ -12,7 +12,7 @@
           </router-link>
         </div>
         <div class="col-auto d-none d-lg-block">
-          <img v-bind:src="post.thumb_url" class="bd-placeholder-img" height="250"/>
+          <img v-bind:src="post.thumb_url" class="bd-placeholder-img" width="250" height="auto"/>
         </div>
       </div>
     </b-row>
