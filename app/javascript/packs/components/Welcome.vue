@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="row align-items-center text-center text-md-left">
-      <div class="col-md-10 col-lg-10 mb-5 mb-md-0">
+      <div class="col-md-9 col-lg-9 mb-5 mb-md-0">
         <h1>Travel more to discover yourself</h1>
         <p>If there were a list of the top three things that I would like to do in life,
            to travel more is among them. Over the past few years, I have traveled a lot, and thoroughly enjoyed every second. I went to Australia multiple times, took my sisters to the Philippines, went to Malaysia with my friend. I’ve been to the other side of the country and back multiple times, with many stops in between.
@@ -9,11 +9,11 @@
         <a class="button button-hero mt-4" href="#/posts">Get Started</a>
       </div>
       
-      <div class="col-md-12 col-lg-12 col-xl-12 offset-xl-1">
-        <img class="img-fluid" src="img/home/hero-img.png" alt />
-      </div>
     </div>
-    <div class="row">
+    <div class="row align-items-center">
+      <hr>
+    </div>
+    <div class="row text-md-left">
       <div class="col-md-6">
         <h3 class="mb-4">Latest Posts</h3>
       </div>

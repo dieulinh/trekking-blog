@@ -53,13 +53,17 @@ header nav ul li {
     font-size: 20px;
 }
 h4 {
-  color: #77CC6D!important;
+  color: #3c9e30!important;
   transform: translateY(-.72px);
   letter-spacing: -.42px!important;
   font-family: medium-content-sans-serif-font,"Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Arial,sans-serif!important;
 }
 .main {
   margin-top: 107px;
+}
+
+.post-meta {
+  color: #111;
 }
 .sidenav {
   width: 200px;
@@ -128,6 +132,6 @@ h4 {
 .sidebar-nav li a {
   display: block;
   text-decoration: none;
-  color: #ddd;
+  color: #0c3a56;
 }
 
