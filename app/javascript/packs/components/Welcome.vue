@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6">
-        <h2 class="mb-4">Latest Posts</h2>
+        <h4 class="mb-4">Latest Posts</h4>
       </div>
     </div>
     <div class="row blog-entries">
@@ -10,22 +10,43 @@
         <div class="row">
           <div class="col-md-6">
             <a
-              href="#/posts"
+              href="http://www.eagertrekker.com/#/posts/bi-m-t-12-cung-hoang-d-o"
               class="blog-entry element-animate fadeIn element-animated"
               data-animate-effect="fadeIn"
             >
-              <span>User</span>
+              <span>Zodiac</span>
               <div class="blog-content-body">
                 <div class="post-meta">
                   <span class="author mr-2">
                     E-G Trekker
                   </span>•
-                  <span class="mr-2">March 15, 2018</span> •
+                  <span class="mr-2">July 119, 2019</span> •
                   <span class="ml-2">
                     <span class="fa fa-comments"></span> 3
                   </span>
                 </div>
-                <h2>How to Find the Video Games of Your Youth</h2>
+                <h4>12 Cung hoang dao</h4>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-6">
+            <a
+              href="http://www.eagertrekker.com/#/posts/your-contribution-for-a-community"
+              class="blog-entry element-animate fadeIn element-animated"
+              data-animate-effect="fadeIn"
+            >
+              <span>Green</span>
+              <div class="blog-content-body">
+                <div class="post-meta">
+                  <span class="author mr-2">
+                    E-G Trekker
+                  </span>•
+                  <span class="mr-2">March 15, 2019</span> •
+                  <span class="ml-2">
+                    <span class="fa fa-comments"></span> 3
+                  </span>
+                </div>
+                <h4>How you help your environment</h4>
               </div>
             </a>
           </div>
@@ -46,28 +67,7 @@
                     <span class="fa fa-comments"></span> 3
                   </span>
                 </div>
-                <h2>How to Find the Video Games of Your Youth</h2>
-              </div>
-            </a>
-          </div>
-          <div class="col-md-6">
-            <a
-              href="/"
-              class="blog-entry element-animate fadeIn element-animated"
-              data-animate-effect="fadeIn"
-            >
-              <span>User</span>
-              <div class="blog-content-body">
-                <div class="post-meta">
-                  <span class="author mr-2">
-                    E-G Trekker
-                  </span>•
-                  <span class="mr-2">March 15, 2018</span> •
-                  <span class="ml-2">
-                    <span class="fa fa-comments"></span> 3
-                  </span>
-                </div>
-                <h2>How to Find the Video Games of Your Youth</h2>
+                <h4>How to Find the Video Games of Your Youth</h4>
               </div>
             </a>
           </div>
@@ -88,7 +88,7 @@
                     <span class="fa fa-comments"></span> 3
                   </span>
                 </div>
-                <h2>How to Find the Video Games of Your Youth</h2>
+                <h4>How to Find the Video Games of Your Youth</h4>
               </div>
             </a>
           </div>
@@ -109,7 +109,7 @@
                     <span class="fa fa-comments"></span> 3
                   </span>
                 </div>
-                <h2>How to Find the Video Games of Your Youth</h2>
+                <h4>How to Find the Video Games of Your Youth</h4>
               </div>
             </a>
           </div>
@@ -130,7 +130,7 @@
                     <span class="fa fa-comments"></span> 3
                   </span>
                 </div>
-                <h2>How to Find the Video Games of Your Youth</h2>
+                <h4>How to Find the Video Games of Your Youth</h4>
               </div>
             </a>
           </div>
@@ -151,7 +151,7 @@
                     <span class="fa fa-comments"></span> 3
                   </span>
                 </div>
-                <h2>How to Find the Video Games of Your Youth</h2>
+                <h4>How to Find the Video Games of Your Youth</h4>
               </div>
             </a>
           </div>
@@ -172,7 +172,7 @@
                     <span class="fa fa-comments"></span> 3
                   </span>
                 </div>
-                <h2>How to Find the Video Games of Your Youth</h2>
+                <h4>How to Find the Video Games of Your Youth</h4>
               </div>
             </a>
           </div>
@@ -227,7 +227,7 @@
           <div class="bio text-center">
             <img src="https://avatars1.githubusercontent.com/u/700688?s=400&u=f9cba118e292a1197d7a2e033f1f248933833a4a&v=4" alt="Image Placeholder" class="img-fluid" />
             <div class="bio-body">
-              <h2>Linh Nguyen</h2>
+              <h4>Linh Nguyen</h4>
               <p>I am a freelance Full-stack web developer.</p>
               <pre>
 5+ years of experience.
