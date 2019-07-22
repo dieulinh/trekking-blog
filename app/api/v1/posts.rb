@@ -1,10 +1,15 @@
 module V1
   class Posts < Grape::API
     version 'v1', using: :path
+    helpers Params::Pagination
+
+    params do
+      use :pagination_params
+    end
     resource :posts do
       get '/' do
-        posts = Post.recent
-        present posts, with: V1::Entities::Post
+        posts = Post.with_attached_post_thumbnails.recent
+        present posts.offset(params[:page]).limit(params[:size]), with: V1::Entities::Post
       end
 
       params do
