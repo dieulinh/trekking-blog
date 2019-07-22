@@ -9,7 +9,11 @@ module V1
     resource :posts do
       get '/' do
         posts = Post.with_attached_post_thumbnails.recent
-        present posts.offset(params[:page]).limit(params[:size]), with: V1::Entities::Post
+        posts = posts.page(params[:page]).per(params[:size])
+        res = {}
+        res[:posts] = posts.map { |post| Entities::Post.new(post) }
+        res[:total_pages] = posts.total_pages
+        present res
       end
 
       params do
