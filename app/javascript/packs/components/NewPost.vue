@@ -74,9 +74,6 @@ export default {
       this.$router.push('/login');
     }
   },
-  mounted() {
-    
-  },
   computed: {
     hasError() {
       if (this.title!='' && this.content!='') {

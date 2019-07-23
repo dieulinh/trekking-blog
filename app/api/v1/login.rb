@@ -21,7 +21,7 @@ module V1
       end
       post '/register' do
         user = User.find_by(email: params[:email])
-        return render_api_error('User existed', 422) if user
+        return render_api_error!('User existed', 422) if user
         user = User.create(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
         present user, with: Entities::User
       end
