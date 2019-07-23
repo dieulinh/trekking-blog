@@ -1,43 +1,52 @@
 <template>
   <b-container fluid>
     <b-form class="mw-100">
-      <b-form-row md="12" sm="12" xs="10" class="mb-2"><b-col cols="12"><b-input-group><b-form-input placeholder="Post title" v-model="title"/></b-input-group></b-col></b-form-row>
-      <b-form-row md="12" sm="12" xs="10" class="mb-2"><b-col cols="12"><b-input-group><b-form-input placeholder="Post description" v-model="description"/></b-input-group></b-col></b-form-row>
+      <b-form-row md="12" sm="12" xs="10" class="mb-2"><b-col cols="12"><b-input-group><b-form-input placeholder="Post title" v-model="post.title"/></b-input-group></b-col></b-form-row>
+      <b-form-row md="12" sm="12" xs="10" class="mb-2"><b-col cols="12"><b-input-group><b-form-input placeholder="Post description" v-model="post.description"/></b-input-group></b-col></b-form-row>
       <b-form-row md="12" sm="12" xs="10" class="mb-2"><b-col cols="12">
           <b-input-group>
-            <b-form-select v-model="category" :options="options" size="sm" class="mt-3"></b-form-select>
+            <b-form-select v-model="post.category" :options="options" size="sm" class="mt-3"></b-form-select>
           </b-input-group>
         </b-col>
       </b-form-row>
-      <b-form-row md="12" sm="12" xs="10" class="mb-2"><b-col cols="12"><vue-editor v-model="content" useCustomImageHandler @imageAdded="handleUploadImage" /></b-col></b-form-row>
-      <b-form-row md="12" sm="12" xs="10" class="mb-2"><b-col cols="12"><b-button @click="handlePost" :disabled="!!hasError" variant="primary">Save</b-button></b-col></b-form-row>
+      <b-form-row md="12" sm="12" xs="10" class="mb-2"><b-col cols="12"><vue-editor v-model="post.content" useCustomImageHandler @imageAdded="handleUploadImage" /></b-col></b-form-row>
+      <b-form-row md="12" sm="12" xs="10" class="mb-2"><b-col cols="12"><b-button @click="handleUpdatePost" :disabled="!!hasError" variant="primary">Save</b-button></b-col></b-form-row>
     </b-form>
   </b-container>
   
 </template>
-
 <script>
-import Vue from 'vue';
-import VueSession from 'vue-session';
 import axios from '../common/axios';
 import { VueEditor } from 'vue2-editor';
-
-Vue.use(VueSession);
 const postApiUrl = `${process.env.ROOT_API}/posts`;
 const imageUploadUrl = `${process.env.ROOT_API}/uploads`;
 export default {
-   components: {
+  components: {
     VueEditor
+  },
+  props: ['postId'],
+  beforeMount() {
+    console.log("before Mounted");
+    let authToken = this.$session.get('auth_token');
+    if (authToken) {
+      this.authenticated = true;
+      this.authToken = authToken;
+    } else {
+      this.$$router.push('/#/login');
+    }
+  },
+  computed: {
+    hasError() {
+      if (this.post.title!='' && this.post.content!='') {
+        return false;
+      }
+      return true;
+    }
   },
   data() {
     return {
-      title: '',
-      description: '',
-      content: '',
-      category: null,
-      // :travel, :health, :food, :beauty, :green, :technology, :music, :design, :art,
-      //  :education, :psychology, :fashion, :photography, :culture, :politic, :history, :science, 
-      // :movie, :lifestyle, :sport, :freelance, :wildlife, :seo
+      post: {},
+      auth_token: null,
       options: [
         { value: null, text: 'Please select post category', disabled: true },
         { value: 'travel', text: 'Travel' },
@@ -67,19 +76,12 @@ export default {
       ]
     }
   },
-  beforeMount() {
-    let authToken = this.$session.get('auth_token');
-    if (!authToken) {
-      this.$router.push('/login');
-    }
-  },
-  computed: {
-    hasError() {
-      if (this.title!='' && this.content!='') {
-        return false;
-      }
-      return true;
-    }
+  mounted() {
+    axios.get(`${process.env.ROOT_API}/posts/${this.postId}`).then((response) => {
+      this.post = response.data;
+    }).catch((err) => {
+      console.log(err);
+    });
   },
   methods: {
     handleUploadImage(file, Editor, cursorLocation, resetUploader) {
@@ -99,9 +101,10 @@ export default {
         console.log(err);
       })
     },
-    handlePost() {
-      axios.post(postApiUrl, { title: this.title, category: this.category, description: this.description, user_id: 1, content: this.content }).then((response) => {
-        this.$router.push(`/posts/${response.data.slug}`);
+    handleUpdatePost() {
+      console.log(this.postId);
+      axios.put(`${postApiUrl}/${this.postId}`, { title: this.post.title, category: this.post.category, description: this.post.description, auth_token: this.authToken, content: this.post.content }).then((response) => {
+        this.$router.push(`/posts/${this.postId}`);
       }).catch((err) => {
         console.log(`Error: ${err}`);
       });
@@ -109,4 +112,3 @@ export default {
   }
 }
 </script>
-

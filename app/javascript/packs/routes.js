@@ -5,6 +5,7 @@ import WelcomePage from './components/Welcome.vue';
 import ProductsPage from './components/Products.vue';
 import PostsPage from './components/Posts.vue';
 import NewPostPage from './components/NewPost.vue';
+import EditPostPage from './components/EditPost.vue';
 import PostPage from './components/Post.vue';
 import LoginPage from './components/Login.vue';
 import RegisterPage from './components/Register.vue';
@@ -35,6 +36,12 @@ const routes = [
     component: PostPage,
     props: true,
     name: 'Post'
+  },
+  {
+    path: '/posts/:postId/edit',
+    component: EditPostPage,
+    props: true,
+    name: 'EditPost'
   },
   {
     path: '/register',

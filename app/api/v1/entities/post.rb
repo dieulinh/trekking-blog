@@ -2,7 +2,7 @@ module V1
   module Entities
     class Post < Grape::Entity
       format_with :timestamp do |date|
-        date.strftime('%b %d %Y')
+        date.strftime('%b %d, %Y')
       end
 
       expose :id

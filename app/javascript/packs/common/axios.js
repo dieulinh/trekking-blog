@@ -33,7 +33,7 @@ export default {
     return axios.post(path, setToken(params));
   },
   put: (path, params = {}) => {
-    return axios.post(path, setToken(params));
+    return axios.put(path, setToken(params));
   },
   delete: (path, params = {}) => {
     return axios.delete(path, setToken(params));
