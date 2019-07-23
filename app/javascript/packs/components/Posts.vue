@@ -21,15 +21,14 @@
         <nav aria-label="Page navigation" class="text-center">
           <ul class="pagination">
             <li class="page-item active">
-              <a class="page-link" @click="page=page-1">&lt;</a>
+              <button class="page-link" @click="getPosts(page-1)">&lt;</button>
             </li>
             <li class="page-item" v-for="(item, index) in pages" v-bind:key="index">
-              <a class="page-link" @click="getPosts(0)">{{ item + 1 }}</a>
+              <button class="page-link" @click="getPosts(index)">{{ item + 1 }}</button>
             </li>
-            
-            
+
             <li class="page-item">
-              <a class="page-link" @click="getPosts(page+1)">&gt;</a>
+              <button class="page-link" @click="getPosts(page+1)">&gt;</button>
             </li>
           </ul>
         </nav>
@@ -52,8 +51,8 @@ export default {
   },
   methods: {
     getPosts(page) {
-      axios.get(`${postApiUrl}?page=${page}`).then((response) => {
-      this.posts = response.data;
+      axios.get(`${postApiUrl}?page=${page+1}`).then((response) => {
+      this.posts = response.data.posts;
       this.page = page;
       this.pages = [...Array(response.data.total_pages).keys()];
     })
@@ -63,7 +62,7 @@ export default {
     }
   },
   mounted(){
-    axios.get(`${postApiUrl}?page=${this.page}`)
+    axios.get(`${postApiUrl}?page=${this.page+1}`)
     .then((response) => {
       this.posts = response.data.posts;
       this.totalPages = response.data.total_pages;
