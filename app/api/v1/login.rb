@@ -8,7 +8,7 @@ module V1
         requires :password, type: String
       end
       post '/' do
-        user = User.find_by(email: params[:email])
+        user = User.find_by(email: params[:email].downcase)
         return unauthorized! unless user && user.valid_password?(params[:password])
         present user, with: Entities::User
       end
@@ -20,12 +20,12 @@ module V1
         requires :password_confirmation, type: String
       end
       post '/register' do
-        user = User.find_by(email: params[:email])
+        email = params[:email].downcase
+        user = User.find_by(email: email)
         return render_api_error!('User existed', 422) if user
-        user = User.create(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
+        user = User.create(email: email, password: params[:password], password_confirmation: params[:password_confirmation])
         present user, with: Entities::User
       end
     end
   end
-
 end
