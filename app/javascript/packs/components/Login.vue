@@ -1,19 +1,15 @@
 <template>
-  <b-container class="md-offset-4">
+  <b-container>
     <div class="alert alert-danger" role="alert" v-if="errors">
       <strong>{{errors}}</strong>
     </div>
-    
-    <b-form class="mw-100">
+
+    <b-form class="col-md-8 offset-md-2 col-sm-8 offset-sm-2">
       <b-form-row md="12" sm="12" xs="10" class="mb-2"><b-col cols="12"><b-input-group><b-form-input placeholder="User email" v-model="email"/></b-input-group></b-col></b-form-row>
       <b-form-row md="12" sm="12" xs="10" class="mb-2"><b-col cols="12"><b-input-group><b-form-input type="password" placeholder="Password" v-model="password"/></b-input-group></b-col></b-form-row>
+      <b-form-row md="12" sm="12" xs="10" class="mb-2"><b-col cols="12"><b-input-group><b-button variant="primary" class="w-100" @click="loginUser">Login</b-button></b-input-group></b-col></b-form-row>
+      <b-form-row md="12" sm="12" xs="10" class="mb-2"><b-col cols="12"><b-input-group><b-form-text>Not registered</b-form-text> <b-button variant="link" href="#/register">Register</b-button></b-input-group></b-col></b-form-row>
     </b-form>
-    <b-button variant="primary" @click="loginUser" class="m-1">
-      Login
-    </b-button>
-    <b-button class="m-1">
-      Cancel
-    </b-button>
   </b-container>
 </template>
 <script>
