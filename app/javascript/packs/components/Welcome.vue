@@ -31,7 +31,7 @@
               <div class="blog-content-body">
                 <div class="post-meta">
                   <span class="author mr-2">E-G Trekker</span>•
-                  <span class="mr-2">July 119, 2019</span> •
+                  <span class="mr-2">July 19, 2019</span> •
                   <span class="ml-2">
                     <span class="fa fa-comments"></span> 3
                   </span>
@@ -128,35 +128,7 @@
             </a>
           </div>
         </div>
-        <div class="row mt-5">
-          <div class="col-md-12 text-center">
-            <nav aria-label="Page navigation" class="text-center">
-              <ul class="pagination">
-                <li class="page-item active">
-                  <a class="page-link" href="#">&lt;</a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">1</a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">2</a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">3</a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">4</a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">5</a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">&gt;</a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
+        
       </div>
 
       <div class="col-md-12 col-lg-4 sidebar">
@@ -179,10 +151,10 @@
             <img
               src="https://avatars1.githubusercontent.com/u/700688?s=400&u=f9cba118e292a1197d7a2e033f1f248933833a4a&v=4"
               alt="Image Placeholder"
-              class="img-fluid"
+              class="img-fluid" width="200px"
             />
             <div class="bio-body">
-              <h3>Linh Nguyen</h3>
+              <h5>Linh Nguyen</h5>
               <p>I am a freelance Full-stack web developer.</p>
               <pre>
 5+ years of experience.
@@ -201,7 +173,6 @@ MY SKILLS
 - Redis
 - AWS
 - Docker
-
               </pre>
               <p>
                 <a href="#" class="btn btn-primary btn-sm rounded">Read my bio</a>
@@ -228,38 +199,17 @@ MY SKILLS
           <h3 class="heading">Popular Posts</h3>
           <div class="post-entry-sidebar">
             <ul>
-              <li>
-                <a href="/">
-                  <span class="mr-4">Test</span>
-                  <div class="text">
-                    <h4>How to Find the Video Games of Your Youth</h4>
+              <li v-for="(post, index) in posts" :key="index">
+                <router-link :to="{ name: 'Post', params: { postId: post.slug } }">
+                  <div class="text-title">
+                    <h6>{{ post.title}}</h6>
                     <div class="post-meta">
-                      <span class="mr-2">March 15, 2018</span>
+                      <span class="mr-2">{{ post.updated_at }}</span>
                     </div>
                   </div>
-                </a>
-              </li>
-              <li>
-                <a href>
-                  <span class="mr-4">Test 1</span>
-                  <div class="text">
-                    <h4>How to Find the Video Games of Your Youth</h4>
-                    <div class="post-meta">
-                      <span class="mr-2">March 15, 2018</span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href>
-                  <span class="mr-4">Test 2</span>
-                  <div class="text">
-                    <h4>How to Find the Video Games of Your Youth</h4>
-                    <div class="post-meta">
-                      <span class="mr-2">March 15, 2018</span>
-                    </div>
-                  </div>
-                </a>
+
+                </router-link>
+                
               </li>
             </ul>
           </div>
@@ -330,5 +280,23 @@ MY SKILLS
 </template>
 
 <script>
-export default {};
+import axios from '../common/axios';
+const postApiUrl = `${process.env.ROOT_API}/posts`;
+export default {
+  data() {
+    return {
+      posts: []
+    }
+  },
+  mounted() {
+    axios.get(`${postApiUrl}?page=1&size=5`)
+    .then((response) => {
+      this.posts = response.data.posts;
+      this.pages = [...Array(response.data.total_pages).keys()]
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  }
+};
 </script>
