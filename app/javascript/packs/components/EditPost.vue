@@ -1,5 +1,10 @@
 <template>
   <b-container fluid>
+    <b-row class="col-md-12">
+      <div class="alert alert-danger w-100" role="alert" v-if="errors">
+        <strong>{{errors}}</strong>
+      </div>
+    </b-row>
     <b-form class="mw-100">
       <b-form-row md="12" sm="12" xs="10" class="mb-2"><b-col cols="12"><b-input-group><b-form-input placeholder="Post title" v-model="post.title"/></b-input-group></b-col></b-form-row>
       <b-form-row md="12" sm="12" xs="10" class="mb-2"><b-col cols="12"><b-input-group><b-form-input placeholder="Post description" v-model="post.description"/></b-input-group></b-col></b-form-row>
@@ -26,7 +31,6 @@ export default {
   },
   props: ['postId'],
   beforeMount() {
-    console.log("before Mounted");
     let authToken = this.$session.get('auth_token');
     if (authToken) {
       this.authenticated = true;
@@ -46,6 +50,7 @@ export default {
   data() {
     return {
       post: {},
+      errors: null,
       auth_token: null,
       options: [
         { value: null, text: 'Please select post category', disabled: true },
@@ -107,6 +112,9 @@ export default {
         this.$router.push(`/posts/${this.postId}`);
       }).catch((err) => {
         console.log(`Error: ${err}`);
+        if (err.response.status === 401) {
+          this.errors = "Unauthorize! Please login";
+        }
       });
     }
   }
