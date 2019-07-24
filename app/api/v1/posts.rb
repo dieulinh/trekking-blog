@@ -45,8 +45,10 @@ module V1
 
       put '/:id' do
         token = params.delete(:auth_token)
-        return unauthorized! unless User.find_by(authentication_token: token)
+        user = User.find_by(authentication_token: token)
+        return unauthorized! unless user
         post = Post.friendly.find(params[:id])
+        return unauthorized! unless user.id == post.user_id
         post.update declared(params).except(:auth_token)
         present post, with: V1::Entities::Post
       end

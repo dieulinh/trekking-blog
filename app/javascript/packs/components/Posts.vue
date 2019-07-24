@@ -20,10 +20,10 @@
       <div class="col-md-12 text-center">
         <nav aria-label="Page navigation" class="text-center">
           <ul class="pagination">
-            <li class="page-item active">
+            <li class="page-item">
               <button class="page-link" @click="getPosts(page-1)">&lt;</button>
             </li>
-            <li class="page-item" v-for="(item, index) in pages" v-bind:key="index">
+            <li class="page-item" v-bind:class="{ active: page===index }" v-for="(item, index) in pages" v-bind:key="index">
               <button class="page-link" @click="getPosts(index)">{{ item + 1 }}</button>
             </li>
 
@@ -46,19 +46,14 @@ export default {
       posts: [],
       page: 0,
       pages: [],
-      totalPages: 0
+      totalPages: 0,
+      authenticated: false
     };
   },
-  methods: {
-    getPosts(page) {
-      axios.get(`${postApiUrl}?page=${page+1}`).then((response) => {
-      this.posts = response.data.posts;
-      this.page = page;
-      this.pages = [...Array(response.data.total_pages).keys()];
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  beforeMount() {
+    let authToken = this.$session.get('auth_token');
+    if (authToken) {
+      this.authenticated = true;
     }
   },
   mounted(){
@@ -71,6 +66,18 @@ export default {
     .catch((err) => {
       console.log(err);
     });
+  },
+  methods: {
+    getPosts(page) {
+      axios.get(`${postApiUrl}?page=${page+1}`).then((response) => {
+      this.posts = response.data.posts;
+      this.page = page;
+      this.pages = [...Array(response.data.total_pages).keys()];
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+    }
   }
 }
 </script>

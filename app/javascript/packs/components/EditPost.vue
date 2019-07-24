@@ -36,7 +36,7 @@ export default {
       this.authenticated = true;
       this.authToken = authToken;
     } else {
-      this.$$router.push('/#/login');
+      this.$router.push('/#/login');
     }
   },
   computed: {

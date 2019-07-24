@@ -4,7 +4,7 @@ module V1
       extend Grape::API::Helpers
 
       params :pagination_params do
-        optional :size, type: Integer, default: 10
+        optional :size, type: Integer, default: 5
         optional :page, type: Integer, default: 1
       end
     end
