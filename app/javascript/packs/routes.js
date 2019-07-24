@@ -29,7 +29,8 @@ const routes = [
   },
   {
     path: '/new_post',
-    component: NewPostPage
+    component: NewPostPage,
+    name: 'NewPost'
   },
   {
     path: '/posts/:postId',

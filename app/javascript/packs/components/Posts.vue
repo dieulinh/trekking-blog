@@ -1,5 +1,12 @@
 <template>
   <b-container>
+    <div v-if="authenticated" class="row mt-5">
+      <div class="col-md-12 mb-5 float-left">
+        <router-link class="btn btn-primary" :to="{ name: 'NewPost'}">
+          + Create Post
+        </router-link>
+      </div>
+    </div>
     <b-row v-for="(post, index) in posts" :key="index">
       <div class="row col-md-12 no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-100 position-relative">
         <div class="col p-4 d-flex flex-column position-static">
