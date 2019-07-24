@@ -22,10 +22,14 @@ module V1
         requires :description, type: String
         requires :content, type: String
         requires :category, type: String
+        requires :auth_token, type: String
       end
 
       post '/' do
-        post = Post.create(title: params[:title], category: params[:category], content: params[:content].html_safe, user_id: User.first.id, description: params[:description])
+        token = params.delete(:auth_token)
+        user = User.find_by(authentication_token: token)
+        return unauthorized! unless user
+        post = Post.create(title: params[:title], category: params[:category], content: params[:content].html_safe, user_id: user.id, description: params[:description])
         present post, with: V1::Entities::Post
       end
 
@@ -49,6 +53,7 @@ module V1
         return unauthorized! unless user
         post = Post.friendly.find(params[:id])
         return unauthorized! unless user.id == post.user_id
+        params[:content] = params[:content].html_safe
         post.update declared(params).except(:auth_token)
         present post, with: V1::Entities::Post
       end

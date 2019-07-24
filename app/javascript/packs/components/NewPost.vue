@@ -72,6 +72,7 @@ export default {
     if (!authToken) {
       this.$router.push('/login');
     }
+    this.authToken = authToken;
   },
   computed: {
     hasError() {
@@ -100,7 +101,7 @@ export default {
       })
     },
     handlePost() {
-      axios.post(postApiUrl, { title: this.title, category: this.category, description: this.description, user_id: 1, content: this.content }).then((response) => {
+      axios.post(postApiUrl, { title: this.title, category: this.category, description: this.description, auth_token: this.authToken, content: this.content }).then((response) => {
         this.$router.push(`/posts/${response.data.slug}`);
       }).catch((err) => {
         console.log(`Error: ${err}`);
