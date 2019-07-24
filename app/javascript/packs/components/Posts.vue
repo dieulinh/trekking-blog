@@ -21,14 +21,14 @@
         <nav aria-label="Page navigation" class="text-center">
           <ul class="pagination">
             <li class="page-item">
-              <button class="page-link" @click="getPosts(page-1)">&lt;</button>
+              <button class="page-link" :disabled="page===0" @click="getPosts(previousPage)">&lt;</button>
             </li>
             <li class="page-item" v-bind:class="{ active: page===index }" v-for="(item, index) in pages" v-bind:key="index">
               <button class="page-link" @click="getPosts(index)">{{ item + 1 }}</button>
             </li>
 
             <li class="page-item">
-              <button class="page-link" @click="getPosts(page+1)">&gt;</button>
+              <button class="page-link" :disabled="page===(totalPages-1)" @click="getPosts(nextPage)">&gt;</button>
             </li>
           </ul>
         </nav>
@@ -66,6 +66,14 @@ export default {
     .catch((err) => {
       console.log(err);
     });
+  },
+  computed: {
+    nextPage() {
+      return (this.page+1<=(this.totalPages - 1) ? this.page+1 : this.totalPages - 1);
+    },
+    previousPage() {
+      return (this.page-1<0 ? 0 : this.page - 1);
+    }
   },
   methods: {
     getPosts(page) {
