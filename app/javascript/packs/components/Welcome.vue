@@ -1,89 +1,66 @@
 <template>
   <div class="container">
-    <div class="row align-items-center text-center text-md-left">
-      <div class="col-md-9 col-lg-9 mb-5 mb-md-0">
-        <h1>Travel more to discover yourself</h1>
-        <p>
-          If there were a list of the top three things that I would like to do in life,
-          to travel more is among them. Over the past few years, I have traveled a lot, and thoroughly enjoyed every second. I went to Australia multiple times, took my sisters to the Philippines, went to Malaysia with my friend. I’ve been to the other side of the country and back multiple times, with many stops in between.
-          I have learnt a lot from my trips and I would like to share to you all
-        </p>
-        <a class="button button-hero mt-4" href="#/posts">Get Started</a>
-      </div>
+    <div class="container">
+      <h2>
+        Latest Posts
+      </h2>
+      <hr/>
     </div>
-    <div class="row align-items-center">
-      <hr />
-    </div>
-    <div class="row text-md-left">
-      <div class="col-md-6">
-        <h3 class="mb-4">Latest Posts</h3>
-      </div>
-    </div>
-    <div class="row blog-entries">
+    <div class="container sp_sidebar">
       <div class="section" id="main">
         <div class="widget Blog" data-version="1" id="Blog1">
           <div v-for="post in posts" v-bind:key="post.id">
             <article class="post">
-            <div class="post-header">
-              <div class="bg-category">
-                <div class="category-name">
+              <div class="post-header">
+                <div class="bg-category">
+                  <div class="category-name">
+                    <span class="text-title">
+                      <router-link :to='{name: "Post", params: {"postId": post.slug}}'
+                      class="post-category"
+                      >{{ post.category }}</router-link>
+                    </span>
+                  </div>
+                </div>
+                <h3>
                   <span class="text-title">
-                    <router-link :to='{name: "Post", params: {"postId": post.slug}}' rel="tag nofollow">
-                      {{ post.category }}
-                    </router-link>
+                    <router-link
+                      :to='{name: "Post", params: {"postId": post.slug}}'
+                    >{{ post.title }}</router-link>
                   </span>
+                </h3>
+                <div class="category-date">By rina chaudhary - {{ post.updated_at }}</div>
+              </div>
+              <div id="summary331550993429040912" style="display: block;">
+                <div class="post-image">
+                  <a href="#/2015/03/my-style-statement.html">
+                    <img width="100%" height="450" v-bind:src="post.thumb_url" />
+                  </a>
+                </div>
+                <div class="post-entry">
+                  Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis. Ut wisi enim ad minim...
+                  <p>
+                    <router-link
+                      :to='{name: "Post", params: {"postId": post.slug}}'
+                      rel="tag nofollow"
+                    >Continue Reading</router-link>
+                  </p>
                 </div>
               </div>
-              <h2>
-                <span class="text-title">
-                  <router-link :to='{name: "Post", params: {"postId": post.slug}}' rel="tag nofollow">{{ post.title }}</router-link>
-                </span>
-              </h2>
-              <div class="category-date">By rina chaudhary - {{ post.updated_at }}</div>
-            </div>
-            <div id="summary331550993429040912" style="display: block;">
-              <div class="post-image">
-                <a href="#/2015/03/my-style-statement.html">
-                  <img
-                    width="100%"
-                    height="450"
-                    v-bind:src="post.thumb_url"
-                  />
-                </a>
+
+              <div class="bottom-blog">
+                <ul class="blog-date pull-left ccc" data-id="18">
+                  <li>
+                    <i class="fa fa-comment-o"></i>
+                    <a href="#">4 Comments</a>
+                  </li>
+                </ul>
               </div>
-              <div class="post-entry">
-                Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis. Ut wisi enim ad minim...
-                <p>
-                  <router-link :to='{name: "Post", params: {"postId": post.slug}}' rel="tag nofollow">
-                      Continue Reading
-                  </router-link>
-                </p>
-              </div>
-            </div>
-            
-            <div class="bottom-blog">
-              <ul class="blog-date pull-left ccc" data-id="18">
-                <li>
-                  <i class="fa fa-comment-o"></i>
-                  <a
-                    href="#"
-                  >4 Comments</a>
-                </li>
-              </ul>
-              
-            </div>
-          </article>
-          <div
-            class="cmt_iframe_holder"
-            data-viewtype="FILTERED_POSTMOD"
-            href="#"
-          ></div>
+            </article>
+            <div class="cmt_iframe_holder" data-viewtype="FILTERED_POSTMOD" href="#"></div>
           </div>
           <div class="pagination">
             <div class="older">
-              <a
-                href="#"
-              >
+              <a href="#">
                 <span class="pager-heading">Older</span>
                 <br />
                 <span class="pager-title">Stories</span>
@@ -105,11 +82,12 @@
               <div class="about-widget">
                 <img
                   alt="About Me"
-                  src="https://avatars2.githubusercontent.com/u/700688?s=460&v=4" width="200"
+                  src="https://avatars2.githubusercontent.com/u/700688?s=460&v=4"
+                  width="200"
                 />
-              <h5>Linh Nguyen</h5>
-              <p>I am a freelance Full-stack web developer.</p>
-              <pre>
+                <h5>Linh Nguyen</h5>
+                <p>I am a freelance Full-stack web developer.</p>
+                <pre>
 5+ years of experience.
 
 Experienced working with team
@@ -132,14 +110,7 @@ MY SKILLS
           <div class="clear"></div>
           <span class="widget-item-control">
             <span class="item-control blog-admin">
-              <a
-                class="quickedit"
-                href="#"
-                
-                rel="nofollow"
-                target="configText1"
-                title="Edit"
-              >
+              <a class="quickedit" href="#" rel="nofollow" target="configText1" title="Edit">
                 <img
                   alt
                   height="18"
@@ -191,14 +162,7 @@ MY SKILLS
             <div class="clear"></div>
             <span class="widget-item-control">
               <span class="item-control blog-admin">
-                <a
-                  class="quickedit"
-                  href="#"
-    
-                  rel="nofollow"
-                  target="configLinkList2"
-                  title="Edit"
-                >
+                <a class="quickedit" href="#" rel="nofollow" target="configLinkList2" title="Edit">
                   <img
                     alt
                     height="18"
@@ -262,13 +226,7 @@ MY SKILLS
             <div class="clear"></div>
             <span class="widget-item-control">
               <span class="item-control blog-admin">
-                <a
-                  class="quickedit"
-                  href="#"
-                  rel="nofollow"
-                  target="configLabel1"
-                  title="Edit"
-                >
+                <a class="quickedit" href="#" rel="nofollow" target="configLabel1" title="Edit">
                   <img
                     alt
                     height="18"
@@ -290,24 +248,17 @@ MY SKILLS
               <div class="side-item">
                 <div class="side-image">
                   <a href="#/2015/03/papilion-minter-savior.html">
-                    <img
-                      width="150"
-                      height="100"
-                      v-bind:src="post.thumb_url"
-                      />
+                    <img width="150" height="100" v-bind:src="post.thumb_url" />
                   </a>
                 </div>
                 <div class="side-item-text">
                   <h4>
-                    <a
-                      href="#/2015/03/papilion-minter-savior.html"
-                    >Papilion Minter Savior</a>
+                    <a href="#/2015/03/papilion-minter-savior.html">Papilion Minter Savior</a>
                   </h4>
                   <span class="side-item-meta">{{ post.updated_at }}</span>
                 </div>
               </div>
             </li>
-            
           </ul>
         </div>
         <div class="widget BlogArchive" data-version="1" id="BlogArchive1">
@@ -329,31 +280,20 @@ MY SKILLS
                         <a class="toggle" href="javascript:void(0)">
                           <span class="zippy toggle-open">▼&nbsp;</span>
                         </a>
-                        <a
-                          class="post-count-link"
-                          href="#/2015/03/"
-                        >March</a>
+                        <a class="post-count-link" href="#/2015/03/">March</a>
                         <span class="post-count" dir="ltr">(5)</span>
                         <ul class="posts">
                           <li>
-                            <a
-                              href="#/2015/03/papilion-minter-savior.html"
-                            >Papilion Minter Savior</a>
+                            <a href="#/2015/03/papilion-minter-savior.html">Papilion Minter Savior</a>
                           </li>
                           <li>
-                            <a
-                              href="#/2015/03/draught-vaein-mynel.html"
-                            >Draught Vaein Mynel</a>
+                            <a href="#/2015/03/draught-vaein-mynel.html">Draught Vaein Mynel</a>
                           </li>
                           <li>
-                            <a
-                              href="#/2015/03/right-path-mystery.html"
-                            >Right Path Mystery</a>
+                            <a href="#/2015/03/right-path-mystery.html">Right Path Mystery</a>
                           </li>
                           <li>
-                            <a
-                              href="#/2015/03/my-style-statement.html"
-                            >My Style Statement</a>
+                            <a href="#/2015/03/my-style-statement.html">My Style Statement</a>
                           </li>
                           <li>
                             <a
@@ -377,10 +317,7 @@ MY SKILLS
                         <a class="toggle" href="javascript:void(0)">
                           <span class="zippy">►&nbsp;</span>
                         </a>
-                        <a
-                          class="post-count-link"
-                          href="#/2014/07/"
-                        >July</a>
+                        <a class="post-count-link" href="#/2014/07/">July</a>
                         <span class="post-count" dir="ltr">(3)</span>
                       </li>
                     </ul>
@@ -389,10 +326,7 @@ MY SKILLS
                         <a class="toggle" href="javascript:void(0)">
                           <span class="zippy">►&nbsp;</span>
                         </a>
-                        <a
-                          class="post-count-link"
-                          href="#/2014/02/"
-                        >February</a>
+                        <a class="post-count-link" href="#/2014/02/">February</a>
                         <span class="post-count" dir="ltr">(2)</span>
                       </li>
                     </ul>
@@ -410,10 +344,7 @@ MY SKILLS
                         <a class="toggle" href="javascript:void(0)">
                           <span class="zippy">►&nbsp;</span>
                         </a>
-                        <a
-                          class="post-count-link"
-                          href="#/2013/08/"
-                        >August</a>
+                        <a class="post-count-link" href="#/2013/08/">August</a>
                         <span class="post-count" dir="ltr">(1)</span>
                       </li>
                     </ul>
@@ -463,13 +394,7 @@ MY SKILLS
             <div class="clear"></div>
             <span class="widget-item-control">
               <span class="item-control blog-admin">
-                <a
-                  class="quickedit"
-                  href="#"
-                  rel="nofollow"
-                  target="configLabel2"
-                  title="Edit"
-                >
+                <a class="quickedit" href="#" rel="nofollow" target="configLabel2" title="Edit">
                   <img
                     alt
                     height="18"

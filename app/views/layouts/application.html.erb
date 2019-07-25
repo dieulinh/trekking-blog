@@ -22,6 +22,21 @@
     <div id="wrapper">
       <%= render 'shared/header' %>
       <div class="main container-fluid">
+        <div class="section" id="header">
+          <div class="widget Header">
+            <div class="container">
+              <div id="logo" class="fixed-top">
+                <h1>
+                  <a href="/" style="display: block">
+                    <%= image_tag 'eg_logo2.png', size: "410x279"%>
+
+                  </a>
+                </h1>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <%= yield %>
       </div>
     </div>

@@ -15,9 +15,15 @@
 
 #main {
   width: 70%;
+  float: left;
+  padding-right: 30px;
 }
 #sidebar {
   width: 28%;
+  float: right;
+}
+.sp_sidebar {
+  overflow: hidden;
 }
 .fixed {
   position: fixed;
@@ -25,16 +31,23 @@
   background: #fff;
   top: 0px;
   width: 100%;
-  height: 65px;
+  height: 300px;
 }
 .text-title {
   text-transform: capitalize;
 }
 
+a {
+  color: #17a2b8;
+}
 a:hover {
   text-decoration: none;
 }
-
+.post-category {
+  color: #8e6f14!important;
+  text-decoration-style: solid;
+  font-size: 1.1rem;
+}
 nav .nav {
   flex-direction: row;
 }
@@ -42,14 +55,18 @@ nav .nav {
 .navbar-header {
   float: left;
 }
+
 .e-g-logo {
   color: #1eb5a7;
   margin-left: 8vw;
   font-size: 36px;
 }
+
+ul {
+  list-style: none;
+}
 header nav ul {
   float: right;
-  list-style: none;
 }
 header nav ul li {
     float: left;
@@ -65,7 +82,7 @@ h4 {
   font-family: 'Larsseit', Helvetica, Arial, sans-serif;
 }
 .main {
-  margin-top: 107px;
+  margin-top: 300px;
 }
 
 .post-meta {
