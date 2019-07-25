@@ -3,15 +3,16 @@
     <div class="row align-items-center text-center text-md-left">
       <div class="col-md-9 col-lg-9 mb-5 mb-md-0">
         <h1>Travel more to discover yourself</h1>
-        <p>If there were a list of the top three things that I would like to do in life,
-           to travel more is among them. Over the past few years, I have traveled a lot, and thoroughly enjoyed every second. I went to Australia multiple times, took my sisters to the Philippines, went to Malaysia with my friend. I’ve been to the other side of the country and back multiple times, with many stops in between.
-           I have learnt a lot from my trips and I would like to share to you all </p>
+        <p>
+          If there were a list of the top three things that I would like to do in life,
+          to travel more is among them. Over the past few years, I have traveled a lot, and thoroughly enjoyed every second. I went to Australia multiple times, took my sisters to the Philippines, went to Malaysia with my friend. I’ve been to the other side of the country and back multiple times, with many stops in between.
+          I have learnt a lot from my trips and I would like to share to you all
+        </p>
         <a class="button button-hero mt-4" href="#/posts">Get Started</a>
       </div>
-      
     </div>
     <div class="row align-items-center">
-      <hr>
+      <hr />
     </div>
     <div class="row text-md-left">
       <div class="col-md-6">
@@ -19,141 +20,93 @@
       </div>
     </div>
     <div class="row blog-entries">
-      <div class="col-md-12 col-lg-8 main-content">
-        <div class="row">
-          <div class="col-md-6">
-            <a
-              href="http://www.eagertrekker.com/#/posts/bi-m-t-12-cung-hoang-d-o"
-              class="blog-entry element-animate fadeIn element-animated"
-              data-animate-effect="fadeIn"
-            >
-              <span>Zodiac</span>
-              <div class="blog-content-body">
-                <div class="post-meta">
-                  <span class="author mr-2">E-G Trekker</span>•
-                  <span class="mr-2">July 19, 2019</span> •
-                  <span class="ml-2">
-                    <span class="fa fa-comments"></span> 3
+      <div class="section" id="main">
+        <div class="widget Blog" data-version="1" id="Blog1">
+          <div v-for="post in posts" v-bind:key="post.id">
+            <article class="post">
+            <div class="post-header">
+              <div class="bg-category">
+                <div class="category-name">
+                  <span class="text-title">
+                    <router-link :to='{name: "Post", params: {"postId": post.slug}}' rel="tag nofollow">
+                      {{ post.category }}
+                    </router-link>
                   </span>
                 </div>
-                <h4>12 Cung hoàng đạo</h4>
               </div>
-            </a>
-          </div>
-          <div class="col-md-6">
-            <a
-              href="http://www.eagertrekker.com/#/posts/your-contribution-for-a-community"
-              class="blog-entry element-animate fadeIn element-animated"
-              data-animate-effect="fadeIn"
-            >
-              <span>Green</span>
-              <div class="blog-content-body">
-                <div class="post-meta">
-                  <span class="author mr-2">E-G Trekker</span>•
-                  <span class="mr-2">March 15, 2019</span> •
-                  <span class="ml-2">
-                    <span class="fa fa-comments"></span> 3
-                  </span>
-                </div>
-                <h4>Community contribution</h4>
-              </div>
-            </a>
-          </div>
-          <div class="col-md-6">
-            <a
-              href="/"
-              class="blog-entry element-animate fadeIn element-animated"
-              data-animate-effect="fadeIn"
-            >
-              <span>Travel</span>
-              <div class="blog-content-body">
-                <div class="post-meta">
-                  <span class="author mr-2">E-G Trekker</span>•
-                  <span class="mr-2">March 15, 2018</span> •
-                  <span class="ml-2">
-                    <span class="fa fa-comments"></span> 3
-                  </span>
-                </div>
-                <h4>Travel experience</h4>
-              </div>
-            </a>
-          </div>
-          <div class="col-md-6">
-            <a
-              href="/"
-              class="blog-entry element-animate fadeIn element-animated"
-              data-animate-effect="fadeIn"
-            >
-              <span>Lifestyle</span>
-              <div class="blog-content-body">
-                <div class="post-meta">
-                  <span class="author mr-2">E-G Trekker</span>•
-                  <span class="mr-2">March 15, 2018</span> •
-                  <span class="ml-2">
-                    <span class="fa fa-comments"></span> 3
-                  </span>
-                </div>
-                <h4>Science</h4>
-              </div>
-            </a>
-          </div>
-          <div class="col-md-6">
-            <a href="/" class="blog-entry element-animate" data-animate-effect="fadeIn">
-              <span>Culture</span>
-              <div class="blog-content-body">
-                <div class="post-meta">
-                  <span class="author mr-2">E-G Trekker</span>•
-                  <span class="mr-2">March 15, 2018</span> •
-                  <span class="ml-2">
-                    <span class="fa fa-comments"></span> 3
-                  </span>
-                </div>
-                <h4>Culture and language</h4>
-              </div>
-            </a>
-          </div>
-          <div class="col-md-6">
-            <a href="/" class="blog-entry element-animate" data-animate-effect="fadeIn">
-              <span>Food</span>
-              <div class="blog-content-body">
-                <div class="post-meta">
-                  <span class="author mr-2">E-G Trekker</span>•
-                  <span class="mr-2">March 15, 2018</span> •
-                  <span class="ml-2">
-                    <span class="fa fa-comments"></span> 3
-                  </span>
-                </div>
-                <h4>Good food for life</h4>
-              </div>
-            </a>
-          </div>
-        </div>
-        
-      </div>
-
-      <div class="col-md-12 col-lg-4 sidebar">
-        <div class="sidebar-box search-form-wrap">
-          <form action="#" class="search-form">
-            <div class="form-group">
-              <span class="icon fa fa-search"></span>
-              <input
-                type="text"
-                class="form-control"
-                id="s"
-                placeholder="Type a keyword and hit enter"
-              />
+              <h2>
+                <span class="text-title">
+                  <router-link :to='{name: "Post", params: {"postId": post.slug}}' rel="tag nofollow">{{ post.title }}</router-link>
+                </span>
+              </h2>
+              <div class="category-date">By rina chaudhary - {{ post.updated_at }}</div>
             </div>
-          </form>
+            <div id="summary331550993429040912" style="display: block;">
+              <div class="post-image">
+                <a href="#/2015/03/my-style-statement.html">
+                  <img
+                    width="100%"
+                    height="450"
+                    v-bind:src="post.thumb_url"
+                  />
+                </a>
+              </div>
+              <div class="post-entry">
+                Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis. Ut wisi enim ad minim...
+                <p>
+                  <router-link :to='{name: "Post", params: {"postId": post.slug}}' rel="tag nofollow">
+                      Continue Reading
+                  </router-link>
+                </p>
+              </div>
+            </div>
+            
+            <div class="bottom-blog">
+              <ul class="blog-date pull-left ccc" data-id="18">
+                <li>
+                  <i class="fa fa-comment-o"></i>
+                  <a
+                    href="#"
+                  >4 Comments</a>
+                </li>
+              </ul>
+              
+            </div>
+          </article>
+          <div
+            class="cmt_iframe_holder"
+            data-viewtype="FILTERED_POSTMOD"
+            href="#"
+          ></div>
+          </div>
+          <div class="pagination">
+            <div class="older">
+              <a
+                href="#"
+              >
+                <span class="pager-heading">Older</span>
+                <br />
+                <span class="pager-title">Stories</span>
+                <span class="post-nav-icon">
+                  <i class="fa fa-chevron-right"></i>
+                </span>
+              </a>
+            </div>
+          </div>
         </div>
-
-        <div class="sidebar-box">
-          <div class="bio text-center">
-            <img
-              src="https://avatars1.githubusercontent.com/u/700688?s=400&u=f9cba118e292a1197d7a2e033f1f248933833a4a&v=4"
-              alt="Image Placeholder"
-              class="img-fluid" width="200px"
-            />
-            <div class="bio-body">
+      </div>
+      <div class="section" id="sidebar">
+        <div class="widget Text" data-version="1" id="Text1">
+          <h2 class="title">
+            <span>About me</span>
+          </h2>
+          <div class="widget-content">
+            <center>
+              <div class="about-widget">
+                <img
+                  alt="About Me"
+                  src="https://avatars2.githubusercontent.com/u/700688?s=460&v=4" width="200"
+                />
               <h5>Linh Nguyen</h5>
               <p>I am a freelance Full-stack web developer.</p>
               <pre>
@@ -172,107 +125,362 @@ MY SKILLS
 - MongoDB
 - Redis
 - AWS
-- Docker
               </pre>
-              <p>
-                <a href="#" class="btn btn-primary btn-sm rounded">Read my bio</a>
-              </p>
-              <p class="social">
-                <a href="#" class="p-2">
-                  <span class="fa fa-facebook"></span>
-                </a>
-                <a href="#" class="p-2">
-                  <span class="fa fa-twitter"></span>
-                </a>
-                <a href="#" class="p-2">
-                  <span class="fa fa-instagram"></span>
-                </a>
-                <a href="#" class="p-2">
-                  <span class="fa fa-youtube-play"></span>
-                </a>
-              </p>
-            </div>
+              </div>
+            </center>
           </div>
-        </div>
-
-        <div class="sidebar-box">
-          <h3 class="heading">Popular Posts</h3>
-          <div class="post-entry-sidebar">
-            <ul>
-              <li v-for="(post, index) in posts" :key="index">
-                <router-link :to="{ name: 'Post', params: { postId: post.slug } }">
-                  <div class="text-title">
-                    <h6>{{ post.title}}</h6>
-                    <div class="post-meta">
-                      <span class="mr-2">{{ post.updated_at }}</span>
-                    </div>
-                  </div>
-
-                </router-link>
+          <div class="clear"></div>
+          <span class="widget-item-control">
+            <span class="item-control blog-admin">
+              <a
+                class="quickedit"
+                href="#"
                 
+                rel="nofollow"
+                target="configText1"
+                title="Edit"
+              >
+                <img
+                  alt
+                  height="18"
+                  src="https://resources.blogblog.com/img/icon18_wrench_allbkg.png"
+                  width="18"
+                />
+              </a>
+            </span>
+          </span>
+          <div class="clear"></div>
+        </div>
+        <div class="widget LinkList" data-version="1" id="LinkList2">
+          <h2>
+            <span>Follow Us</span>
+          </h2>
+          <div class="widget-content">
+            <ul class="site-social-networks secondary-2-primary style-default show-title">
+              <li>
+                <a href="http://facebook.com">
+                  <i class="fa fa-facebook"></i>facebook
+                </a>
+              </li>
+              <li>
+                <a href="http://twitter.com">
+                  <i class="fa fa-twitter"></i>twitter
+                </a>
+              </li>
+              <li>
+                <a href="http://instagram.com">
+                  <i class="fa fa-instagram"></i>instagram
+                </a>
+              </li>
+              <li>
+                <a href="http://pinterest.com">
+                  <i class="fa fa-pinterest-p"></i>pinterest
+                </a>
+              </li>
+              <li>
+                <a href="http://bloglovin.com">
+                  <i class="fa fa-heart"></i>bloglovin
+                </a>
+              </li>
+              <li>
+                <a href="http://etsy.com">
+                  <i class="fa fa-shopping-cart"></i>etsy
+                </a>
               </li>
             </ul>
+            <div class="clear"></div>
+            <span class="widget-item-control">
+              <span class="item-control blog-admin">
+                <a
+                  class="quickedit"
+                  href="#"
+    
+                  rel="nofollow"
+                  target="configLinkList2"
+                  title="Edit"
+                >
+                  <img
+                    alt
+                    height="18"
+                    src="https://resources.blogblog.com/img/icon18_wrench_allbkg.png"
+                    width="18"
+                  />
+                </a>
+              </span>
+            </span>
+            <div class="clear"></div>
           </div>
         </div>
-
-        <div class="sidebar-box">
-          <h3 class="heading">Categories</h3>
-          <ul class="categories">
-            <li>
-              <a href="#">
-                Food
-                <span>(12)</span>
+        <div class="widget HTML" data-version="1" id="HTML3">
+          <h2 class="title">
+            <span>Sponsor</span>
+          </h2>
+          <div class="widget-content">
+            <img
+              src="https://4.bp.blogspot.com/-nE6P6f80Tws/WM_O2ZZKzBI/AAAAAAAAAVI/qkUP8D_SEPI3W1297ENQw1UkJxpn7lZxgCPcB/s1600/add.jpeg"
+              style="width:100%"
+            />
+          </div>
+          <div class="clear"></div>
+          <span class="widget-item-control">
+            <span class="item-control blog-admin">
+              <a
+                class="quickedit"
+                href="//www.blogger.com/rearrange?blogID=4002524265337089863&amp;widgetType=HTML&amp;widgetId=HTML3&amp;action=editWidget&amp;sectionId=sidebar"
+                onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;HTML3&quot;));"
+                rel="nofollow"
+                target="configHTML3"
+                title="Edit"
+              >
+                <img
+                  alt
+                  height="18"
+                  src="https://resources.blogblog.com/img/icon18_wrench_allbkg.png"
+                  width="18"
+                />
               </a>
+            </span>
+          </span>
+          <div class="clear"></div>
+        </div>
+        <div class="widget Label" data-version="1" id="Label1">
+          <h2>
+            <span>Labels</span>
+          </h2>
+          <div class="widget-content list-label-widget-content">
+            <ul>
+              <li>
+                <a dir="ltr" href="#">Fashion</a>
+              </li>
+              <li>
+                <a dir="ltr" href="#">Food</a>
+              </li>
+              <li>
+                <a dir="ltr" href="#">Nature</a>
+              </li>
+            </ul>
+            <div class="clear"></div>
+            <span class="widget-item-control">
+              <span class="item-control blog-admin">
+                <a
+                  class="quickedit"
+                  href="#"
+                  rel="nofollow"
+                  target="configLabel1"
+                  title="Edit"
+                >
+                  <img
+                    alt
+                    height="18"
+                    src="https://resources.blogblog.com/img/icon18_wrench_allbkg.png"
+                    width="18"
+                  />
+                </a>
+              </span>
+            </span>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <div class="widget HTML" data-version="1" id="HTML4">
+          <h2>
+            <span>recent posts</span>
+          </h2>
+          <ul class="side-newsfeed">
+            <li v-for="post in posts" v-bind:key="post.slug">
+              <div class="side-item">
+                <div class="side-image">
+                  <a href="#/2015/03/papilion-minter-savior.html">
+                    <img
+                      width="150"
+                      height="100"
+                      v-bind:src="post.thumb_url"
+                      />
+                  </a>
+                </div>
+                <div class="side-item-text">
+                  <h4>
+                    <a
+                      href="#/2015/03/papilion-minter-savior.html"
+                    >Papilion Minter Savior</a>
+                  </h4>
+                  <span class="side-item-meta">{{ post.updated_at }}</span>
+                </div>
+              </div>
             </li>
-            <li>
-              <a href="#">
-                Travel
-                <span>(22)</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                Lifestyle
-                <span>(37)</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                Business
-                <span>(42)</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                Adventure
-                <span>(14)</span>
-              </a>
-            </li>
+            
           </ul>
         </div>
-
-        <div class="sidebar-box">
-          <h3 class="heading">Tags</h3>
-          <ul class="tags">
-            <li>
-              <a href="#">Travel</a>
-            </li>
-            <li>
-              <a href="#">Adventure</a>
-            </li>
-            <li>
-              <a href="#">Food</a>
-            </li>
-            <li>
-              <a href="#">Lifestyle</a>
-            </li>
-            <li>
-              <a href="#">Business</a>
-            </li>
-            <li>
-              <a href="#">Freelancing</a>
-            </li>
-          </ul>
+        <div class="widget BlogArchive" data-version="1" id="BlogArchive1">
+          <h2>
+            <span>Blog Archive</span>
+          </h2>
+          <div class="widget-content">
+            <div id="ArchiveList">
+              <div id="BlogArchive1_ArchiveList">
+                <ul class="hierarchy">
+                  <li class="archivedate expanded">
+                    <a class="toggle" href="javascript:void(0)">
+                      <span class="zippy toggle-open">▼&nbsp;</span>
+                    </a>
+                    <a class="post-count-link" href="#/2015/">2015</a>
+                    <span class="post-count" dir="ltr">(5)</span>
+                    <ul class="hierarchy">
+                      <li class="archivedate expanded">
+                        <a class="toggle" href="javascript:void(0)">
+                          <span class="zippy toggle-open">▼&nbsp;</span>
+                        </a>
+                        <a
+                          class="post-count-link"
+                          href="#/2015/03/"
+                        >March</a>
+                        <span class="post-count" dir="ltr">(5)</span>
+                        <ul class="posts">
+                          <li>
+                            <a
+                              href="#/2015/03/papilion-minter-savior.html"
+                            >Papilion Minter Savior</a>
+                          </li>
+                          <li>
+                            <a
+                              href="#/2015/03/draught-vaein-mynel.html"
+                            >Draught Vaein Mynel</a>
+                          </li>
+                          <li>
+                            <a
+                              href="#/2015/03/right-path-mystery.html"
+                            >Right Path Mystery</a>
+                          </li>
+                          <li>
+                            <a
+                              href="#/2015/03/my-style-statement.html"
+                            >My Style Statement</a>
+                          </li>
+                          <li>
+                            <a
+                              href="#/2015/03/ways-to-remember-something.html"
+                            >Ways to remember Something</a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+                <ul class="hierarchy">
+                  <li class="archivedate collapsed">
+                    <a class="toggle" href="javascript:void(0)">
+                      <span class="zippy">►&nbsp;</span>
+                    </a>
+                    <a class="post-count-link" href="#/2014/">2014</a>
+                    <span class="post-count" dir="ltr">(5)</span>
+                    <ul class="hierarchy">
+                      <li class="archivedate collapsed">
+                        <a class="toggle" href="javascript:void(0)">
+                          <span class="zippy">►&nbsp;</span>
+                        </a>
+                        <a
+                          class="post-count-link"
+                          href="#/2014/07/"
+                        >July</a>
+                        <span class="post-count" dir="ltr">(3)</span>
+                      </li>
+                    </ul>
+                    <ul class="hierarchy">
+                      <li class="archivedate collapsed">
+                        <a class="toggle" href="javascript:void(0)">
+                          <span class="zippy">►&nbsp;</span>
+                        </a>
+                        <a
+                          class="post-count-link"
+                          href="#/2014/02/"
+                        >February</a>
+                        <span class="post-count" dir="ltr">(2)</span>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+                <ul class="hierarchy">
+                  <li class="archivedate collapsed">
+                    <a class="toggle" href="javascript:void(0)">
+                      <span class="zippy">►&nbsp;</span>
+                    </a>
+                    <a class="post-count-link" href="#/2013/">2013</a>
+                    <span class="post-count" dir="ltr">(1)</span>
+                    <ul class="hierarchy">
+                      <li class="archivedate collapsed">
+                        <a class="toggle" href="javascript:void(0)">
+                          <span class="zippy">►&nbsp;</span>
+                        </a>
+                        <a
+                          class="post-count-link"
+                          href="#/2013/08/"
+                        >August</a>
+                        <span class="post-count" dir="ltr">(1)</span>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="clear"></div>
+            <span class="widget-item-control">
+              <span class="item-control blog-admin">
+                <a
+                  class="quickedit"
+                  href="#"
+                  rel="nofollow"
+                  target="configBlogArchive1"
+                  title="Edit"
+                >
+                  <img
+                    alt
+                    height="18"
+                    src="https://resources.blogblog.com/img/icon18_wrench_allbkg.png"
+                    width="18"
+                  />
+                </a>
+              </span>
+            </span>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <div class="widget Label" data-version="1" id="Label2">
+          <h2>
+            <span>Categories</span>
+          </h2>
+          <div class="widget-content cloud-label-widget-content">
+            <span class="label-size label-size-1">
+              <a dir="ltr" href="#/search/label/Fashion">Fashion</a>
+            </span>
+            <span class="label-size label-size-4">
+              <a dir="ltr" href="#/search/label/Food">Food</a>
+            </span>
+            <span class="label-size label-size-1">
+              <a dir="ltr" href="#/search/label/Nature">Nature</a>
+            </span>
+            <span class="label-size label-size-5">
+              <a dir="ltr" href="#/search/label/vimeo">vimeo</a>
+            </span>
+            <div class="clear"></div>
+            <span class="widget-item-control">
+              <span class="item-control blog-admin">
+                <a
+                  class="quickedit"
+                  href="#"
+                  rel="nofollow"
+                  target="configLabel2"
+                  title="Edit"
+                >
+                  <img
+                    alt
+                    height="18"
+                    src="https://resources.blogblog.com/img/icon18_wrench_allbkg.png"
+                    width="18"
+                  />
+                </a>
+              </span>
+            </span>
+            <div class="clear"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -280,23 +488,24 @@ MY SKILLS
 </template>
 
 <script>
-import axios from '../common/axios';
+import axios from "../common/axios";
 const postApiUrl = `${process.env.ROOT_API}/posts`;
 export default {
   data() {
     return {
       posts: []
-    }
+    };
   },
   mounted() {
-    axios.get(`${postApiUrl}?page=1&size=5`)
-    .then((response) => {
-      this.posts = response.data.posts;
-      this.pages = [...Array(response.data.total_pages).keys()]
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+    axios
+      .get(`${postApiUrl}?page=1&size=5`)
+      .then(response => {
+        this.posts = response.data.posts;
+        this.pages = [...Array(response.data.total_pages).keys()];
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 };
 </script>
