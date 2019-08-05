@@ -10,7 +10,7 @@
     <b-row v-for="(post, index) in posts" :key="index">
       <div class="row col-md-12 no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-100 position-relative">
         <div class="col p-4 d-flex flex-column position-static">
-          <strong class="d-inline-block mb-2 text-primary text-title">{{ post.category }}</strong>
+          <span class="d-inline-block mb-2 text-primary text-title post-category">{{ post.category }}</span>
           <h5 class="mb-0" >{{ post.title }}</h5>
           <div class="mb-1 text-muted">{{ post.updated_at }}</div>
           <p class="card-text mb-auto">{{ post.description }}</p>

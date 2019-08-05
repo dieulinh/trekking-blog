@@ -190,8 +190,7 @@ MY SKILLS
             <span class="item-control blog-admin">
               <a
                 class="quickedit"
-                href="//www.blogger.com/rearrange?blogID=4002524265337089863&amp;widgetType=HTML&amp;widgetId=HTML3&amp;action=editWidget&amp;sectionId=sidebar"
-                onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;HTML3&quot;));"
+                href="#"
                 rel="nofollow"
                 target="configHTML3"
                 title="Edit"
