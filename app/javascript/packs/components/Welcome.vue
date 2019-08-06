@@ -1,9 +1,9 @@
 <template>
   <div class="container">
     <div class="container">
-      <h2>
+      <h5>
         Latest Posts
-      </h2>
+      </h5>
       <hr/>
     </div>
     <div class="container sp_sidebar">
