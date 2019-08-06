@@ -33,6 +33,7 @@
   top:0;
   margin-left: -20px;
 }
+
 .fixed {
   z-index: 5;
   background: #fff;
@@ -161,4 +162,12 @@ h4 {
   text-decoration: none;
   color: #0c3a56;
 }
+.logo-image {
+  width: 410px;
+  height: 100px;
+}
+@media screen and (max-width: 680px) {
 
+  .logo-image { display: none; }
+
+}
