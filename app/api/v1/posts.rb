@@ -2,18 +2,26 @@ module V1
   class Posts < Grape::API
     version 'v1', using: :path
     helpers Params::Pagination
+    helpers Params::Tags
 
 
     resource :posts do
       params do
         use :pagination_params
+        use :tags_params
       end
       get '/' do
-        posts = Post.with_attached_post_thumbnails.recent
-        posts = posts.page(params[:page]).per(params[:size])
+        posts = Post.search(params[:terms])
+
+        results = posts.results
+        post_count = results.size
+
+        from = params[:page]*(params[:size]) - params[:size]
+        to = (params[:page]*(params[:size]) >= post_count) ? post_count : params[:page]*(params[:size])
+
         res = {}
-        res[:posts] = posts.map { |post| Entities::Post.new(post) }
-        res[:total_pages] = posts.total_pages
+        res[:posts] = results[from...to].map { |post| post.options }
+        res[:total_pages] = post_count/params[:size] + (post_count%params[:size] > 0 ? 1 : 0)
         present res
       end
 
