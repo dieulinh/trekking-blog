@@ -32,12 +32,10 @@
               </div>
               <div id="summary331550993429040912" style="display: block;">
                 <div class="post-image">
-                  <a href="#/2015/03/my-style-statement.html">
-                    <img width="100%" height="450" v-bind:src="post.thumb_url" />
-                  </a>
+                  <img width="100%" height="450" v-bind:src="post.thumb_url" />
                 </div>
                 <div class="post-entry">
-                  Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis. Ut wisi enim ad minim...
+                  {{post.description}}
                   <p>
                     <router-link
                       :to='{name: "Post", params: {"postId": post.slug}}'

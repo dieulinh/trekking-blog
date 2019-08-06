@@ -15,6 +15,7 @@ class PostRepositoryV1 < ApplicationRepository
         indexes :title, type: 'keyword'
         indexes :description, type: 'keyword'
         indexes :slug, type: 'text'
+        indexes :thumb_url, type: 'text'
       end
     end
   end
@@ -22,7 +23,8 @@ class PostRepositoryV1 < ApplicationRepository
     {
       title: "#{document.title}",
       description: "#{document.description}",
-      slug: "#{document.slug}"
+      slug: "#{document.slug}",
+      thumb_url: "#{document.thumb_url}"
     }.as_json
   end
 

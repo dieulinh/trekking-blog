@@ -18,8 +18,8 @@
             Read More
           </router-link>
         </div>
-        <div class="col-auto d-none d-lg-block">
-          <img v-bind:src="post.thumb_url" class="bd-placeholder-img" width="250" height="auto"/>
+        <div class="post-image">
+          <img width="200px" height="auto" v-bind:src="post.thumb_url"/>
         </div>
       </div>
     </b-row>
@@ -66,6 +66,7 @@ export default {
   mounted(){
     axios.get(`${postApiUrl}?page=${this.page+1}`)
     .then((response) => {
+      console.log(response.data.posts);
       this.posts = response.data.posts;
       this.totalPages = response.data.total_pages;
       this.pages = [...Array(response.data.total_pages).keys()]
