@@ -1,24 +1,29 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Search Engine
+======
 
-Things you may want to cover:
+ElasticSearch
 
-* Ruby version
+Setup EC2 Elastic Search and get ELASTICSEARCH_HOST variable
 
-* System dependencies
 
-* Configuration
+Development
+===========
 
-* Database creation
 
-* Database initialization
+To start a new development env, run the following:
 
-* How to run the test suite
+1.  rails s
+2.  yarn
+3.  ./bin/webpack-dev-server
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
-* ...
+Dependencies
+
+1.  elasticsearch
+2.  minimagic
+3.  aws-sdk
+4.  webpack
+5.  postgresql
