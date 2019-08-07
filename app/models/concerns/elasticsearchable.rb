@@ -6,11 +6,11 @@ module Elasticsearchable
   included do |_base|
     include Elasticsearch::Model
 
-    include Elasticsearch::Model::Callbacks
+    # include Elasticsearch::Model::Callbacks
 
     # Customize the index name
     #
-    index_name [Rails.application.engine_name, Rails.env, name].map(&:downcase).join('_').gsub!('::', '__')
+    # index_name [Rails.application.engine_name, Rails.env, name].map(&:downcase).join('_').gsub!('::', '__')
 
     def self.bulk_import(repositories: nil, batch_size: 1000)
       raise NotImplementedError, "You must implement #{self.class}##{__method__}"

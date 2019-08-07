@@ -13,6 +13,7 @@ class PostRepositoryV1 < ApplicationRepository
     } do
       mapping dynamic: 'false' do
         indexes :title, type: 'keyword'
+        indexes :category, type: 'keyword'
         indexes :description, type: 'keyword'
         indexes :slug, type: 'text'
         indexes :thumb_url, type: 'text'
@@ -24,6 +25,7 @@ class PostRepositoryV1 < ApplicationRepository
       title: "#{document.title}",
       description: "#{document.description}",
       slug: "#{document.slug}",
+      category: "#{document.category}",
       thumb_url: "#{document.thumb_url}"
     }.as_json
   end
@@ -33,7 +35,6 @@ class PostRepositoryV1 < ApplicationRepository
     type = document_type || __get_type_from_class(klass || document.class)
     document_attrs = { index: index_name, type: 'post_repository_v1', body: serialized }
     document_attrs = document_attrs.merge({id: document.id}) if document.id
-
 
     client.index(document_attrs)
   end
