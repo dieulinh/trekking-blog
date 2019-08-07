@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
   include Elasticsearchable
   extend FriendlyId
-  after_update :update_repository
+  after_save :update_repository
   friendly_id :title, use: :slugged
   has_one_attached :post_thumbnails
 
@@ -17,6 +17,7 @@ class Post < ApplicationRecord
   end
 
   def thumb_url
+    return unless post_thumbnails.attached?
     Rails.application.routes.url_helpers.rails_representation_url(post_thumbnails.variant(
       combine_options: [
         [:resize, "250x250^"],
@@ -27,7 +28,7 @@ class Post < ApplicationRecord
         [:repage, nil], [:+, nil], # +repage
         [:distort, nil], [:+, "Perspective"]
       ]
-    ).processed, only_path: true) if post_thumbnails.attached?
+    ).processed, only_path: true)
   end
 
 
