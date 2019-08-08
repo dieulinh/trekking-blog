@@ -1,13 +1,11 @@
 class PostRepositoryV1 < ApplicationRepository
 
+  #############
+  #  Repository Settings
+  #
+  #
+  #############
   def setting_repository
-#     curl -X PUT "localhost:9200/my_index/_doc/1" -H 'Content-Type: application/json' -d'
-# {
-#   "create_date": "2015/09/02"
-# }
-# '
-
-
     settings "index": {
       "number_of_shards": 1
     } do
@@ -20,6 +18,7 @@ class PostRepositoryV1 < ApplicationRepository
       end
     end
   end
+
   def serialize(document)
     {
       title: "#{document.title}",
@@ -38,4 +37,12 @@ class PostRepositoryV1 < ApplicationRepository
 
     client.index(document_attrs)
   end
+
+  # def destroy(document)
+  #   serialized = serialize(document)
+  #   type = document_type || __get_type_from_class(klass || document.class)
+
+
+  #   client.index(document_attrs)
+  # end
 end

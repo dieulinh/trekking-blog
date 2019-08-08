@@ -2,6 +2,8 @@ class Post < ApplicationRecord
   include Elasticsearchable
   extend FriendlyId
   after_save :update_repository
+
+  after_destroy_commit :destroy_post_record
   friendly_id :title, use: :slugged
   has_one_attached :post_thumbnails
 
@@ -9,8 +11,6 @@ class Post < ApplicationRecord
   scope :recent, -> { order('updated_at desc').limit(100) }
   belongs_to :user
   validates :title, presence: true
-  # index_name { 'post_repository_v1' }
-  # document_type { 'post_repository_v1' }
 
   def update_repository
     self.class.current_elasticsearch_repository.save(self)
@@ -31,10 +31,10 @@ class Post < ApplicationRecord
     ).processed, only_path: true)
   end
 
-
   def as_indexed_json(options={})
     as_json(only: [:title, :description])
   end
+
   def self.elasticsearch_import(force: false, refresh: false)
       import query: -> {
                       includes(:user)
@@ -49,7 +49,6 @@ class Post < ApplicationRecord
       condition = {
         query: {
           match_all: {
-
           }
         },
         from: from,
@@ -63,9 +62,9 @@ class Post < ApplicationRecord
         }
       }
 
-
       current_elasticsearch_repository.search(condition)
     end
+
     def self.elasticsearch_repositories
       @elasticsearch_repositories ||= [
         PostRepositoryV1.new
@@ -81,7 +80,6 @@ class Post < ApplicationRecord
     end
 
     def self.bulk_import(repositories: nil, batch_size: 1000)
-
       repositories = repositories.empty? ? Post.elasticsearch_repositories : repositories
       Post.find_in_batches(batch_size: batch_size) do |posts|
         repositories.each do |repository|
@@ -89,5 +87,11 @@ class Post < ApplicationRecord
           posts.each { |post| repository.save(post) }
         end
       end
+    end
+
+    private
+
+    def destroy_post_record
+      self.class.current_elasticsearch_repository.delete(self.id)
     end
 end
