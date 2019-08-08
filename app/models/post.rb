@@ -9,8 +9,8 @@ class Post < ApplicationRecord
   scope :recent, -> { order('updated_at desc').limit(100) }
   belongs_to :user
   validates :title, presence: true
-  index_name { 'post_repository_v1' }
-  document_type { 'post_repository_v1' }
+  # index_name { 'post_repository_v1' }
+  # document_type { 'post_repository_v1' }
 
   def update_repository
     self.class.current_elasticsearch_repository.save(self)
@@ -44,25 +44,27 @@ class Post < ApplicationRecord
              batch_size: 1000
     end
 
-    def self.search(query)
-
-      return current_elasticsearch_repository.search({
+    def self.search(query, query_size=5, page=1)
+      from = page*query_size - query_size
+      condition = {
         query: {
           match_all: {
 
           }
+        },
+        from: from,
+        size: query_size
+      }
+
+      return current_elasticsearch_repository.search(condition) unless query
+      condition[:query] = {
+        query_string: {
+          query: query
         }
+      }
 
-      }) unless query
 
-      current_elasticsearch_repository.search({
-        query: {
-          query_string: {
-            query: query
-          }
-        }
-
-      })
+      current_elasticsearch_repository.search(condition)
     end
     def self.elasticsearch_repositories
       @elasticsearch_repositories ||= [

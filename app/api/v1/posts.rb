@@ -11,16 +11,11 @@ module V1
         use :tags_params
       end
       get '/' do
-        posts = Post.search(params[:terms])
-
+        posts = Post.search(params[:terms], params[:size], params[:page])
+        post_count = posts.total.value
         results = posts.results
-        post_count = results.size
-
-        from = params[:page]*(params[:size]) - params[:size]
-        to = (params[:page]*(params[:size]) >= post_count) ? post_count : params[:page]*(params[:size])
-
         res = {}
-        res[:posts] = results[from...to].map { |post| post.options }
+        res[:posts] = results.map { |post| post.options }
         res[:total_pages] = post_count/params[:size] + (post_count%params[:size] > 0 ? 1 : 0)
         present res
       end
