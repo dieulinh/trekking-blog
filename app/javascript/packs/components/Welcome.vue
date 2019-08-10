@@ -21,13 +21,13 @@
                     </span>
                   </div>
                 </div>
-                <h3>
+                <h4>
                   <span class="text-title">
                     <router-link
                       :to='{name: "Post", params: {"postId": post.slug}}'
                     >{{ post.title }}</router-link>
                   </span>
-                </h3>
+                </h4>
                 <div class="category-date">By rina chaudhary - {{ post.updated_at }}</div>
               </div>
               <div id="summary331550993429040912" style="display: block;">

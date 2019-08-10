@@ -72,7 +72,7 @@ class Post < ApplicationRecord
     end
 
     def self.current_elasticsearch_repository
-      current_elasticsearch_repository_class.new
+      @repository ||= current_elasticsearch_repository_class.new
     end
 
     def self.current_elasticsearch_repository_class
