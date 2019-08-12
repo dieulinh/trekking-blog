@@ -83,6 +83,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV.fetch('DATABASE_URL', '').sub(/^postgres/, "postgis") %>
   database: trekking-blog_production
   username: trekking-blog
   password: <%= ENV['TREKKING-BLOG_DATABASE_PASSWORD'] %>
