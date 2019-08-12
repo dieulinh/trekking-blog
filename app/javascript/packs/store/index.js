@@ -37,7 +37,7 @@ const actions = {
   },
   async login({state, commit}) {
     try {
-      let response = await axios.post(`${API_URL}/login`, {});
+      let response = await axios.post(`${API_URL}/login`, {user: state.user});
       commit('auth', response.data);
     } catch(error) {
       console.log(error);

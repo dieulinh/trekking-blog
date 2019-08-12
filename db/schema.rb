@@ -10,19 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_12_153834) do
+ActiveRecord::Schema.define(version: 2019_08_12_064338) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "access_tokens", force: :cascade do |t|
-    t.bigint "user_id"
-    t.string "refresh_token", limit: 1024
-    t.integer "iat", default: 0
-    t.integer "exp", default: 0
-    t.string "sid", null: false
-    t.index ["user_id"], name: "index_access_tokens_on_user_id"
-  end
+  enable_extension "postgis"
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -93,6 +85,18 @@ ActiveRecord::Schema.define(version: 2019_07_12_153834) do
     t.integer "category", default: 0
     t.index ["slug"], name: "index_posts_on_slug", unique: true
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "trekkers", force: :cascade do |t|
+    t.bigint "user_id"
+    t.integer "role", default: 0
+    t.text "description", default: ""
+    t.string "location", default: ""
+    t.geography "trekker_lonlat", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}
+    t.string "trekker_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_trekkers_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

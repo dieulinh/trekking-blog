@@ -249,9 +249,9 @@ MY SKILLS
                   </a>
                 </div>
                 <div class="side-item-text">
-                  <h4>
+                  <h5>
                     <a href="#/2015/03/papilion-minter-savior.html">Eager Trekker</a>
-                  </h4>
+                  </h5>
                   <span class="side-item-meta">{{ post.updated_at }}</span>
                 </div>
               </div>
