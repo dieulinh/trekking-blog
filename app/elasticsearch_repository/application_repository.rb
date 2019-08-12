@@ -7,8 +7,8 @@ class ApplicationRepository < Elasticsearch::Persistence::Repository::Class
     @options = options
     client Elasticsearch::Client.new url: ENV['ELASTICSEARCH_HOST'], log: true
 
-    index_name [Rails.application.engine_name, Rails.env, self.class.name].map(&:downcase).join('_').gsub!('::', '__')
-    type [Rails.application.engine_name, Rails.env, self.class.name].map(&:downcase).join('_').gsub!('::', '__')
+    index_name [Rails.application.engine_name, Rails.env, self.class.name].map(&:downcase).join('_').gsub('::', '__')
+    type [Rails.application.engine_name, Rails.env, self.class.name].map(&:downcase).join('_').gsub('::', '__')
     klass self.class
 
     setting_repository

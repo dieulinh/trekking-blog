@@ -32,7 +32,7 @@ class PostRepositoryV1 < ApplicationRepository
   def save(document)
     serialized = serialize(document)
     type = document_type || __get_type_from_class(klass || document.class)
-    document_attrs = { index: index_name, type: 'post_repository_v1', body: serialized }
+    document_attrs = { index: index_name, type: type, body: serialized }
     document_attrs = document_attrs.merge({id: document.id}) if document.id
 
     client.index(document_attrs)

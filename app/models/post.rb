@@ -36,20 +36,20 @@ class Post < ApplicationRecord
   end
 
   def self.elasticsearch_import(force: false, refresh: false)
-      import query: -> {
+      import(query: -> {
                       includes(:user)
                     },
              force: force,
              refresh: refresh,
              batch_size: 1000
+      )
     end
 
     def self.search(query, query_size=5, page=1)
       from = page*query_size - query_size
       condition = {
         query: {
-          match_all: {
-          }
+          match_all: {}
         },
         from: from,
         size: query_size
