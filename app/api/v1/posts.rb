@@ -4,8 +4,8 @@ module V1
     helpers Params::Pagination
     helpers Params::Tags
 
-
     resource :posts do
+      desc 'List post endpoint'
       params do
         use :pagination_params
         use :tags_params
