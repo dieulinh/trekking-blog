@@ -36,9 +36,7 @@ class Post < ApplicationRecord
   end
 
   def self.elasticsearch_import(force: false, refresh: false)
-      import(query: -> {
-                      includes(:user)
-                    },
+      import(
              force: force,
              refresh: refresh,
              batch_size: 1000
@@ -83,7 +81,6 @@ class Post < ApplicationRecord
       repositories = repositories.empty? ? Post.elasticsearch_repositories : repositories
       Post.find_in_batches(batch_size: batch_size) do |posts|
         repositories.each do |repository|
-
           posts.each { |post| repository.save(post) }
         end
       end

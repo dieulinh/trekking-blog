@@ -28,7 +28,7 @@
                     >{{ post.title }}</router-link>
                   </span>
                 </h4>
-                <div class="category-date">By rina chaudhary - {{ post.updated_at }}</div>
+                <div class="category-date">By Eager Trekker - {{ post.updated_at }}</div>
               </div>
               <div id="summary331550993429040912" style="display: block;">
                 <div class="post-image" v-if="post.thumb_url">
@@ -250,7 +250,7 @@ MY SKILLS
                 </div>
                 <div class="side-item-text">
                   <h4>
-                    <a href="#/2015/03/papilion-minter-savior.html">Papilion Minter Savior</a>
+                    <a href="#/2015/03/papilion-minter-savior.html">Eager Trekker</a>
                   </h4>
                   <span class="side-item-meta">{{ post.updated_at }}</span>
                 </div>
@@ -281,16 +281,16 @@ MY SKILLS
                         <span class="post-count" dir="ltr">(5)</span>
                         <ul class="posts">
                           <li>
-                            <a href="#/2015/03/papilion-minter-savior.html">Papilion Minter Savior</a>
+                            <a href="#/2015/03/papilion-minter-savior.html">Eager Trekker</a>
                           </li>
                           <li>
-                            <a href="#/2015/03/draught-vaein-mynel.html">Draught Vaein Mynel</a>
+                            <a href="#/2015/03/draught-vaein-mynel.html">Linh Nguyen</a>
                           </li>
                           <li>
-                            <a href="#/2015/03/right-path-mystery.html">Right Path Mystery</a>
+                            <a href="#/2015/03/right-path-mystery.html">Travel</a>
                           </li>
                           <li>
-                            <a href="#/2015/03/my-style-statement.html">My Style Statement</a>
+                            <a href="#/2015/03/my-style-statement.html">Style</a>
                           </li>
                           <li>
                             <a
