@@ -50,8 +50,7 @@ class Post < ApplicationRecord
           match_all: {}
         },
         sort: [
-          { updated_at: { order: "desc"} },
-          :"_score"
+          { updated_at: { order: "desc"} }
         ],
         from: from,
         size: query_size
