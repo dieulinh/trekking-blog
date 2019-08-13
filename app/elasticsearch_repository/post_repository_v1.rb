@@ -15,6 +15,7 @@ class PostRepositoryV1 < ApplicationRepository
         indexes :description, type: 'keyword'
         indexes :slug, type: 'text'
         indexes :thumb_url, type: 'text'
+        indexes :updated_at, type: 'date'
       end
     end
   end
@@ -25,7 +26,8 @@ class PostRepositoryV1 < ApplicationRepository
       description: "#{document.description}",
       slug: "#{document.slug}",
       category: "#{document.category}",
-      thumb_url: "#{document.thumb_url}"
+      thumb_url: "#{document.thumb_url}",
+      updated_at: document.updated_at
     }.as_json
   end
 
