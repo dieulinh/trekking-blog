@@ -971,6 +971,7 @@ GEM
       mini_portile2 (~> 2.4.0)
     nokogumbo (2.0.1)
       nokogiri (~> 1.8, >= 1.8.4)
+    oj (3.8.1)
     orm_adapter (0.5.0)
     pg (1.1.4)
     popper_js (1.14.5)
@@ -1109,6 +1110,7 @@ DEPENDENCIES
   kaminari
   listen (>= 3.0.5, < 3.2)
   mini_magick (~> 4.8)
+  oj
   pg (>= 0.18, < 2.0)
   puma (~> 3.11)
   pundit

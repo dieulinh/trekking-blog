@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
   include Elasticsearchable
   extend FriendlyId
-  after_save :update_repository
+  # after_save :update_repository
 
   after_destroy_commit :destroy_post_record
   friendly_id :title, use: :slugged
