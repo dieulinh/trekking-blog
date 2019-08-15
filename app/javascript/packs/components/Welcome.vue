@@ -7,7 +7,7 @@
       <hr/>
     </div>
     <div class="container sp_sidebar">
-      <div class="section" id="main">
+      <div class="section col-md-8 col-sm-12" id="main">
         <div class="widget Blog" data-version="1" id="Blog1">
           <div v-for="post in posts" v-bind:key="post.id">
             <article class="post">
@@ -70,7 +70,7 @@
           </div>
         </div>
       </div>
-      <div class="section" id="sidebar">
+      <div class="section col-md-4 col-sm-12" id="sidebar">
         <div class="widget Text" data-version="1" id="Text1">
           <h2 class="title">
             <span>About me</span>
