@@ -20,6 +20,7 @@ module V1
         requires :password_confirmation, type: String
       end
       post '/register' do
+        return render_api_error!('password and password confirmation does not match', 422) unless params[:password] == params[:password_confirmation]
         email = params[:email].downcase
         user = User.find_by(email: email)
         return render_api_error!('User existed', 422) if user

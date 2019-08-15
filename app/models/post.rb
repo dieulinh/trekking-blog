@@ -36,62 +36,62 @@ class Post < ApplicationRecord
   end
 
   def self.elasticsearch_import(force: false, refresh: false)
-      import(
-             force: force,
-             refresh: refresh,
-             batch_size: 1000
-      )
-    end
+    import(
+           force: force,
+           refresh: refresh,
+           batch_size: 1000
+    )
+  end
 
-    def self.search(query, query_size=5, page=1)
-      from = page*query_size - query_size
-      condition = {
-        query: {
-          match_all: {}
-        },
-        sort: [
-          { updated_at: { order: "desc"} }
-        ],
-        from: from,
-        size: query_size
+  def self.search(query, query_size=5, page=1)
+    from = page*query_size - query_size
+    condition = {
+      query: {
+        match_all: {}
+      },
+      sort: [
+        { updated_at: { order: "desc"} }
+      ],
+      from: from,
+      size: query_size
+    }
+
+    return current_elasticsearch_repository.search(condition) unless query
+    condition[:query] = {
+      query_string: {
+        query: query
       }
+    }
 
-      return current_elasticsearch_repository.search(condition) unless query
-      condition[:query] = {
-        query_string: {
-          query: query
-        }
-      }
+    current_elasticsearch_repository.search(condition)
+  end
 
-      current_elasticsearch_repository.search(condition)
-    end
+  def self.elasticsearch_repositories
+    @elasticsearch_repositories ||= [
+      PostRepositoryV1.new
+    ]
+  end
 
-    def self.elasticsearch_repositories
-      @elasticsearch_repositories ||= [
-        PostRepositoryV1.new
-      ]
-    end
+  def self.current_elasticsearch_repository
+    @repository ||= current_elasticsearch_repository_class.new
+  end
 
-    def self.current_elasticsearch_repository
-      @repository ||= current_elasticsearch_repository_class.new
-    end
+  def self.current_elasticsearch_repository_class
+    PostRepositoryV1
+  end
 
-    def self.current_elasticsearch_repository_class
-      PostRepositoryV1
-    end
-
-    def self.bulk_import(repositories: nil, batch_size: 1000)
-      repositories = repositories.empty? ? Post.elasticsearch_repositories : repositories
-      Post.find_in_batches(batch_size: batch_size) do |posts|
-        repositories.each do |repository|
-          posts.each { |post| repository.save(post) }
-        end
+  def self.bulk_import(repositories: nil, batch_size: 1000)
+    repositories = repositories.empty? ? Post.elasticsearch_repositories : repositories
+    Post.find_in_batches(batch_size: batch_size) do |posts|
+      repositories.each do |repository|
+        posts.each { |post| repository.save(post) }
       end
     end
+  end
 
-    private
+  private
 
-    def destroy_post_record
-      self.class.current_elasticsearch_repository.delete(self.id)
-    end
+  def destroy_post_record
+    self.class.current_elasticsearch_repository.delete(self.id)
+  end
 end

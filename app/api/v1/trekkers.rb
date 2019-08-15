@@ -9,11 +9,11 @@ module V1
         use :pagination_params
       end
       get '/' do
-        trekkers = Trekker.includes(:user).all
-        trekker_count = trekkers.size
-
+        trekkers = Trekker.search(params[:terms], params[:size], params[:page])
+        trekker_count = trekkers.total.value
+        results = trekkers.results
         res = {}
-        res[:trekkers] = trekkers
+        res[:trekkers] = results.map { |post| post.options }
         res[:total_pages] = trekker_count/params[:size] + (trekker_count%params[:size] > 0 ? 1 : 0)
         present res
       end
