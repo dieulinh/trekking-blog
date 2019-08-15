@@ -10,11 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_13_025316) do
+ActiveRecord::Schema.define(version: 2019_08_15_042239) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "postgis"
+  enable_extension "uuid-ossp"
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -87,7 +88,7 @@ ActiveRecord::Schema.define(version: 2019_08_13_025316) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
-  create_table "trekkers", force: :cascade do |t|
+  create_table "trekkers", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.bigint "user_id"
     t.integer "role", default: 0
     t.text "description", default: ""
@@ -96,6 +97,7 @@ ActiveRecord::Schema.define(version: 2019_08_13_025316) do
     t.string "trekker_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["created_at"], name: "index_trekkers_on_created_at"
     t.index ["location_lonlat"], name: "index_trekkers_on_location_lonlat", using: :gist
     t.index ["user_id"], name: "index_trekkers_on_user_id"
   end
