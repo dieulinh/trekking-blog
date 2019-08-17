@@ -35,7 +35,7 @@ gem 'activerecord-postgis-adapter'
 
 # faster json
 gem 'oj'
-
+gem 'sidekiq'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password

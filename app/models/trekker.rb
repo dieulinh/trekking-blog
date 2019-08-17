@@ -1,8 +1,13 @@
 class Trekker < ApplicationRecord
   include Elasticsearchable
   include Geoable
+
   enum role: [:photographer, :tour_guide, :dive_master, :cook]
   belongs_to :user
+
+  def self.update_repository(document)
+    current_elasticsearch_repository.save(document)
+  end
 
   def self.elasticsearch_import(force: false, refresh: false)
     import(

@@ -9,6 +9,7 @@ import EditPostPage from './components/EditPost.vue';
 import PostPage from './components/Post.vue';
 import LoginPage from './components/Login.vue';
 import RegisterPage from './components/Register.vue';
+import UsersPage from './components/Users.vue';
 
 const routes = [
   {
@@ -47,6 +48,10 @@ const routes = [
   {
     path: '/register',
     component: RegisterPage
+  },
+  {
+    path: '/users',
+    component: UsersPage
   },
   // otherwise redirect to home
   { path: '*', redirect: '/' }

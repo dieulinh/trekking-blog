@@ -25,7 +25,7 @@ class API < Grape::API
   mount V1::Login
   mount V1::Posts
   mount V1::Uploads
-  mount V1::Trekkers
+  mount V1::Users
 
   rescue_from Grape::Exceptions::ValidationErrors  do |e|
     rack_response({
