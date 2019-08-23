@@ -71,7 +71,7 @@
         </div>
       </div>
       <div class="section col-md-4 col-sm-12" id="sidebar">
-        <div class="widget Text" data-version="1" id="Text1">
+        <div class="widget Text" data-version="1" id="aboutme">
           <h2 class="title">
             <span>About me</span>
           </h2>
@@ -129,31 +129,6 @@ MY SKILLS
               <li>
                 <a href="http://facebook.com">
                   <i class="fa fa-facebook"></i>facebook
-                </a>
-              </li>
-              <li>
-                <a href="http://twitter.com">
-                  <i class="fa fa-twitter"></i>twitter
-                </a>
-              </li>
-              <li>
-                <a href="http://instagram.com">
-                  <i class="fa fa-instagram"></i>instagram
-                </a>
-              </li>
-              <li>
-                <a href="http://pinterest.com">
-                  <i class="fa fa-pinterest-p"></i>pinterest
-                </a>
-              </li>
-              <li>
-                <a href="http://bloglovin.com">
-                  <i class="fa fa-heart"></i>bloglovin
-                </a>
-              </li>
-              <li>
-                <a href="http://etsy.com">
-                  <i class="fa fa-shopping-cart"></i>etsy
                 </a>
               </li>
             </ul>
@@ -282,20 +257,6 @@ MY SKILLS
                         <ul class="posts">
                           <li>
                             <a href="#/2015/03/papilion-minter-savior.html">Eager Trekker</a>
-                          </li>
-                          <li>
-                            <a href="#/2015/03/draught-vaein-mynel.html">Linh Nguyen</a>
-                          </li>
-                          <li>
-                            <a href="#/2015/03/right-path-mystery.html">Travel</a>
-                          </li>
-                          <li>
-                            <a href="#/2015/03/my-style-statement.html">Style</a>
-                          </li>
-                          <li>
-                            <a
-                              href="#/2015/03/ways-to-remember-something.html"
-                            >Ways to remember Something</a>
                           </li>
                         </ul>
                       </li>
