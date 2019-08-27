@@ -10,7 +10,7 @@ import PostPage from './components/Post.vue';
 import LoginPage from './components/Login.vue';
 import RegisterPage from './components/Register.vue';
 import UsersPage from './components/Users.vue';
-
+import UserProfilePage from './components/NewProfile.vue';
 const routes = [
   {
     path: '/',
@@ -52,6 +52,10 @@ const routes = [
   {
     path: '/users',
     component: UsersPage
+  },
+  {
+    path: '/update_profile',
+    component: UserProfilePage
   },
   // otherwise redirect to home
   { path: '*', redirect: '/' }
