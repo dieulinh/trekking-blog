@@ -46,7 +46,11 @@ export default {
         { value: null, text: 'Please select trekker category', disabled: true },
         { value: 'diver', text: 'Diver' },
         { value: 'trekker', text: 'Trekker' },
-        { value: 'lifestyle', text: 'Life Style' }
+        { value: 'photographer', text: 'Photographer' }, 
+        { value: 'dive_master', text:'Dive Master' },
+        { value: 'tour_guide', text: 'Tour Guide' },
+        { value: 'cook', value:'Cook' }
+        // photographer, :tour_guide, :dive_master, :cook, :diver, :trekker
       ]
     }
   },
@@ -84,8 +88,8 @@ export default {
       })
     },
     handlePost() {
-      axios.post(userApiUrl, { trekker_name: this.trekker_name, location: this.location, role: this.role, description: this.description, auth_token: this.authToken, content: this.content }).then((response) => {
-        this.$router.push(`/users`);
+      axios.post(userApiUrl, { trekker_name: this.trekker_name, lat: this.lat, lon: this.lon, location: this.location, role: this.role, description: this.description, auth_token: this.authToken, content: this.content }).then((response) => {
+        this.$router.push(`/posts`);
       }).catch((err) => {
         console.log(`Error: ${err}`);
       });

@@ -2,7 +2,7 @@ class Trekker < ApplicationRecord
   include Elasticsearchable
   include Geoable
 
-  enum role: [:photographer, :tour_guide, :dive_master, :cook]
+  enum role: [:photographer, :tour_guide, :dive_master, :cook, :diver, :trekker]
   belongs_to :user
 
   def self.update_repository(document)
