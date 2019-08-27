@@ -28,7 +28,6 @@ module V1
       end
 
       post '/' do
-        byebug
         declared_params = declared(params).except(:lon, :lat)
         user_description = params[:description].html_safe
         user = Trekker.create declared_params.merge(description: user_description, user_id: User.first.id, location_lonlat: "POINT(#{params[:lon]} #{params[:lat]})")
