@@ -1,8 +1,5 @@
 <template>
   <b-container>
-    <b-row class="container" v-if="authenticated">
-      <router-link class="mb-5" :to="{ name: 'EditPost',  params: { postId: post.slug } }">Edit Post</router-link>
-    </b-row>
 
     <div>
       <b-row class="float-left" v-for="(user, index) in users" :key="index">
