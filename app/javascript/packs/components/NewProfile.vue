@@ -49,8 +49,7 @@ export default {
         { value: 'photographer', text: 'Photographer' }, 
         { value: 'dive_master', text:'Dive Master' },
         { value: 'tour_guide', text: 'Tour Guide' },
-        { value: 'cook', value:'Cook' }
-        // photographer, :tour_guide, :dive_master, :cook, :diver, :trekker
+        { value: 'cook', text: 'Cook' }
       ]
     }
   },
