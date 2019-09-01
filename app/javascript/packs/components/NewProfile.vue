@@ -88,7 +88,7 @@ export default {
     },
     handlePost() {
       axios.post(userApiUrl, { trekker_name: this.trekker_name, lat: this.lat, lon: this.lon, location: this.location, role: this.role, description: this.description, auth_token: this.authToken, content: this.content }).then((response) => {
-        this.$router.push(`/posts`);
+        this.$router.push(`/users`);
       }).catch((err) => {
         console.log(`Error: ${err}`);
       });

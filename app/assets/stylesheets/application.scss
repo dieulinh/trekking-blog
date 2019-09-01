@@ -18,6 +18,15 @@
   float: left;
   padding-right: 30px;
 }
+
+.users-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.users-one-four {
+  width: 200px;
+}
 #sidebar {
 
   float: right;

@@ -1,12 +1,10 @@
 <template>
   <b-container>
-
-    <div>
-      <b-row class="float-left" v-for="(user, index) in users" :key="index">
-        <div class="col-md-3 w-100">
+    <div class="users-container">
+        <div class="users-one-four" v-for="(user, index) in users" :key="index">
           <h3>
             ...And Get Your
-            <strong>{{user.role }}</strong> Now!
+            <strong>{{ user.role }}</strong> Now!
           </h3>
           <div class="free-good-product">
             <img
@@ -15,21 +13,19 @@
             />
           </div>
         </div>
-      </b-row>
     </div>
   </b-container>
 </template>
 <script>
 import axios from "../common/axios";
 export default {
-  props: ["postId"],
   data() {
     return {
       users: {},
       authenticated: false
     };
   },
-  mounted() {
+  created() {
     axios
       .get(`${process.env.ROOT_API}/users`)
       .then(response => {
@@ -39,7 +35,7 @@ export default {
         console.log(err);
       });
   },
-  beforeMount() {
+  beforeCreate() {
     let authToken = this.$session.get("auth_token");
     if (authToken) {
       this.authenticated = true;
