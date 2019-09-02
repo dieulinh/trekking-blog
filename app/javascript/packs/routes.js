@@ -10,11 +10,16 @@ import PostPage from './components/Post.vue';
 import LoginPage from './components/Login.vue';
 import RegisterPage from './components/Register.vue';
 import UsersPage from './components/Users.vue';
+import MapPage from './components/Map.vue';
 import UserProfilePage from './components/NewProfile.vue';
 const routes = [
   {
     path: '/',
     component: WelcomePage
+  },
+  {
+    path: '/map',
+    component: MapPage
   },
   {
     path: '/login',
@@ -55,7 +60,8 @@ const routes = [
   },
   {
     path: '/update_profile',
-    component: UserProfilePage
+    component: UserProfilePage,
+    name: 'EditUser'
   },
   // otherwise redirect to home
   { path: '*', redirect: '/' }
