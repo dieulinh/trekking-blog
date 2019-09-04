@@ -12,7 +12,11 @@
           </b-input-group>
         </b-col>
       </b-form-row>
+      
       <b-form-row md="12" sm="12" xs="10" class="mb-2"><b-col cols="12"><vue-editor v-model="description" useCustomImageHandler @imageAdded="handleUploadImage" /></b-col></b-form-row>
+      <b-form-row md="12" sm="12" xs="10" class="mb-2">
+         <GoogleMap />
+      </b-form-row>
       <b-form-row md="12" sm="12" xs="10" class="mb-2"><b-col cols="12"><b-button @click="handlePost" :disabled="!!hasError" variant="primary">Save</b-button></b-col></b-form-row>
     </b-form>
   </b-container>
@@ -25,13 +29,14 @@ import VueSession from 'vue-session';
 import axios from '../common/axios';
 
 import { VueEditor } from 'vue2-editor';
+import GoogleMap from './Map.vue';
 
 Vue.use(VueSession);
 const userApiUrl = `${process.env.ROOT_API}/users`;
 const imageUploadUrl = `${process.env.ROOT_API}/uploads`;
 export default {
    components: {
-    VueEditor
+    VueEditor, GoogleMap
   },
   data() {
     return {

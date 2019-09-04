@@ -1,20 +1,20 @@
 <template>
     <b-container>
-        <GmapMap ref="mapRef"
+      <gmap-map ref="mapRef"
         :center="{lat:10, lng:10}"
         :zoom="7"
         map-type-id="terrain"
-        style="width: 500px; height: 300px"
+        style="width: 100%; height: 300px"
         >
-            <GmapMarker
-                :key="index"
-                v-for="(m, index) in markers"
-                :position="m.position"
-                :clickable="true"
-                :draggable="true"
-                @click="center=m.position"
-            />
-        </GmapMap>
+          <gmap-marker
+              :key="index"
+              v-for="(m, index) in markers"
+              :position="m.position"
+              :clickable="true"
+              :draggable="true"
+              @click="center=m.position"
+          />
+      </gmap-map>
     </b-container>
 </template>
 <script>
@@ -45,6 +45,13 @@ Vue.use(VueGoogleMaps, {
   // installComponents: true,
 })
 export default {
+    name: "GoogleMap",
+    data() {
+      return {
+        center: { lat: 10.38, lng: 106.723 },
+        markers: []
+      }
+    },
     mounted () {
     // At this point, the child GmapMap has been mounted, but
     // its map has not been initialized.
@@ -56,5 +63,3 @@ export default {
   }
 }
 </script>
-
-
