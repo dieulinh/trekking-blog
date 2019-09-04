@@ -1,21 +1,19 @@
 <template>
-    <b-container>
-      <gmap-map ref="mapRef"
-        :center="{lat:10, lng:10}"
-        :zoom="7"
-        map-type-id="terrain"
-        style="width: 100%; height: 300px"
-        >
-          <gmap-marker
-              :key="index"
-              v-for="(m, index) in markers"
-              :position="m.position"
-              :clickable="true"
-              :draggable="true"
-              @click="center=m.position"
-          />
-      </gmap-map>
-    </b-container>
+  <GmapMap ref="mapRef"
+  :center="{lat:10, lng:10}"
+  :zoom="7"
+  map-type-id="terrain"
+  style="height: 300px"
+>
+  <GmapMarker
+    :key="index"
+    v-for="(m, index) in markers"
+    :position="m.position"
+    :clickable="true"
+    :draggable="true"
+    @click="center=m.position"
+  />
+</GmapMap>
 </template>
 <script>
 import Vue from 'vue';
@@ -52,14 +50,10 @@ export default {
         markers: []
       }
     },
-    mounted () {
-    // At this point, the child GmapMap has been mounted, but
-    // its map has not been initialized.
-    // Therefore we need to write mapRef.$mapPromise.then(() => ...)
- 
-    this.$refs.mapRef.$mapPromise.then((map) => {
-      map.panTo({lat: 10.38, lng: 106.80})
-    })
-  }
+    mounted() {
+      this.$refs.mapRef.$mapPromise.then((map) => {
+        map.panTo({lat: 1.38, lng: 103.80})
+      })
+    }
 }
 </script>
