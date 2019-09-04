@@ -14,7 +14,7 @@ export default {
     },
     mounted() {
       this.map = new google.maps.Map(document.getElementById('myMap'), {
-      center: {lat:10.659, lng: 106.7075},
+      center: {lat: 10.659, lng: 106.7075},
       scrollwheel: false,
       zoom: 7
       })
