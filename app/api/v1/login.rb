@@ -8,7 +8,6 @@ module V1
         requires :password, type: String
       end
       post '/' do
-        byebug
         user = User.find_by(email: params[:email].downcase)
         return unauthorized! unless user && user.valid_password?(params[:password])
         encoded_user = JsonWebToken.encode(user_id: user.id, auth_token: user.authentication_token) if user
