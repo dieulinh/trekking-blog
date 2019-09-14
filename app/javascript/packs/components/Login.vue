@@ -39,20 +39,18 @@
       loginUser() {
         axios.post(`${process.env.ROOT_API}/login`, { email: this.email, password: this.password })
         .then((res) => {
-          if ('authentication_token' in res.data) {
+          if (res.data) {
               this.$session.start();
-              this.$session.set('auth_token', res.data.authentication_token);
+              this.$session.set('auth_token', res.data);
               this.$router.push('/posts');
           } else {
             this.errors = res.errors;
           }
         })
         .catch(err => {
-          console.log(err);
           if (err.response.status === 401) {
             this.errors = "Invalid email or password";
           }
-          
         })
       }
     }
