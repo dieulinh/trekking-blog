@@ -9,7 +9,7 @@ Bundler.require(*Rails.groups)
 module TrekkingBlog
   class Application < Rails::Application
     config.load_defaults 5.2
-    config.autoload_paths << Rails.root.join('lib')
+    config.eager_load_paths << Rails.root.join('lib')
     config.autoload_paths += Dir[Rails.root.join('lib', '*')]
     config.autoload_paths += Dir[Rails.root.join('app', 'api')]
     config.autoload_paths += Dir[Rails.root.join('app', 'api', '*')]
