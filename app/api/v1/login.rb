@@ -10,7 +10,7 @@ module V1
       post '/' do
         user = User.find_by(email: params[:email].downcase)
         return unauthorized! unless user && user.valid_password?(params[:password])
-        encoded_user = JsonWebToken.encode(user_id: user.id, auth_token: user.authentication_token) if user
+        encoded_user = ::JsonWebToken.encode(user_id: user.id, auth_token: user.authentication_token) if user
         present encoded_user
       end
 
