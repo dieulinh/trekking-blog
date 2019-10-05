@@ -51,8 +51,8 @@ module V1
 
       put '/:id' do
         authenticate_user!
-        return unauthorized! unless currentuser.id == post.user_id
         post = Post.friendly.find(params[:id])
+        return unauthorized! unless current_user.id == post.user_id
         params[:content] = params[:content].html_safe
         post.update declared(params).except(:auth_token)
         present post, with: V1::Entities::Post
