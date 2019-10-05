@@ -26,7 +26,7 @@ module V1
         user = User.find_by(email: email)
         return render_api_error!('User existed', 422) if user
         user = User.create(email: email, password: params[:password], password_confirmation: params[:password_confirmation])
-        present user, with: Entities::User
+        present user, with: Entities::User, status: 201
       end
     end
   end

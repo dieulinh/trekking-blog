@@ -19,7 +19,7 @@
 <script>
 import Vue from 'vue';
 import VueSession from 'vue-session';
-import axios from '../common/axios';
+import axios from 'axios';
 import { VueEditor } from 'vue2-editor';
 
 Vue.use(VueSession);
@@ -68,7 +68,7 @@ export default {
     }
   },
   beforeMount() {
-    let authToken = this.$session.get('auth_token');
+    let authToken = localStorage.getItem('auth_token');
     if (!authToken) {
       this.$router.push('/login');
     }

@@ -7,22 +7,44 @@
         </router-link>
       </div>
     </div>
-    <b-row v-for="(post, index) in posts" :key="index">
-      <div class="row col-md-12 no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-100 position-relative">
-        <div class="col p-4 d-flex flex-column position-static">
-          <span class="d-inline-block mb-2 text-primary text-title post-category">{{ post.category }}</span>
-          <h5 class="mb-0" >{{ post.title }}</h5>
-          <div class="mb-1 text-muted">{{ post.updated_at | formatDate }}</div>
-          <p class="card-text mb-auto">{{ post.description }}</p>
-          <router-link :to="{ name: 'Post', params: { postId: post.slug } }">
-            Read More
-          </router-link>
+    <div v-for="post in posts" v-bind:key="post.id">
+      <article class="post">
+        <div class="post-header">
+          <div class="bg-category">
+            <div class="category-name">
+              <span class="text-title">
+                <router-link :to='{name: "Post", params: {"postId": post.slug}}'
+                class="post-category"
+                >{{ post.category }}</router-link>
+              </span>
+            </div>
+          </div>
+          <h4>
+            <span class="text-title">
+              <router-link
+                :to='{name: "Post", params: {"postId": post.slug}}'
+              >{{ post.title }}</router-link>
+            </span>
+          </h4>
+          <div class="category-date">By Eager Trekker - {{ post.updated_at | formatDate }}</div>
         </div>
-        <div class="post-image">
-          <img width="200px" height="auto" v-bind:src="post.thumb_url"/>
+        <div id="summary331550993429040912" style="display: block;">
+          <div class="post-image" v-if="post.thumb_url">
+            <img width="100%" height="450" v-bind:src="post.thumb_url" />
+          </div>
+          <div class="post-entry">
+            {{post.description}}
+            <p>
+              <router-link
+                :to='{name: "Post", params: {"postId": post.slug}}'
+                rel="tag nofollow"
+              >Continue Reading</router-link>
+            </p>
+          </div>
         </div>
-      </div>
-    </b-row>
+      </article>
+    </div>
+
     <div class="row mt-5">
       <div class="col-md-12 text-center">
         <nav aria-label="Page navigation" class="text-center">

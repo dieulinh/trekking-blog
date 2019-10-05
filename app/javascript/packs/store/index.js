@@ -1,9 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import * as types from './mutation-types';
-import axios from './axios';
-import vueSession from 'vue-session';
-
+import axios from 'axios';
 
 Vue.use(Vuex);
 const debug = process.env.NODE_ENV !== 'production';
@@ -13,15 +11,20 @@ const mutations = {
   setPosts(state, payload) {
     state.posts = payload;
   },
-  user(state, value) {
-    state.user = value;
+  login(state, value) {
+    state.auth_token = value;
+    state.authenticated = true;
   },
   auth(state, value) {
     state.auth = value;
+  },
+  getErrors(state, value) {
+    state.errors = value
   }
 };
 
 const actions = {
+  
 
   async getPosts({ state, commit }) {
     try {
@@ -35,14 +38,28 @@ const actions = {
       commit('setPosts', []);
     }
   },
-  async login({state, commit}) {
+  async authenticate({commit}, auth_token) {
+    commit('auth', auth_token);
+  },
+  async login({commit}, user) {
     try {
-      let response = await axios.post(`${API_URL}/login`, {user: state.user});
-      commit('auth', response.data);
-    } catch(error) {
-      console.log(error);
+      console.log(user)
+      let response = await axios.post(`${API_URL}/login`, user);
+      console.log(response.data);
+      if (response.status === 201)
+      { 
+        commit('login', response.data);
+        localStorage.setItem('auth_token', response.data);
+
+        // this.axios.defaults.headers.common['Authorization'] = response.data;
+      } else {
+        commit('getErrors', response.data);
+      }
+    } catch(error) 
+    {
+      console.log(error.response);
+      commit('getErrors', error.response.data);
     }
-    
     
   }
 };
@@ -51,7 +68,10 @@ const actions = {
 
 const getters = {
   user: state => state.user,
-  auth: state => state.auth
+  auth_token: state => state.auth_token,
+  authenticated: state => state.authenticated,
+  errors: state => state.errors
+
 };
 
 const state = {
@@ -59,8 +79,11 @@ const state = {
   posts: [],
   added: [],
   all: [],
-  user: null,
+  user: {},
   auth: {},
+  errors: null,
+  auth_token: null,
+  authenticated: false,
   postsApiUrl: `${process.env.ROOT_API}/api/v1/posts`
 };
 

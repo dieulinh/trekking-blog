@@ -11,6 +11,7 @@ import LoginPage from './components/Login.vue';
 import RegisterPage from './components/Register.vue';
 import UsersPage from './components/Users.vue';
 import MapPage from './components/Map.vue';
+import AboutMePage from './components/AboutMe.vue';
 import UserProfilePage from './components/NewProfile.vue';
 const routes = [
   {
@@ -53,6 +54,10 @@ const routes = [
   {
     path: '/register',
     component: RegisterPage
+  },
+  {
+    path: '/about_me',
+    component: AboutMePage
   },
   {
     path: '/users',
