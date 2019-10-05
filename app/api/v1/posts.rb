@@ -4,6 +4,7 @@ module V1
     helpers Shared::Authentication
     helpers Params::Pagination
     helpers Params::Tags
+    include Shared::AuthorizationKit
 
     resource :posts do
       desc 'List post endpoint'
@@ -52,7 +53,7 @@ module V1
       put '/:id' do
         authenticate_user!
         post = Post.friendly.find(params[:id])
-        return unauthorized! unless current_user.id == post.user_id
+        authorize post, :update?
         params[:content] = params[:content].html_safe
         post.update declared(params).except(:auth_token)
         present post, with: V1::Entities::Post
