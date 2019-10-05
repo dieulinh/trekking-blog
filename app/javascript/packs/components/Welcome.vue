@@ -86,21 +86,21 @@
                 <h5>Linh Nguyen</h5>
                 <p>I am a freelance Full-stack web developer.</p>
                 <pre>
-5+ years of experience.
+  5+ years of experience.
 
-Experienced working with team
-or working independently.
+  Experienced working with team
+  or working independently.
 
 
-MY SKILLS
+  MY SKILLS
 
-- Ruby on Rails ( ♥ )
-- Javascript (Angular, Vue, React)
-- SQL (MySQL, Postgres)
-- CSS (SASS/LESS)
-- MongoDB
-- Redis
-- AWS
+  - Ruby on Rails ( ♥ )
+  - Javascript (Angular, Vue, React)
+  - SQL (MySQL, Postgres)
+  - CSS (SASS/LESS)
+  - MongoDB
+  - Redis
+  - AWS
               </pre>
               </div>
             </center>
@@ -120,25 +120,6 @@ MY SKILLS
           </span>
           <div class="clear"></div>
         </div>
-        <div class="widget LinkList" data-version="1" id="LinkList2">
-          <h2>
-            <span>Follow Us</span>
-          </h2>
-          <div class="widget-content">
-            <ul class="site-social-networks secondary-2-primary style-default show-title">
-              <li>
-                <a href="https://facebook.com/eagertrekker">
-                  <i class="fa fa-facebook"></i>facebook
-                </a>
-                <a href="http://instagram.com/linhavidtraveler">
-                  <i class="fa fa-instagram"></i>instagram
-                </a>
-              </li>
-            </ul>
-            <div class="clear"></div>
-          </div>
-        </div>
-
       </div>
     </div>
   </div>
