@@ -1,8 +1,8 @@
 <template>
   <div class="container">
-    <div class="app-footer">
-      <strong>IG: @linhavidtraveler </strong>
-    </div>
+    <footer class="white navbar-fixed-bottom">
+        Don't have an account yet? <a href="#/register">Register</a>
+    </footer>
   </div>
 </template>
 <script>
