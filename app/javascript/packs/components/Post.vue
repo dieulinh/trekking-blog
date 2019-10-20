@@ -1,8 +1,8 @@
 <template>
   <b-container>
     <b-row class="container" v-if="authenticated">
-      <router-link class="mb-5" :to="{ name: 'EditPost',  params: { postId: post.slug } }">
-            Edit Post
+      <router-link class="btn btn-primary" :to="{ name: 'EditPost',  params: { postId: post.slug } }">
+        <i class="fa fa-pencil"></i> Edit Post
       </router-link>
     </b-row>
     <div v-html="post.content"></div>

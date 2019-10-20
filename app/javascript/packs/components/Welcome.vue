@@ -1,12 +1,12 @@
 <template>
   <div class="container">
     <div class="container sp_sidebar">
-      <div class="section col-md-8 col-sm-12" id="main">
+      <div class="col-md-8 col-sm-12">
         <posts-component/>
       </div>
-       <div v-if='unauthenticated'>
-          <login-component />
-        </div>
+      <div v-if='unauthenticated'>
+        <login-component />
+      </div>
     </div>
   </div>
 </template>

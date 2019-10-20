@@ -12,7 +12,7 @@
     <div v-if="authenticated" class="row mt-5">
       <div class="col-md-12 mb-5 float-left">
         <router-link class="btn btn-primary" :to="{ name: 'NewPost'}">
-          + Create Post
+          <i class="fa fa-plus"></i> Add Post
         </router-link>
       </div>
     </div>

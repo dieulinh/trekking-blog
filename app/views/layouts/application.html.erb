@@ -4,7 +4,7 @@
     <title>Eager Trekker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="2srzWvwRIRYOKOD5RsmJXXGt3TfBWZcBBQ7T6Ne22s0" />
-    
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= javascript_pack_tag 'hello_vue' %>
@@ -15,15 +15,6 @@
   </head>
 
   <body>
-    <div id="wrapper">
-      <div class="section">
-        <div class="widget Header">
-        </div>
-      </div>
-      <%= render 'shared/header' %>
-      <div class="main container-fluid">
-        <%= yield %>
-      </div>
-    </div>
+    <%= yield %>
   </body>
 </html>
