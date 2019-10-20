@@ -43,7 +43,6 @@ module V1
 
       desc 'Update post endpoint'
       params do
-        requires :auth_token, type: String
         optional :title, type: String
         optional :description, type: String
         optional :content, type: String
