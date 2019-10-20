@@ -26,10 +26,13 @@ export default {
       console.log(err);
     });
   },
-  beforeMount() {
-    let authToken = this.$session.get('auth_token');
-    if (authToken) {
-      this.authenticated = true;
+  beforeCreate() {
+    var authToken = localStorage.getItem('auth_token');
+    if(authToken) {
+      this.$store.dispatch('authenticate', authToken)
+      .then(result => {
+        this.authenticated = true;
+      })
     }
   },
 }
