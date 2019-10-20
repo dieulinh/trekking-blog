@@ -58,7 +58,7 @@ class Post < ApplicationRecord
     return current_elasticsearch_repository.search(condition) unless query
     condition[:query] = {
       query_string: {
-        query: "*#{query.downcase}*",
+        query: "#{query.downcase}*",
         analyze_wildcard: true,
         analyzer: 'standard',
         fields: ['title', 'description']
