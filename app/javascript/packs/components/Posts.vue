@@ -96,16 +96,7 @@ export default {
     }
   },
   mounted(){
-    axios.get(`${postApiUrl}?page=${this.page+1}`)
-    .then((response) => {
-      
-      this.posts = response.data.posts;
-      this.totalPages = response.data.total_pages;
-      this.pages = [...Array(response.data.total_pages).keys()]
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+    this.getPosts(this.page);
   },
   computed: {
     nextPage() {

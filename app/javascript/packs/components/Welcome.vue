@@ -25,7 +25,6 @@ import axios from "../common/axios";
 import PostsComponent from './Posts.vue'; 
 import AboutMeComponent from './AboutMe.vue';
 import LoginComponent from './Login.vue';
-const postApiUrl = `${process.env.ROOT_API}/posts`;
 export default {
   components: { PostsComponent, AboutMeComponent, LoginComponent },
   data() {
@@ -39,7 +38,6 @@ export default {
       this.$store.dispatch('authenticate', authToken)
       .then(result => {
         this.unauthenticated = false;
-        
       })
     }
   }
