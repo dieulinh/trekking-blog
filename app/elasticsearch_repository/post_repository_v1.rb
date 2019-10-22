@@ -14,6 +14,7 @@ class PostRepositoryV1 < ApplicationRepository
         indexes :category, type: 'keyword'
         indexes :description, type: 'keyword'
         indexes :slug, type: 'text'
+        indexes :is_private, type: 'bool'
         indexes :thumb_url, type: 'text'
         indexes :updated_at, type: 'date'
       end
@@ -27,6 +28,7 @@ class PostRepositoryV1 < ApplicationRepository
       slug: "#{document.slug}",
       category: "#{document.category}",
       thumb_url: "#{document.thumb_url}",
+      is_private: document.is_private,
       updated_at: document.updated_at
     }.as_json
   end
