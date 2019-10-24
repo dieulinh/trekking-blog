@@ -4,7 +4,7 @@
       <div class="col-md-8 col-sm-12">
         <posts-component/>
       </div>
-      <div v-if='unauthenticated'>
+      <div>
         <login-component />
       </div>
     </div>
@@ -20,18 +20,28 @@ export default {
   components: { PostsComponent, AboutMeComponent, LoginComponent },
   data() {
     return {
+      
       unauthenticated: true
     };
   },
   beforeCreate() {
-    var authToken = localStorage.getItem('auth_token');
-    if(authToken) {
-      this.$store.dispatch('authenticate', authToken)
-      .then(result => {
-        this.unauthenticated = false;
-      })
+    console.log(this.$store.state.authenticated);
+    this.unauthenticated = !this.$store.state.authenticated;
+  },
+  computed: {
+    isLoggin() {
+      return this.$store.state.authenticated;
     }
   }
+  // beforeCreate() {
+  //   var authToken = localStorage.getItem('auth_token');
+  //   if(authToken) {
+  //     this.$store.dispatch('authenticate', authToken)
+  //     .then(result => {
+  //       this.unauthenticated = false;
+  //     })
+  //   }
+  // }
   
 };
 </script>

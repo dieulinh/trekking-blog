@@ -11,6 +11,9 @@ const mutations = {
   setPosts(state, payload) {
     state.posts = payload;
   },
+  logout(state) {
+    state.authenticated = false;
+  },
   login(state, value) {
     state.auth_token = value;
     state.authenticated = true;
@@ -20,12 +23,13 @@ const mutations = {
   },
   getErrors(state, value) {
     state.errors = value
+  },
+  showLogin(state, value) {
+    state.showLogin = value;
   }
 };
 
 const actions = {
-  
-
   async getPosts({ state, commit }) {
     try {
       let response = await axios.get(`${state.postsApiUrl}`, {
@@ -38,20 +42,23 @@ const actions = {
       commit('setPosts', []);
     }
   },
+  logout({commit}) {
+    localStorage.removeItem('auth_token');
+    commit('logout');
+  },
+  showLogin({commit}, showValue) {
+    commit('showLogin', showValue);
+  },
   async authenticate({commit}, auth_token) {
     commit('auth', auth_token);
   },
   async login({commit}, user) {
     try {
-      console.log(user)
       let response = await axios.post(`${API_URL}/login`, user);
-      console.log(response.data);
       if (response.status === 201)
       { 
         commit('login', response.data);
         localStorage.setItem('auth_token', response.data);
-
-        // this.axios.defaults.headers.common['Authorization'] = response.data;
       } else {
         commit('getErrors', response.data);
       }
@@ -64,26 +71,27 @@ const actions = {
   }
 };
 
-
-
 const getters = {
   user: state => state.user,
   auth_token: state => state.auth_token,
-  authenticated: state => state.authenticated,
-  errors: state => state.errors
-
+  authenticated: state => {
+    return state.authenticated;
+  },
+  errors: state => state.errors,
+  showLogin: state => state.showLogin
 };
 
 const state = {
   accessToken: '',
   posts: [],
+  showLogin: false,
   added: [],
   all: [],
   user: {},
   auth: {},
   errors: null,
   auth_token: null,
-  authenticated: false,
+  authenticated: !!localStorage.getItem('auth_token'),
   postsApiUrl: `${process.env.ROOT_API}/api/v1/posts`
 };
 

@@ -3,7 +3,8 @@
     <ul class="w-40 nav navbar-nav navbar-right menu-fixed-top white-bg">
       <li class="active"><a href="/">Works</a></li>
       <li><a href="/#/posts">Blog</a></li>
-      <li><a href="/#/login">Sign in</a></li>
+      <li v-if="!isLoggin"><a @click="toggleLogin()">Sign in</a></li>
+      <li v-if="isLoggin"><a>Logout</a></li>
       <li><a href="#aboutme">About</a></li>
     </ul>
   </nav><!-- /.navbar -->
@@ -11,7 +12,23 @@
 <script>
 
 export default {
-  
+  data() {
+    return {
+
+    }
+  },
+  computed: {
+    isLoggin() {
+      return this.$store.state.authenticated;
+    }
+  },
+  methods: {
+    toggleLogin() {
+      console.log('toggleLoggin');
+      console.log(this.$store.state);
+      this.$store.dispatch('showLogin', true);
+    }
+  }
 }
 </script>
 <style scoped>
