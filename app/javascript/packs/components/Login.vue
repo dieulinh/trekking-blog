@@ -2,7 +2,13 @@
   <div>
     <div v-if="showLogin">
       <div class="overlay" v-if="(!userAuthenticated)">
-        <b-form class="col-md-12">
+        <div class="close-btn pull-right">
+          <i class="fa fa-window-close" @click="closeLogin()"></i>
+        </div>
+        <b-form class="login-form">
+          <b-col cols="12">
+            <h4>Login information</h4>
+          </b-col>
           <b-form-row md="12" sm="12" xs="10" class="mb-2">
             <b-col cols="12">
               <b-input-group>
@@ -75,6 +81,9 @@ export default {
   methods: {
     logout() {
       this.$store.dispatch("logout");
+    },
+    closeLogin() {
+      this.$store.dispatch("showLogin", false);
     },
     loginUser() {
       let email = this.email;

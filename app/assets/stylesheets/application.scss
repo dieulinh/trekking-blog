@@ -15,22 +15,37 @@
 @import 'font-awesome';
 
 .overlay {
-    position: fixed;
-    overflow: auto;
-    text-align: center;
-    top: 9px;
-    height: 100%;
-    right: 0;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    z-index: 900;
-    background-color: rgba(255,255,255,.97);
+  position: fixed;
+  overflow: auto;
+  text-align: center;
+  top: 9px;
+  height: 100%;
+  right: 0;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  z-index: 900;
+  background-color: rgba(255,255,255,.97);
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  .close-btn {
     width: 100%;
-    padding: 0;
-    margin: 0;
-    border: 0;
+    padding-right: 2px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .login-form, .register-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-left: 10vw;
+    padding-right: 10vw;
+  }
 }
 #main {
   float: left;
