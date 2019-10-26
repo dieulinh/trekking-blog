@@ -20,9 +20,9 @@ class Post < ApplicationRecord
     return unless post_thumbnails.attached?
     Rails.application.routes.url_helpers.rails_representation_url(post_thumbnails.variant(
       combine_options: [
-        [:resize, "250x250^"],
+        [:resize, "200x200^"],
         [:gravity, "center"],
-        [:crop, "250x250+0+0"],
+        [:crop, "200x200+0+0"],
         [:strip, true],
         [:quality, "70"],
         [:repage, nil], [:+, nil], # +repage

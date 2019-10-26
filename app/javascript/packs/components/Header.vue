@@ -3,7 +3,7 @@
     <li class="active"><a href="/">Works</a></li>
     <li><a href="/#/posts">Blog</a></li>
     <li v-if="!isLoggin"><a href="javascript:void(0);" @click="toggleLogin()">Sign in</a></li>
-    <li v-if="isLoggin"><a @click="()=> console.log(logout)">Logout</a></li>
+    <li v-if="isLoggin"><a href="javascript:void(0);" @click="logout()">Logout</a></li>
     <li><a href="#aboutme">About</a></li>
   </ul>
 </template>
@@ -21,9 +21,10 @@ export default {
     }
   },
   methods: {
+    logout() {
+      this.$store.dispatch("logout");
+    },
     toggleLogin() {
-      console.log('toggleLoggin');
-      console.log(this.$store.state);
       this.$store.dispatch('showLogin', true);
     }
   }

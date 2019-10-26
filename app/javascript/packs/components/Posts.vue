@@ -44,7 +44,7 @@
         </div>
         <div id="summary331550993429040912" style="display: block;">
           <div class="post-image" v-if="post.thumb_url">
-            <img width="100%" height="450" v-bind:src="post.thumb_url" />
+            <img width="100%" height="200" v-bind:src="post.thumb_url" />
           </div>
           <div class="post-entry">
             {{post.description}}

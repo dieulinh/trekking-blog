@@ -1,8 +1,5 @@
 <template>
   <b-container>
-    <b-row class="pull-right">
-      <i class="fa fa-window-close"></i>
-    </b-row>
     <b-row class="col-md-8 offset-md-2 col-sm-8 offset-sm-2">
       <div class="alert alert-danger w-100" role="alert" v-if="errors">
         <strong>{{errors}}</strong>

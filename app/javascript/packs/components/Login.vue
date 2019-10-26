@@ -39,7 +39,7 @@
             <b-col cols="12">
               <b-input-group>
                 <b-form-text>Not registered</b-form-text>
-                <b-button variant="link" href="#/register">Register</b-button>
+                <b-button variant="link" @click="goRegister()">Register</b-button>
               </b-input-group>
             </b-col>
           </b-form-row>
@@ -79,9 +79,6 @@ export default {
   },
 
   methods: {
-    logout() {
-      this.$store.dispatch("logout");
-    },
     closeLogin() {
       this.$store.dispatch("showLogin", false);
     },
@@ -89,6 +86,10 @@ export default {
       let email = this.email;
       let password = this.password;
       this.$store.dispatch("login", { email, password });
+    },
+    goRegister() {
+      this.$store.dispatch("showLogin", false);
+      this.$router.push('/register');
     }
   }
 };
