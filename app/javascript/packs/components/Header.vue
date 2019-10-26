@@ -1,13 +1,11 @@
 <template>
-  <nav class="w-100 navbar-fixed-top navbar-default white-bg">
-    <ul class="w-40 nav navbar-nav navbar-right menu-fixed-top white-bg">
-      <li class="active"><a href="/">Works</a></li>
-      <li><a href="/#/posts">Blog</a></li>
-      <li v-if="!isLoggin"><a @click="toggleLogin()">Sign in</a></li>
-      <li v-if="isLoggin"><a>Logout</a></li>
-      <li><a href="#aboutme">About</a></li>
-    </ul>
-  </nav><!-- /.navbar -->
+  <ul class="menu-fixed-top white-bg">
+    <li class="active"><a href="/">Works</a></li>
+    <li><a href="/#/posts">Blog</a></li>
+    <li v-if="!isLoggin"><a href="javascript:void(0);" @click="toggleLogin()">Sign in</a></li>
+    <li v-if="isLoggin"><a @click="()=> console.log(logout)">Logout</a></li>
+    <li><a href="#aboutme">About</a></li>
+  </ul>
 </template>
 <script>
 

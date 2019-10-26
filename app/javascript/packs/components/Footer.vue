@@ -1,14 +1,9 @@
 <template>
-  <div class="container">
-    <footer class="white navbar-fixed-bottom">
-        Don't have an account yet? <a href="#/register">Register</a>
-    </footer>
-  </div>
 </template>
 <script>
 
 export default {
-  
+
 }
 </script>
 <style scoped>
