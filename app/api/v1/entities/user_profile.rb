@@ -7,6 +7,7 @@ module V1
       expose :id
       expose :role
       expose :description
+      expose :trekker_name
       expose :location
       expose :location_lonlat
       expose :created_at, format_with: :timestamp
