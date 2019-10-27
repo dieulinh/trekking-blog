@@ -909,6 +909,10 @@ GEM
     grape-entity (0.7.1)
       activesupport (>= 4.0)
       multi_json (>= 1.3.2)
+    graphiql-rails (1.7.0)
+      railties
+      sprockets-rails
+    graphql (1.9.14)
     haml (5.1.1)
       temple (>= 0.8.0)
       tilt
@@ -1115,6 +1119,8 @@ DEPENDENCIES
   friendly_id (~> 5.2.4)
   grape
   grape-entity
+  graphiql-rails
+  graphql (~> 1.9)
   haml
   jbuilder (~> 2.5)
   jquery-rails
