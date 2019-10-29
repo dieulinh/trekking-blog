@@ -9,11 +9,6 @@ module Types
       null: false,
       description: "Returns a list of trekkers in the database"
 
-    field :test_field, String, null: false,
-      description: "An example field added by the generator"
-    def test_field
-      "Hello World! I am from Test Field"
-    end
     def trekkers
       Trekker.all
     end
