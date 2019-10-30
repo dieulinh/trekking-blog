@@ -37,12 +37,6 @@ export default {
       .catch(err => {
         console.log(err);
       });
-  },
-  beforeCreate() {
-    let authToken = this.$session.get("auth_token");
-    if (authToken) {
-      this.authenticated = true;
-    }
   }
 };
 </script>

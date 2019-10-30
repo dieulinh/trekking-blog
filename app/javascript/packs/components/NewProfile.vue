@@ -58,13 +58,6 @@ export default {
       ]
     }
   },
-  beforeMount() {
-    let authToken = this.$session.get('auth_token');
-    if (!authToken) {
-      this.$router.push('/login');
-    }
-    this.authToken = authToken;
-  },
   computed: {
     hasError() {
       if (this.trekker_name!='' && this.description!='') {
