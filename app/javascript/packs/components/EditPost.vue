@@ -40,6 +40,9 @@ export default {
     }
   },
   computed: {
+    isLoggin() {
+      return this.$store.state.authenticated;
+    },
     hasError() {
       if (this.post.title!='' && this.post.content!='') {
         return false;
@@ -107,7 +110,6 @@ export default {
       })
     },
     handleUpdatePost() {
-      console.log(this.postId);
       axios.put(`${postApiUrl}/${this.postId}`, { title: this.post.title, category: this.post.category, description: this.post.description, auth_token: this.authToken, content: this.post.content }).then((response) => {
         this.$router.push(`/posts/${this.postId}`);
       }).catch((err) => {

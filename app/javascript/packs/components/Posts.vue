@@ -90,19 +90,10 @@ export default {
       page: 0,
       terms: null,
       pages: [],
-      totalPages: 0,
-      authenticated: false
+      totalPages: 0
     };
   },
-  beforeCreate() {
-    var authToken = localStorage.getItem('auth_token');
-      if(authToken) {
-        this.$store.dispatch('authenticate', authToken)
-        .then(result => {
-          this.authenticated = true;
-        })
-      }
-  },
+  
   mounted(){
     axios.get(`${postApiUrl}?page=${this.page+1}`)
     .then((response) => {
@@ -120,6 +111,9 @@ export default {
     },
     previousPage() {
       return (this.page-1<0 ? 0 : this.page - 1);
+    },
+    authenticated() {
+      return this.$store.state.authenticated;
     }
   },
   methods: {
