@@ -20,12 +20,10 @@ export default {
   components: { PostsComponent, AboutMeComponent, LoginComponent },
   data() {
     return {
-      
       unauthenticated: true
     };
   },
   beforeCreate() {
-    console.log(this.$store.state.authenticated);
     this.unauthenticated = !this.$store.state.authenticated;
   },
   computed: {
@@ -33,15 +31,5 @@ export default {
       return this.$store.state.authenticated;
     }
   }
-  // beforeCreate() {
-  //   var authToken = localStorage.getItem('auth_token');
-  //   if(authToken) {
-  //     this.$store.dispatch('authenticate', authToken)
-  //     .then(result => {
-  //       this.unauthenticated = false;
-  //     })
-  //   }
-  // }
-  
 };
 </script>
