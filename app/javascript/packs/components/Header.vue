@@ -1,14 +1,22 @@
 <template>
+<div>
   <ul class="menu-fixed-top white-bg">
     <li class="active"><a href="/">Works</a></li>
     <li v-if="!isLoggin"><a href="javascript:void(0);" @click="toggleLogin()">Sign in</a></li>
     <li v-if="isLoggin"><a href="javascript:void(0);" @click="logout()">Logout</a></li>
     <li><a href="#aboutme">About</a></li>
+    
   </ul>
+  <div>
+    <login-component></login-component>
+  </div>
+</div>
 </template>
 <script>
+import LoginComponent from './Login.vue';
 
 export default {
+  components: { LoginComponent },
   data() {
     return {
 

@@ -5,7 +5,7 @@
         <posts-component/>
       </div>
       <div>
-        <login-component />
+        
       </div>
     </div>
   </div>
@@ -14,10 +14,12 @@
 <script>
 import axios from "../common/axios";
 import PostsComponent from './Posts.vue'; 
-import AboutMeComponent from './AboutMe.vue';
-import LoginComponent from './Login.vue';
+
 export default {
-  components: { PostsComponent, AboutMeComponent, LoginComponent },
+  components: { 
+    PostsComponent
+
+  },
   data() {
     return {
       unauthenticated: true
