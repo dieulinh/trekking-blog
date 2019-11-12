@@ -29,7 +29,7 @@
               <span class="text-title">
                 <router-link :to='{name: "Post", params: {"postId": post.slug}}'
                 class="post-category"
-                >{{ post.category }} {{post.is_private}}</router-link>
+                >{{ post.category }}</router-link>
               </span>
             </div>
           </div>
