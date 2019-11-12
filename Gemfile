@@ -21,6 +21,7 @@ gem 'webpacker'
 gem 'friendly_id', '~> 5.2.4'
 gem "font-awesome-rails"
 gem 'graphql', '~> 1.9'
+
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 
