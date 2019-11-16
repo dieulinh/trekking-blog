@@ -70,7 +70,7 @@ export default {
   beforeMount() {
     let authToken = localStorage.getItem('auth_token');
     if (!authToken) {
-      this.$router.push('/login');
+      this.$router.push('/');
     }
     this.authToken = authToken;
   },

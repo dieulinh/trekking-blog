@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_22_052628) do
+ActiveRecord::Schema.define(version: 2019_11_16_121036) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -117,6 +117,30 @@ ActiveRecord::Schema.define(version: 2019_10_22_052628) do
     t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "visitors", force: :cascade do |t|
+    t.string "city", limit: 40
+    t.string "continent_code", limit: 10
+    t.string "continent_name", limit: 30
+    t.string "country_capital", limit: 30
+    t.string "country_code2", limit: 10
+    t.string "country_code3", limit: 10
+    t.string "country_name"
+    t.string "country_tld", limit: 10
+    t.string "currency"
+    t.string "district", limit: 30
+    t.string "geoname_id", limit: 10
+    t.string "ip", limit: 40
+    t.boolean "is_eu"
+    t.string "isp", limit: 20
+    t.string "latitude", limit: 10
+    t.string "longitude", limit: 10
+    t.string "state_prov", limit: 30
+    t.string "time_zone"
+    t.string "zipcode", limit: 10
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

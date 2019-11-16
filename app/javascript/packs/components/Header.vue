@@ -14,6 +14,7 @@
 </template>
 <script>
 import LoginComponent from './Login.vue';
+import axios from '../common/axios';
 
 export default {
   components: { LoginComponent },
@@ -21,6 +22,19 @@ export default {
     return {
 
     }
+  },
+  mounted() {
+    axios.get(`https://api.ipgeolocation.io/ipgeo?apiKey=${process.env.GEOIP_API_KEY}`, { headers: {
+        'Access-Control-Allow-Headers': '*'
+    }}).then(data => {
+      console.log(data);
+      axios.post(`${process.env.ROOT_API}/visitors`, data.data)
+    }).then((data) => {
+      
+    })
+    .catch(err => {
+      console.log(err)
+    });
   },
   computed: {
     isLoggin() {
