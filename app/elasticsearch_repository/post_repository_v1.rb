@@ -16,6 +16,7 @@ class PostRepositoryV1 < ApplicationRepository
         indexes :slug, type: 'text'
         indexes :is_private, type: 'bool'
         indexes :thumb_url, type: 'text'
+        indexes :mobile_thumb_url, type: 'text'
         indexes :updated_at, type: 'date'
       end
     end
@@ -28,6 +29,7 @@ class PostRepositoryV1 < ApplicationRepository
       slug: "#{document.slug}",
       category: "#{document.category}",
       thumb_url: "#{document.thumb_url}",
+      mobile_thumb_url: "#{document.mobile_thumb_url}",
       is_private: document.is_private,
       updated_at: document.updated_at
     }.as_json

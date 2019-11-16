@@ -16,19 +16,24 @@ class Post < ApplicationRecord
     self.class.current_elasticsearch_repository.save(self)
   end
 
-  def thumb_url
+  def thumb_url(width=200, heigh=200)
     return unless post_thumbnails.attached?
+    image_dimension = "#{width}x#{heigh}"
     Rails.application.routes.url_helpers.rails_representation_url(post_thumbnails.variant(
       combine_options: [
-        [:resize, "200x200^"],
+        [:resize, "#{image_dimension}^"],
         [:gravity, "center"],
-        [:crop, "200x200+0+0"],
+        [:crop, "#{image_dimension}+0+0"],
         [:strip, true],
         [:quality, "70"],
         [:repage, nil], [:+, nil], # +repage
         [:distort, nil], [:+, "Perspective"]
       ]
     ).processed, only_path: true)
+  end
+
+  def mobile_thumb_url
+    thumb_url(150, 100)
   end
 
   def as_indexed_json(options={})
