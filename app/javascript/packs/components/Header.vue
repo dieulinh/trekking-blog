@@ -23,19 +23,19 @@ export default {
 
     }
   },
-  mounted() {
-    axios.get(`https://api.ipgeolocation.io/ipgeo?apiKey=${process.env.GEOIP_API_KEY}`, { headers: {
-        'Access-Control-Allow-Headers': '*'
-    }}).then(data => {
-      console.log(data);
-      axios.post(`${process.env.ROOT_API}/visitors`, data.data)
-    }).then((data) => {
+  // mounted() {
+  //   // axios.get(`https://api.ipgeolocation.io/ipgeo?apiKey=${process.env.GEOIP_API_KEY}`, { headers: {
+  //   //     'Access-Control-Allow-Headers': '*'
+  //   // }}).then(data => {
+  //   //   console.log(data);
+  //   //   axios.post(`${process.env.ROOT_API}/visitors`, data.data)
+  //   // }).then((data) => {
       
-    })
-    .catch(err => {
-      console.log(err)
-    });
-  },
+  //   // })
+  //   // .catch(err => {
+  //   //   console.log(err)
+  //   // });
+  // },
   computed: {
     isLoggin() {
       return this.$store.state.authenticated;
