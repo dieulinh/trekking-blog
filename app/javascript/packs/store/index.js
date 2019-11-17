@@ -26,6 +26,9 @@ const mutations = {
   },
   showLogin(state, value) {
     state.showLogin = value;
+  },
+  showRegisterForm(state, visible) {
+    state.showRegisterForm = visible;
   }
 };
 
@@ -45,6 +48,9 @@ const actions = {
   logout({commit}) {
     localStorage.removeItem('auth_token');
     commit('logout');
+  },
+  showRegisterForm({commit}, showRegister) {
+    commit('showRegisterForm', showRegister);
   },
   showLogin({commit}, showValue) {
     commit('showLogin', showValue);
@@ -74,17 +80,17 @@ const actions = {
 const getters = {
   user: state => state.user,
   auth_token: state => state.auth_token,
-  authenticated: state => {
-    return state.authenticated;
-  },
+  authenticated: state => state.authenticated,
   errors: state => state.errors,
-  showLogin: state => state.showLogin
+  showLogin: state => state.showLogin,
+  showRegisterForm: state => state.showRegisterForm
 };
 
 const state = {
   accessToken: '',
   posts: [],
   showLogin: false,
+  showRegisterForm: false,
   added: [],
   all: [],
   user: {},

@@ -35,18 +35,22 @@
               </b-input-group>
             </b-col>
           </b-form-row>
+          <b-col cols="12">
+            Don't have an account? <b-link @click="showRegisterForm"> Register</b-link>
+          </b-col>
         </b-form>
       </div>
     </div>
+    <register-component></register-component>
   </div>
 </template>
 <script>
 import axios from "axios";
 import Vue from "vue";
-import VueSession from "vue-session";
-Vue.use(VueSession);
+import RegisterComponent from './Register';
 
 export default {
+  components: {RegisterComponent},
   data() {
     return { email: "", password: "", authenticated: false, errors: null };
   },
@@ -71,6 +75,9 @@ export default {
   },
 
   methods: {
+    showRegisterForm() {
+      this.$store.dispatch('showRegisterForm', true);
+    },
     closeLogin() {
       this.$store.dispatch("showLogin", false);
     },
