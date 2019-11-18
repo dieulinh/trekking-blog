@@ -29,6 +29,9 @@ const mutations = {
   },
   showRegisterForm(state, visible) {
     state.showRegisterForm = visible;
+  },
+  registerUser(state, user) {
+    state.user = user
   }
 };
 
@@ -54,6 +57,22 @@ const actions = {
   },
   showLogin({commit}, showValue) {
     commit('showLogin', showValue);
+  },
+  async createUser({commit}, user) {
+    try {
+      console.log(user);
+      let response = await axios.post(`${process.env.ROOT_API}/login/register`, user );
+      console.log(response);
+      if (response.status === 201)
+      { 
+        console.log(response.data)
+        commit('registerUser', response.data)
+      } else {
+        commit('getErrors', response.data);
+      }
+    } catch(error) {
+      console.log(error);
+    }
   },
   async authenticate({commit}, auth_token) {
     commit('auth', auth_token);
@@ -93,7 +112,7 @@ const state = {
   showRegisterForm: false,
   added: [],
   all: [],
-  user: {},
+  user: null,
   auth: {},
   errors: null,
   auth_token: null,

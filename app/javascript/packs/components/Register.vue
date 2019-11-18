@@ -58,10 +58,16 @@ export default {
     }
   },
   computed: {
+    createSuccess() {
+      return this.$store.state.user!= null;
+    },
     showForm() {
       return this.$store.state.showRegisterForm;
     },
     hasError() {
+      if (this.$store.state.errors) {
+        return true;
+      }
       if (this.email!='' && this.password!='' && this.password_confirmation!='') {
         return false;
       }
@@ -73,19 +79,11 @@ export default {
       this.$store.dispatch("showRegisterForm", false);
     },
     createUser() {
-        axios.post(`${process.env.ROOT_API}/login/register`, { email: this.email, password: this.password, password_confirmation: this.password_confirmation })
-        .then((res) => {
-          console.log(res.status);
-          if(res.data.status == 422) {
-            this.errors = 'Email registered';
-          } else {
-            this.$router.push('/login');
-          }
-        })
-        .catch(err => {
-          this.errors = err.response.data.message;
-          console.log(err);
-        })
+        this.$store.dispatch('createUser', { email: this.email, password: this.password, password_confirmation: this.password_confirmation });
+        if (!this.hasError)
+        {
+          this.closeRegisterForm();
+        }
       }
   }
 
