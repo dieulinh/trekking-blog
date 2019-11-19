@@ -5,9 +5,15 @@
         <i class="fa fa-window-close" @click="closeRegisterForm()"></i>
       </div>
       <b-form class="login-form">
+       
           <b-col cols="12">
             <h4>Register User Information</h4>
           </b-col>
+          <b-form-row md="12" sm="12" xs="10" class="mb-2" v-if="errors">
+            <div class="alert alert-danger" role="alert">
+              <strong>{{errors}}</strong>
+            </div>
+          </b-form-row>
           <b-form-row md="12" sm="12" xs="10" class="mb-2">
             <b-col cols="12">
               <b-input-group>
@@ -51,7 +57,6 @@ import axios from '../common/axios';
 export default {
   data() {
     return {
-      errors: null,
       password: '',
       password_confirmation: '',
       email: ''
@@ -62,12 +67,12 @@ export default {
       return this.$store.state.user!= null;
     },
     showForm() {
-      return this.$store.state.showRegisterForm;
+      return this.$store.state.showRegisterForm || this.$store.state.errors !=null;
+    },
+    errors() {
+      return this.$store.state.errors;
     },
     hasError() {
-      if (this.$store.state.errors) {
-        return true;
-      }
       if (this.email!='' && this.password!='' && this.password_confirmation!='') {
         return false;
       }
@@ -79,8 +84,9 @@ export default {
       this.$store.dispatch("showRegisterForm", false);
     },
     createUser() {
+        this.$store.dispatch('setError', null);
         this.$store.dispatch('createUser', { email: this.email, password: this.password, password_confirmation: this.password_confirmation });
-        if (!this.hasError)
+        if (!this.errors)
         {
           this.closeRegisterForm();
         }

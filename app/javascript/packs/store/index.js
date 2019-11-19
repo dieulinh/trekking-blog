@@ -48,6 +48,9 @@ const actions = {
       commit('setPosts', []);
     }
   },
+  setError({commit}, errors) {
+    commit('getErrors', errors);
+  },
   logout({commit}) {
     localStorage.removeItem('auth_token');
     commit('logout');
@@ -68,10 +71,12 @@ const actions = {
         console.log(response.data)
         commit('registerUser', response.data)
       } else {
+        console.log(response);
         commit('getErrors', response.data);
       }
     } catch(error) {
       console.log(error);
+      commit('getErrors', error);
     }
   },
   async authenticate({commit}, auth_token) {
