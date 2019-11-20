@@ -68,13 +68,13 @@ export default {
     }
   },
   beforeMount() {
-    let authToken = localStorage.getItem('auth_token');
-    if (!authToken) {
+    if (!this.$store.state.authenticated) {
       this.$router.push('/');
     }
-    this.authToken = authToken;
+    this.authToken = localStorage.getItem('auth_token');
   },
   computed: {
+
     hasError() {
       if (this.title!='' && this.content!='') {
         return false;

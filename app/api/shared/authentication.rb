@@ -11,6 +11,7 @@ module Shared
       return unauthorized! unless decoded_token.key?(:user_id)
       @user = User.find decoded_token[:user_id]
       return unauthorized! unless @user
+      true
     end
 
     def current_user

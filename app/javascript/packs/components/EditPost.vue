@@ -31,12 +31,13 @@ export default {
   },
   props: ['postId'],
   beforeCreate() {
+    if (!this.$store.state.authenticated) {
+      this.$router.push('/');
+    }
     var authToken = localStorage.getItem('auth_token');
     if(authToken) {
       this.$store.dispatch('authenticate', authToken)
-      .then(result => {
-        this.authenticated = true;
-      })
+      this.authenticated = true;
     }
   },
   computed: {
