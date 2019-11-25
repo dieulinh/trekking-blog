@@ -14,14 +14,14 @@
           </b-input-group>
         </b-col>
       </b-form-row>
-      <b-form-row md="12" sm="12" xs="10" class="mb-2"><b-col cols="12"><vue-editor v-model="post.content" useCustomImageHandler @imageAdded="handleUploadImage" /></b-col></b-form-row>
+      <b-form-row md="12" sm="12" xs="10" class="mb-2"><b-col cols="12"><vue-editor v-model="post.content" useCustomImageHandler @image-added="handleUploadImage" /></b-col></b-form-row>
       <b-form-row md="12" sm="12" xs="10" class="mb-2"><b-col cols="12"><b-button @click="handleUpdatePost" :disabled="!!hasError" variant="primary">Save</b-button></b-col></b-form-row>
     </b-form>
   </b-container>
   
 </template>
 <script>
-import axios from '../common/axios';
+import axios from 'axios';
 import { VueEditor } from 'vue2-editor';
 const postApiUrl = `${process.env.ROOT_API}/posts`;
 const imageUploadUrl = `${process.env.ROOT_API}/uploads`;
@@ -102,7 +102,9 @@ export default {
           }
       })
       .then((result) => {
+        console.log(result);
         let url = result.data // Get url from response
+        console.log(url)
         Editor.insertEmbed(cursorLocation, 'image', url);
         resetUploader();  
       })

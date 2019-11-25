@@ -9,7 +9,7 @@
           </b-input-group>
         </b-col>
       </b-form-row>
-      <b-form-row md="12" sm="12" xs="10" class="mb-2"><b-col cols="12"><vue-editor v-model="content" useCustomImageHandler @imageAdded="handleUploadImage" /></b-col></b-form-row>
+      <b-form-row md="12" sm="12" xs="10" class="mb-2"><b-col cols="12"><vue-editor v-model="content" useCustomImageHandler @image-added="handleUploadImage" /></b-col></b-form-row>
       <b-form-row md="12" sm="12" xs="10" class="mb-2"><b-col cols="12"><b-button @click="handlePost" :disabled="!!hasError" variant="primary">Save</b-button></b-col></b-form-row>
     </b-form>
   </b-container>
@@ -18,11 +18,9 @@
 
 <script>
 import Vue from 'vue';
-import VueSession from 'vue-session';
 import axios from 'axios';
 import { VueEditor } from 'vue2-editor';
 
-Vue.use(VueSession);
 const postApiUrl = `${process.env.ROOT_API}/posts`;
 const imageUploadUrl = `${process.env.ROOT_API}/uploads`;
 export default {
