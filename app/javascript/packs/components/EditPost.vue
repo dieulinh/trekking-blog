@@ -118,6 +118,7 @@ export default {
       }).catch((err) => {
         console.log(`Error: ${err}`);
         if (err.response.status === 401) {
+          localStorage.removeItem('auth_token');
           this.errors = "Unauthorize! Please login";
         }
       });
