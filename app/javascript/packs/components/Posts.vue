@@ -42,7 +42,7 @@
           </h4>
           <div class="category-date">By Eager Trekker - {{ post.updated_at | formatDate }}</div>
         </div>
-        <div id="summary331550993429040912" style="display: block;">
+        <div style="display: block;">
           <div class="post-image" v-if="post.thumb_url">
             <img width="100%" v-bind:src="post.thumb_url"
               :srcset="post.mobile_thumb_url + ' 100w,' + post.thumb_url +' 200w'"
@@ -83,31 +83,30 @@
 </template>
 <script>
 import Router from 'vue-router';
-import axios from '../common/axios';
+import axios from 'axios';
 const postApiUrl = `${process.env.ROOT_API}/posts`;
 export default {
   data() {
     return {
-      posts: [],
-      page: 0,
+      // page: 0,
       terms: null,
-      pages: [],
+      // pages: [],
       totalPages: 0
     };
   },
-  
   mounted(){
-    axios.get(`${postApiUrl}?page=${this.page+1}`)
-    .then((response) => {
-      this.posts = response.data.posts;
-      this.totalPages = response.data.total_pages;
-      this.pages = [...Array(response.data.total_pages).keys()]
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+    this.$store.dispatch('getPosts', {page: this.page, terms: this.terms});
   },
   computed: {
+    page() {
+      return this.$store.state.current_post_page; 
+    },
+    pages() {
+      return [...Array(this.$store.state.total_pages).keys()]
+    },
+    posts() {
+      return this.$store.state.posts;
+    },
     nextPage() {
       return (this.page+1<=(this.totalPages - 1) ? this.page+1 : this.totalPages - 1);
     },
@@ -120,20 +119,7 @@ export default {
   },
   methods: {
     getPosts(page) {
-      let pageParams = `page=${page+1}`;
-      if (this.terms) {
-        pageParams = `terms=${this.terms}&page=${page+1}`;
-      }
-
-      axios.get(`${postApiUrl}?${pageParams}`).then((response) => {
-        console.log(response.data);
-        this.posts = response.data.posts;
-        this.page = page;
-        this.pages = [...Array(response.data.total_pages).keys()];
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+      this.$store.dispatch('getPosts', { page: page, terms: this.terms });
     }
   }
 }

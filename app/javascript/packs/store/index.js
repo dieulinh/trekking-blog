@@ -9,7 +9,13 @@ const API_URL = process.env.ROOT_API;
 
 const mutations = {
   setPosts(state, payload) {
-    state.posts = payload;
+    state.posts = payload.posts;
+  },
+  setPostPage(state, page) {
+    state.current_post_page = page;
+  },
+  setTotalPage(state, payload) {
+    state.total_pages = payload.total_pages;
   },
   logout(state) {
     state.authenticated = false;
@@ -36,14 +42,16 @@ const mutations = {
 };
 
 const actions = {
-  async getPosts({ state, commit }) {
+  async getPosts({commit}, postParams) {
     try {
-      let response = await axios.get(`${state.postsApiUrl}`, {
-          params: {
-              
-          }
-      });
+      let searchParams = `${process.env.ROOT_API}/posts?page=${postParams.page+1}`;
+      if (postParams.terms) {
+        searchParams = `${searchParams}&terms=${postParams.terms}`;
+      }
+      let response = await axios.get(searchParams);
         commit('setPosts', response.data);
+        commit('setPostPage', +postParams.page)
+        commit('setTotalPage', response.data);
     } catch (error) {
       commit('setPosts', []);
     }
@@ -63,12 +71,9 @@ const actions = {
   },
   async createUser({commit}, user) {
     try {
-      console.log(user);
       let response = await axios.post(`${process.env.ROOT_API}/login/register`, user );
-      console.log(response);
       if (response.status === 201)
       { 
-        console.log(response.data)
         commit('registerUser', response.data)
       } else {
         console.log(response);
@@ -97,20 +102,25 @@ const actions = {
       console.log(error.response);
       commit('getErrors', error.response.data);
     }
-    
   }
 };
 
 const getters = {
+  posts: state => state.posts,
+  total_pages: state => state.total_pages,
   user: state => state.user,
   auth_token: state => state.auth_token,
   authenticated: state => state.authenticated,
   errors: state => state.errors,
   showLogin: state => state.showLogin,
+  current_post_page: state => state.current_post_page,
   showRegisterForm: state => state.showRegisterForm
 };
 
 const state = {
+  posts: [],
+  current_post_page: 0,
+  total_pages: 0,
   accessToken: '',
   posts: [],
   showLogin: false,
