@@ -13,7 +13,8 @@ class Post < ApplicationRecord
   validates :title, presence: true
 
   def update_repository
-    self.class.current_elasticsearch_repository.save(self)
+    return unless self.id
+    UpdatePostRepositoryWorker.perform_async(self.id)
   end
 
   def thumb_url(width=200, heigh=200)
@@ -40,6 +41,9 @@ class Post < ApplicationRecord
     as_json(only: [:title, :description])
   end
 
+  def self.update_repository(document)
+    current_elasticsearch_repository.save(document)
+  end
   def self.elasticsearch_import(force: false, refresh: false)
     import(
            force: force,
