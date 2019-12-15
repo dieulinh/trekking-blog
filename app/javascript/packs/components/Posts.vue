@@ -88,9 +88,7 @@ const postApiUrl = `${process.env.ROOT_API}/posts`;
 export default {
   data() {
     return {
-      // page: 0,
       terms: null,
-      // pages: [],
       totalPages: 0
     };
   },
