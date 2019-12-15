@@ -3,7 +3,7 @@
     <div v-if="showLogin">
       <div class="overlay" v-if="(!userAuthenticated)">
         <div class="close-btn pull-right">
-          <i class="fa fa-window-close" @click="closeLogin()"></i>
+          <i class="fa fa-2x fa-window-close" @click="closeLogin()"></i>
         </div>
         <b-form class="login-form">
           <b-col cols="12">

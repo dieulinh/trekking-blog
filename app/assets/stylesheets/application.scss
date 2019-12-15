@@ -18,7 +18,7 @@
   position: fixed;
   overflow: auto;
   text-align: center;
-  top: 9px;
+  top: 0px;
   height: 100%;
   right: 0;
   align-items: center;
@@ -35,16 +35,17 @@
   border: 0;
   .close-btn {
     width: 100%;
-    padding-right: 2px;
+    padding-right: px;
     display: flex;
     justify-content: flex-end;
+    cursor: pointer;
   }
   .login-form, .register-form {
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding-left: 10vw;
-    padding-right: 10vw;
+    padding-left: 20vw;
+    padding-right: 20vw;
   }
 }
 #main {

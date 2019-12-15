@@ -2,7 +2,7 @@
   <div>
     <div class="overlay" v-if="showForm">
       <div class="close-btn pull-right">
-        <i class="fa fa-window-close" @click="closeRegisterForm()"></i>
+        <i class="fa fa-2x fa-window-close" @click="closeRegisterForm()"></i>
       </div>
       <b-form class="login-form">
        
