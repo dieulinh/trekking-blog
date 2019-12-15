@@ -66,14 +66,14 @@
         <nav aria-label="Page navigation" class="text-center">
           <ul class="pagination">
             <li class="page-item">
-              <button class="page-link" :disabled="page===0" @click="getPosts(previousPage)">&lt;</button>
+              <button class="page-link" :disabled="page===0" @click="getPreviousPosts()">&lt;</button>
             </li>
             <li class="page-item" v-bind:class="{ active: page===index }" v-for="(item, index) in pages" v-bind:key="index">
               <button class="page-link" @click="getPosts(index)">{{ item + 1 }}</button>
             </li>
 
             <li class="page-item">
-              <button class="page-link" :disabled="page===(totalPages-1)" @click="getPosts(nextPage)">&gt;</button>
+              <button class="page-link" :disabled="page===(totalPages-1)" @click="getNextPosts()">&gt;</button>
             </li>
           </ul>
         </nav>
@@ -88,14 +88,16 @@ const postApiUrl = `${process.env.ROOT_API}/posts`;
 export default {
   data() {
     return {
-      terms: null,
-      totalPages: 0
+      terms: null
     };
   },
   mounted(){
     this.$store.dispatch('getPosts', {page: this.page, terms: this.terms});
   },
   computed: {
+    totalPages() {
+      return this.$store.state.total_pages;
+    },
     page() {
       return this.$store.state.current_post_page; 
     },
@@ -118,6 +120,12 @@ export default {
   methods: {
     getPosts(page) {
       this.$store.dispatch('getPosts', { page: page, terms: this.terms });
+    },
+    getNextPosts() {
+      this.$store.dispatch('getPosts', { page: this.nextPage, terms: this.terms });
+    },
+    getPreviousPosts() {
+      this.$store.dispatch('getPosts', { page: this.previousPage, terms: this.terms });
     }
   }
 }
