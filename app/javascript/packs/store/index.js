@@ -24,6 +24,9 @@ const mutations = {
     state.auth_token = value;
     state.authenticated = true;
   },
+  auth_token(state, value) {
+    state.auth_token = value;
+  },
   auth(state, value) {
     state.auth = value;
   },
@@ -93,6 +96,7 @@ const actions = {
       if (response.status === 201)
       { 
         commit('login', response.data);
+        commit('auth_token', response.data);
         localStorage.setItem('auth_token', response.data);
       } else {
         commit('getErrors', response.data);

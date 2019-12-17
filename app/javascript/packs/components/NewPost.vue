@@ -65,14 +65,8 @@ export default {
       ]
     }
   },
-  beforeMount() {
-    if (!this.$store.state.authenticated) {
-      this.$router.push('/');
-    }
-    this.authToken = localStorage.getItem('auth_token');
-  },
   computed: {
-
+    authToken() { return this.$store.state.auth_token; },
     hasError() {
       if (this.title!='' && this.content!='') {
         return false;
