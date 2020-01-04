@@ -21,12 +21,7 @@ module V1
           res[:posts] = results.map { |post| post.options }
           res[:total_pages] = post_count/params[:size] + (post_count%params[:size] > 0 ? 1 : 0)
         rescue Exception => e
-          count = 0
-          results = [].tap do |rs|
-            Rails.cache.redis.keys.each do |k|
-              rs.push(JSON.parse(Rails.cache.redis.get(k))) if k =~ /all_post:*/
-            end
-          end
+          results = params[:terms].present? ? Post.search_term(params[:terms]).map(&:attributes) : Post.all.map(&:attributes)
           post_count = results.size
           res[:posts] = results
           res[:total_pages] = post_count/params[:size] + (post_count%params[:size] > 0 ? 1 : 0)

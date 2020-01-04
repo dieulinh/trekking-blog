@@ -11,7 +11,7 @@ class Post < ApplicationRecord
   scope :recent, -> { order('updated_at desc').limit(100) }
   belongs_to :user
   validates :title, presence: true
-
+  scope :search_term, lambda { |keyword| where('title ILIKE ? or description ILIKE ?' , "%#{keyword}%",  "%#{keyword}%") }
   def update_repository
     return unless self.id
     UpdatePostRepositoryWorker.perform_async(self.id)
