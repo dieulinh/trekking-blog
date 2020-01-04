@@ -13,12 +13,25 @@ module V1
         use :tags_params
       end
       get '/' do
-        posts = Post.search(params[:terms], params[:size], params[:page])
-        post_count = posts.total.value
-        results = posts.results
         res = {}
-        res[:posts] = results.map { |post| post.options }
-        res[:total_pages] = post_count/params[:size] + (post_count%params[:size] > 0 ? 1 : 0)
+        begin
+          posts = Post.search(params[:terms], params[:size], params[:page])
+          post_count = posts.total.value
+          results = posts.results
+          res[:posts] = results.map { |post| post.options }
+          res[:total_pages] = post_count/params[:size] + (post_count%params[:size] > 0 ? 1 : 0)
+        rescue Exception => e
+          count = 0
+          results = [].tap do |rs|
+            Rails.cache.redis.keys.each do |k|
+              rs.push(JSON.parse(Rails.cache.redis.get(k))) if k =~ /all_post:*/
+            end
+          end
+          post_count = results.size
+          res[:posts] = results
+          res[:total_pages] = post_count/params[:size] + (post_count%params[:size] > 0 ? 1 : 0)
+        end
+
         present res
       end
 
