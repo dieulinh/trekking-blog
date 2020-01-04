@@ -49,8 +49,8 @@
                 >{{ post.title }}</router-link>
           
           <div class="post-desc">
-            <div class="cover-wrapper">
-                <img class="cover" :src="post.thumbnail">
+            <div class="cover-wrapper" v-if="post.thumb_url">
+                <img class="cover" :src="post.thumb_url">
               </div>
             <div class="post-short-desc">
               {{post.description}}

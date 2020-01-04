@@ -262,18 +262,19 @@ h4 {
 .post-title {
   letter-spacing: .4px;
   margin: 0 0 5px;
-  line-height: 1.4;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  height: 60px;
   text-decoration: none;
   box-sizing: border-box;
-  color: #0e794d;
+  color: #2f2c13ad;
   cursor: pointer;
   font-family: "Open Sans", Helvetica, "Helvetica Neue", "Segoe UI", Roboto, sans-serif;
   font-size: 15px;
-  font-weight: 700;
+  font-weight: 900;
+  height: 15px;
+  line-height: 15px;
+  margin: 5px 6px 15px 0px;
 }
 .post-container {
   display: flex;
@@ -292,10 +293,17 @@ h4 {
   border-radius: 5px;
   background-color: #fff;
   border: 1px solid #ebefe5;
-  margin: 4px;
+  margin: 4px 4px 16px;
 }
 @media screen and (max-width: 680px) {
 
   .logo-image { display: none; }
 
+}
+.cover {
+    max-height: 500px;
+    -o-object-fit: cover;
+    object-fit: cover;
+    width: 100%;
+    border-radius: 10px;
 }
