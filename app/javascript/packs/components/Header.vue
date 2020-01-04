@@ -4,8 +4,7 @@
     <li class="active"><a href="/">Works</a></li>
     <li v-if="!isLoggin"><a href="javascript:void(0);" @click="toggleLogin()">Sign in</a></li>
     <li v-if="isLoggin"><a href="javascript:void(0);" @click="logout()">Logout</a></li>
-    <li><a href="#aboutme">About</a></li>
-    
+    <li><a href="https://github.com/dieulinh/">About</a></li>
   </ul>
   <div>
     <login-component></login-component>
@@ -20,7 +19,7 @@ export default {
   components: { LoginComponent },
   data() {
     return {
-      
+
     }
   },
   computed: {
@@ -29,7 +28,7 @@ export default {
     }
   },
   methods: {
-   
+
     logout() {
       this.$store.dispatch("logout");
     },

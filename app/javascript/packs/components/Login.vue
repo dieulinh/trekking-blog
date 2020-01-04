@@ -29,7 +29,7 @@
                 <b-button
                   variant="primary"
                   :disabled="!!hasError"
-                  class="w-100"
+                  class="btn w-100"
                   @click="loginUser"
                 >Login</b-button>
               </b-input-group>

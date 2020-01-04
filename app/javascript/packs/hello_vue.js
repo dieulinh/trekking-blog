@@ -25,7 +25,6 @@ Vue.filter('formatDate', function(value) {
   }
 });
 document.addEventListener('DOMContentLoaded', () => {
-
   var app = new Vue({
     el: '#app',
     store: store,

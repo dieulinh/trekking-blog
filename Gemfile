@@ -39,7 +39,7 @@ gem 'activerecord-postgis-adapter'
 gem 'oj'
 gem 'sidekiq'
 # Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
+gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -63,6 +63,7 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'sanitize'
 gem 'aws-sdk', '~> 3'
 gem 'dotenv-rails'
+gem 'nokogiri'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

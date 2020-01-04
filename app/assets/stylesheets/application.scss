@@ -14,6 +14,11 @@
 @import 'bootstrap';
 @import 'font-awesome';
 
+body {
+  font-family: Graphik Web,Helvetica Neue,Helvetica,Arial,Verdana,sans-serif;
+  color: rgb(36, 28, 21);
+}
+
 .overlay {
   position: fixed;
   overflow: auto;
@@ -118,6 +123,7 @@ a:hover {
   padding-top: 12px;
   padding-bottom: 12px;
   justify-content: flex-end;
+  font-size: 1.1em;
   z-index: 1;
   li {
     width: 70px;
@@ -133,7 +139,18 @@ nav .nav {
     }
   }
 }
-
+.btn {
+  -webkit-box-shadow: 0 0 0 0.0625rem rgba(36,28,21,.4) inset;
+  box-shadow: inset 0 0 0 0.0625rem rgba(36,28,21,.4);
+  color: #241c15;
+  min-width: 7.5rem;
+  padding: .8125rem;
+  background-color: #ffffff;
+}
+.btn:hover {
+  background-color: #ffffff;
+  color: #000;
+}
 .navbar-header {
   float: left;
 }
@@ -238,6 +255,9 @@ h4 {
 }
 .logo-image {
   height: 135px;
+}
+.search-icon {
+  margin-left: -33px;
 }
 @media screen and (max-width: 680px) {
 
