@@ -1,1 +1,1 @@
-bundle exec sidekiq -c 2
+bundle exec sidekiq -c 3
