@@ -6,10 +6,11 @@ class UpdatePostRepositoryWorker
     begin
       Post.update_repository(post)
     rescue
-      unless Rails.cache.redis.get("all_post:#{post.slug}")
-        Rails.cache.redis.set("all_post:#{post.slug}", post.attributes.to_json)
-        Rails.cache.redis.expire("all_post:#{post.slug}", 24.hours)
-      end
+      Rails.cache.redis.set("all_post:#{post.slug}", post.attributes.merge(slug: post.slug,
+        category: post.category,
+        thumb_url: post.thumb_url,
+        mobile_thumb_url: post.mobile_thumb_url).to_json)
+      Rails.cache.redis.expire("all_post:#{post.slug}", 24.hours)
     end
   end
 end
