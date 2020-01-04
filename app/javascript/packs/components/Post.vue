@@ -15,8 +15,12 @@ export default {
   props: ['postId'],
   data() {
     return {
-      post: {},
-      authenticated: false
+      post: {}
+    }
+  },
+  computed: {
+    authenticated() {
+      return this.$store.state.authenticated;
     }
   },
   mounted() {
@@ -25,15 +29,6 @@ export default {
     }).catch((err) => {
       console.log(err);
     });
-  },
-  beforeCreate() {
-    var authToken = localStorage.getItem('auth_token');
-    if(authToken) {
-      this.$store.dispatch('authenticate', authToken)
-      .then(result => {
-        this.authenticated = true;
-      })
-    }
-  },
+  }
 }
 </script>
