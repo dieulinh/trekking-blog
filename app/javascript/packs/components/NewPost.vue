@@ -88,7 +88,7 @@ export default {
         Editor.insertEmbed(cursorLocation, 'image', url);
         resetUploader();  
       })
-      .error((err) => {
+      .catch((err) => {
         console.log(err);
       })
     },
