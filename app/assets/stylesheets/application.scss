@@ -79,6 +79,7 @@ body {
 }
 #app {
   margin-top: 80px;
+  margin-bottom: 80px;
 }
  #myMap {
     height: 400px;
@@ -289,20 +290,20 @@ h4 {
 }
 
 .post-title {
-  letter-spacing: .4px;
+  z-index: 1;
+  letter-spacing: .1px;
   margin: 0 0 5px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   text-decoration: none;
   box-sizing: border-box;
-  color: #19132fad;
+  color: #339c2d;
   cursor: pointer;
   font-family: "Open Sans", Helvetica, "Helvetica Neue", "Segoe UI", Roboto, sans-serif;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 500;
   height: 15px;
-  line-height: 22px;
   margin: 5px 6px 15px 0px;
   text-overflow: ellipsis;
   &:hover {
@@ -324,7 +325,7 @@ h4 {
   padding-right: 10px;
   justify-content: space-between;
   margin-top: 50px;
-  max-height: 930px;
+  max-height: 980px;
 }
 .card-wrapper {
   padding: 12px;
@@ -347,7 +348,7 @@ h4 {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  height: 275px;
+  height: 308px;
   border-radius: 5px;
   justify-content: space-between;
   border: solid 1px rgba(45,45,45,0.4);
@@ -362,6 +363,11 @@ h4 {
 }
 .post-short-desc {
   overflow: hidden;
+  width: 210px;
+  text-overflow: ellipsis;
+  height: 52px;
+  color: #113344;
+  font-size: 13px;
 }
 .cover {
     max-height: 160px;
