@@ -50,8 +50,11 @@
 
           <div class="post-desc">
             <div class="cover-wrapper" v-if="post.thumb_url">
-                <img class="cover" :src="post.thumb_url">
-              </div>
+              <img class="cover" :src="post.thumb_url">
+            </div>
+            <div class="cover-wrapper" v-if="!post.thumb_url">
+              <img class="cover" :src="emptyImage">
+            </div>
             <div class="post-short-desc">
               {{post.description}}
             </div>
@@ -100,7 +103,9 @@ const postApiUrl = `${process.env.ROOT_API}/posts`;
 export default {
   data() {
     return {
-      terms: null
+      terms: null,
+      emptyImage: require('../assets/images/see-no-evil-monkey_1f648.png')
+
     };
   },
   mounted() {
