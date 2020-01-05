@@ -43,27 +43,29 @@
     <hr />
     <div class="post-container">
       <div class="card-wrapper" v-for="post in posts" v-bind:key="post.id" v-show="authenticated||(!post.is_private)">
-        <div class="border-wrapper">
-          <router-link :to='{name: "Post", params: {"postId": post.slug}}'
-                class="post-title"
-                >{{ post.title }}</router-link>
-
-          <div class="post-desc">
-            <div class="cover-wrapper" v-if="post.thumb_url">
-              <img class="cover" :src="post.thumb_url">
-            </div>
-            <div class="cover-wrapper" v-if="!post.thumb_url">
-              <img class="cover" :src="emptyImage">
-            </div>
-            <div class="post-short-desc">
-              {{post.description}}
-            </div>
-            <router-link
+        <router-link
                   :to='{name: "Post", params: {"postId": post.slug}}'
-                  class="post-item"
-                >Read more...</router-link>
+                >
+          <div class="border-wrapper">
+            <h1 class="post-title">{{ post.title }}</h1>
+
+            <div class="post-desc">
+              <div class="cover-wrapper" v-if="post.thumb_url">
+                <img class="cover" :src="post.thumb_url">
+              </div>
+              <div class="cover-wrapper" v-if="!post.thumb_url">
+                <img class="cover" :src="emptyImage">
+              </div>
+              <div class="post-short-desc">
+                {{post.description}}
+              </div>
+              <router-link
+                    :to='{name: "Post", params: {"postId": post.slug}}'
+                    class="post-item"
+                  >Read more...</router-link>
+            </div>
           </div>
-        </div>
+        </router-link>
       </div>
     </div>
 

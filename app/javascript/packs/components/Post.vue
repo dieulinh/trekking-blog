@@ -1,12 +1,13 @@
 <template>
-  <b-container>
-    <b-row class="container" v-if="authenticated">
-      <router-link class="btn btn-primary" :to="{ name: 'EditPost',  params: { postId: post.slug } }">
+  <div>
+    <div class="post-nav">
+      <button type="button" class="btn btn-default" @click="goBack()"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp; Back</button>
+      <router-link v-if="authenticated" class="btn btn-primary" :to="{ name: 'EditPost',  params: { postId: post.slug } }">
         <i class="fa fa-pencil"></i> Edit Post
       </router-link>
-    </b-row>
-    <div v-html="post.content"></div>
-  </b-container>
+    </div>
+    <div v-html="post.content" class="post-content"></div>
+  </div>
   
 </template>
 <script>
@@ -21,6 +22,11 @@ export default {
   computed: {
     authenticated() {
       return this.$store.state.authenticated;
+    }
+  },
+  methods: {
+    goBack() {
+      history.back();
     }
   },
   mounted() {
