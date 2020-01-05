@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container">
+  <div>
     <div class="app-header">
       <div class="relative-search">
         <label for="search_query" class="sr-only">Search for:</label>
@@ -42,8 +42,8 @@
     <h5>Latest Posts</h5>
     <hr />
     <div class="post-container">
-      <div class="card-wrapper" v-for="post in posts" v-bind:key="post.id">
-        <div class="border-wrapper" v-if="authenticated||(!post.is_private)">
+      <div class="card-wrapper" v-for="post in posts" v-bind:key="post.id" v-show="authenticated||(!post.is_private)">
+        <div class="border-wrapper">
           <router-link :to='{name: "Post", params: {"postId": post.slug}}'
                 class="post-title"
                 >{{ post.title }}</router-link>
