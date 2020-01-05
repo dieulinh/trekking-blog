@@ -67,7 +67,7 @@
     <div class="row mt-5">
       <div class="col-md-12 text-center">
         <nav aria-label="Page navigation" class="text-center">
-          <ul class="pagination">
+          <ul class="pagination post-paging">
             <li class="page-item">
               <button class="page-link" :disabled="page===0" @click="getPreviousPosts()">&lt;</button>
             </li>

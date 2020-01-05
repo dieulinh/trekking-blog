@@ -6,6 +6,11 @@
     <li v-if="isLoggin"><a href="javascript:void(0);" @click="logout()">Logout</a></li>
     <li><a href="https://github.com/dieulinh/">About</a></li>
   </ul>
+  <div class="burger-menu-wrapper">
+    <div class="burger-menu-item"></div>
+    <div class="burger-menu-item"></div>
+    <div class="burger-menu-item"></div>
+  </div>
   <div>
     <login-component></login-component>
   </div>
