@@ -104,7 +104,7 @@ body {
 }
 
 a {
-  color: #17a2b8;
+  color: #17acc5;
 }
 a:hover {
   text-decoration: none;
@@ -298,7 +298,7 @@ h4 {
   flex-wrap: wrap;
   text-decoration: none;
   box-sizing: border-box;
-  color: #339c2d;
+  color: #6e714082;
   cursor: pointer;
   font-family: "Open Sans", Helvetica, "Helvetica Neue", "Segoe UI", Roboto, sans-serif;
   font-size: 16px;
@@ -312,6 +312,9 @@ h4 {
     font-weight: 400;
     height: 17px;
   }
+}
+.post-item {
+  color: #296cb3;
 }
 .post-item:hover {
   color: #b13478c7;
@@ -365,7 +368,7 @@ h4 {
   overflow: hidden;
   width: 210px;
   text-overflow: ellipsis;
-  height: 52px;
+  height: 60px;
   color: #113344;
   font-size: 13px;
 }
@@ -380,6 +383,7 @@ h4 {
   position: fixed;
   bottom: 0;
   margin-bottom: 1px;
+  z-index: 2;
 }
 .post-nav {
   display: flex;
