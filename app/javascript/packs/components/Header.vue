@@ -1,6 +1,6 @@
 <template>
-<div>
-  <ul class="menu-fixed-top white-bg">
+<div class="menu-fixed-top white-bg">
+  <ul class="menu-right">
     <li class="active"><a href="/">Works</a></li>
     <li v-if="!isLoggin"><a href="javascript:void(0);" @click="toggleLogin()">Sign in</a></li>
     <li v-if="isLoggin"><a href="javascript:void(0);" @click="logout()">Logout</a></li>

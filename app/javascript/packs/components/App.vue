@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="app-container">
     <header-component />
     <router-view />
     <footer-component />
@@ -16,7 +16,6 @@ export default {
   #app {
     display: flex;
     flex-direction: column;
-    align-items: center;
     width: 100%;
   }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <b-container>
+  <div class="app-container">
     <div class="app-header">
       <div class="relative-search">
         <label for="search_query" class="sr-only">Search for:</label>
@@ -47,7 +47,7 @@
           <router-link :to='{name: "Post", params: {"postId": post.slug}}'
                 class="post-title"
                 >{{ post.title }}</router-link>
-          
+
           <div class="post-desc">
             <div class="cover-wrapper" v-if="post.thumb_url">
                 <img class="cover" :src="post.thumb_url">
@@ -91,7 +91,7 @@
         </nav>
       </div>
     </div>
-  </b-container>
+  </div>
 </template>
 <script>
 import Router from "vue-router";

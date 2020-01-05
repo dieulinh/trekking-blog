@@ -1,10 +1,6 @@
 <template>
-  <div class="container">
-    <div class="container sp_sidebar">
-      <div class="col-md-12 col-sm-12">
-        <posts-component/>
-      </div>
-    </div>
+  <div>
+    <posts-component/>
   </div>
 </template>
 
