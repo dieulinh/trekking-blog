@@ -8,6 +8,9 @@ const debug = process.env.NODE_ENV !== 'production';
 const API_URL = process.env.ROOT_API;
 
 const mutations = {
+  setNews(state, payload) {
+    state.news = payload;
+  },
   setPosts(state, payload) {
     state.posts = payload.posts;
   },
@@ -45,6 +48,17 @@ const mutations = {
 };
 
 const actions = {
+  async getNews({commit}) {
+    try {
+      let response = await axios.get(`${process.env.ROOT_API}/posts/news`)
+      commit('setPosts', response.data);
+      commit('setNews', true);
+      commit('setPostPage', 1);
+      commit('setTotalPage', 1);
+    } catch (exception) {
+      commit('getErrors', exception);
+    }
+  },
   async getPosts({commit}, postParams) {
     try {
       let searchParams = `${process.env.ROOT_API}/posts?page=${postParams.page+1}`;
@@ -118,7 +132,8 @@ const getters = {
   errors: state => state.errors,
   showLogin: state => state.showLogin,
   current_post_page: state => state.current_post_page,
-  showRegisterForm: state => state.showRegisterForm
+  showRegisterForm: state => state.showRegisterForm,
+  news: state => state.news
 };
 
 const state = {
@@ -130,6 +145,7 @@ const state = {
   showLogin: false,
   showRegisterForm: false,
   added: [],
+  news: false,
   all: [],
   user: null,
   auth: {},

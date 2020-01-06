@@ -2,6 +2,7 @@
 <div class="menu-fixed-top white-bg">
   <ul class="menu-right">
     <li class="active"><a href="/">Works</a></li>
+    <li> <a href="javascript:void(0);" @click="toggleHackerNews()">News</a></li>
     <li v-if="!isLoggin"><a href="javascript:void(0);" @click="toggleLogin()">Sign in</a></li>
     <li v-if="isLoggin"><a href="javascript:void(0);" @click="logout()">Logout</a></li>
     <li><a href="https://github.com/dieulinh/">About</a></li>
@@ -33,6 +34,10 @@ export default {
     }
   },
   methods: {
+    toggleHackerNews() {
+      console.log("navigate to hacker news")
+      this.$store.dispatch("getNews");
+    },
 
     logout() {
       this.$store.dispatch("logout");

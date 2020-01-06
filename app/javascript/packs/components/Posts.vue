@@ -111,9 +111,15 @@ export default {
     };
   },
   mounted() {
-    this.$store.dispatch("getPosts", { page: this.page, terms: this.terms });
+    if (this.news) {
+      this.$store.dispatch("getNews");
+    } else {
+      this.$store.dispatch("getPosts", { page: this.page, terms: this.terms });
+    }
+    
   },
   computed: {
+    news() {return this.$store.state.news; },
     totalPages() {
       return this.$store.state.total_pages;
     },

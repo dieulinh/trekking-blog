@@ -29,6 +29,28 @@ module V1
 
         present res
       end
+      desc 'Hacker news endpoint'
+      get '/news' do
+        res = {}
+        if Rails.cache.redis.keys.any? {|k| k=~/hacker_posts:*/}
+          posts = Rails.cache.redis.keys.map {|k| k=~/hacker_posts:*/ ? JSON.parse(Rails.cache.redis.get(k)) : nil }.compact
+          # {"link"=>"https://d2l.ai/", "text"=>"Dive into Deep Learning", "short_content"=>{"title"=>"", "content"=>"", "thumbnail"=>"", "author"=>"", "short_desc"=>""}}
+          res["posts"] = posts.map {|post| {'title' => post['text'], 'thumb_url' => post['short_content']['thumbnail'], 'description' => post['short_desc'], 'link' => post['link']}}
+        else
+          res = WebsiteScaper.read_page_content
+
+          res = res.stringify_keys
+          readable_content = res["posts"]
+          readable_content.each do |link|
+            # Rails.cache.redis.set("hacker_posts:#{link['link']}", link.to_json)
+            unless Rails.cache.redis.get("hacker_posts:#{link['link']}")
+              Rails.cache.redis.set("hacker_posts:#{link['link']}", link.to_json)
+            end
+          end
+        end
+
+        present res
+      end
 
       params do
         requires :title, type: String

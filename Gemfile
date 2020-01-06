@@ -21,6 +21,7 @@ gem 'webpacker'
 gem 'friendly_id', '~> 5.2.4'
 gem "font-awesome-rails"
 gem 'graphql', '~> 1.9'
+gem 'fastimage'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 
@@ -32,8 +33,11 @@ gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 gem 'elasticsearch-persistence'
 
+
 # For Partial
 gem 'activerecord-postgis-adapter'
+gem 'search_object', '1.2.0'
+gem 'search_object_graphql', '0.1'
 
 # faster json
 gem 'oj'
@@ -45,7 +49,7 @@ gem 'redis', '~> 4.0'
 
 # Use ActiveStorage variant
 gem 'mini_magick', '~> 4.8'
-
+gem 'ruby-readability', require: 'readability'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
