@@ -56,7 +56,7 @@ const actions = {
       commit('setPostPage', 1);
       commit('setTotalPage', 1);
     } catch (exception) {
-      commit('getErrors', exception);
+      console.error(exception)
     }
   },
   async getPosts({commit}, postParams) {
@@ -67,8 +67,9 @@ const actions = {
       }
       let response = await axios.get(searchParams);
         commit('setPosts', response.data);
-        commit('setPostPage', +postParams.page)
+        commit('setPostPage', +postParams.page);
         commit('setTotalPage', response.data);
+        commit('setNews', false);
     } catch (error) {
       commit('setPosts', []);
     }
@@ -90,7 +91,7 @@ const actions = {
     try {
       let response = await axios.post(`${process.env.ROOT_API}/login/register`, user );
       if (response.status === 201)
-      { 
+      {
         commit('registerUser', response.data)
       } else {
         console.log(response);
@@ -108,14 +109,14 @@ const actions = {
     try {
       let response = await axios.post(`${API_URL}/login`, user);
       if (response.status === 201)
-      { 
+      {
         commit('login', response.data);
         commit('auth_token', response.data);
         localStorage.setItem('auth_token', response.data);
       } else {
         commit('getErrors', response.data);
       }
-    } catch(error) 
+    } catch(error)
     {
       console.log(error.response);
       commit('getErrors', error.response.data);

@@ -291,14 +291,14 @@ h4 {
 
 .post-title {
   z-index: 1;
-  letter-spacing: .1px;
+  letter-spacing: .4px;
   margin: 0 0 5px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   text-decoration: none;
   box-sizing: border-box;
-  color: #6e714082;
+  color: #17acc5;
   cursor: pointer;
   font-family: "Open Sans", Helvetica, "Helvetica Neue", "Segoe UI", Roboto, sans-serif;
   font-size: 16px;
@@ -306,6 +306,7 @@ h4 {
   height: 15px;
   margin: 5px 6px 15px 0px;
   text-overflow: ellipsis;
+  width: 224px;
   &:hover {
     color: #196ad0;
     font-size: 17px;

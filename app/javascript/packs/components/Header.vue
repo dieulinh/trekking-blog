@@ -5,7 +5,7 @@
     <li> <a href="javascript:void(0);" @click="toggleHackerNews()">News</a></li>
     <li v-if="!isLoggin"><a href="javascript:void(0);" @click="toggleLogin()">Sign in</a></li>
     <li v-if="isLoggin"><a href="javascript:void(0);" @click="logout()">Logout</a></li>
-    <li><a href="https://github.com/dieulinh/">About</a></li>
+    <li><a href="#">About</a></li>
   </ul>
   <div class="burger-menu-wrapper">
     <div class="burger-menu-item"></div>
@@ -25,7 +25,6 @@ export default {
   components: { LoginComponent },
   data() {
     return {
-
     }
   },
   computed: {
