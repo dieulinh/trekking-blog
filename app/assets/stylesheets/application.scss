@@ -18,7 +18,9 @@ body {
   font-family: Graphik Web,Helvetica Neue,Helvetica,Arial,Verdana,sans-serif;
   color: rgb(36, 28, 21);
 }
-
+.post-overlay {
+  z-index: 5;
+}
 .overlay {
   position: fixed;
   overflow: auto;
@@ -32,7 +34,7 @@ body {
   display: -ms-flexbox;
   display: flex;
   flex-direction: column;
-  z-index: 900;
+  z-index: 4;
   background-color: rgba(255,255,255,.97);
   width: 100%;
   padding: 0;

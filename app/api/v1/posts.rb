@@ -54,9 +54,13 @@ module V1
 
       desc 'Hacker news details link'
       params do
-        requires :url_content, type: String
+        requires :news_url, type: String
       end
-      get '/read' do
+      get '/details' do
+        url = params[:news_url]
+        post = WebsiteScaper.parse_article(url)
+        post_hash = {'title' => post['title'], 'thumb_url' => post['thumbnail'], 'description' => post['short_desc'], 'link' => post['link'], 'category' => 'technology' }
+        present post_hash
       end
 
       params do

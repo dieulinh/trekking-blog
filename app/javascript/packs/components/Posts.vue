@@ -1,5 +1,6 @@
 <template>
   <div>
+    <news-component v-if="currentNews"></news-component>
     <div class="app-header">
       <div class="relative-search">
         <label for="search_query" class="sr-only">Search for:</label>
@@ -43,7 +44,7 @@
     <hr />
     <div class="post-container">
       <div class="card-wrapper" v-for="post in posts" v-bind:key="post.id" v-show="authenticated||(!post.is_private)">
-        <router-link
+        <router-link v-if="!news"
                   :to='{name: "Post", params: {"postId": post.slug}}'
                 >
           <div class="border-wrapper">
@@ -69,6 +70,29 @@
             </div>
           </div>
         </router-link>
+        <div v-if="news">
+          <div class="border-wrapper">
+            <h1 class="post-title">{{ post.title }}</h1>
+
+            <div class="post-desc">
+              <div class="cover-wrapper" v-if="post.thumb_url">
+                <img class="cover" :src="post.thumb_url">
+              </div>
+              <div class="cover-wrapper" v-if="!post.thumb_url">
+                <img class="cover" :src="emptyImage">
+              </div>
+              <div class="post-short-desc" v-if="news" v-html="post.description">
+                
+              </div>
+              <div class="post-short-desc" v-if="!news">
+                {{ post.description }}
+              </div>
+              <a href="javascript:void(0);" @click="getNewsDetail(post.link)"
+                  class="post-item"
+                  >Read more...</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -104,8 +128,10 @@
 <script>
 import Router from "vue-router";
 import axios from "axios";
+import NewsComponent from './PostReader';
 const postApiUrl = `${process.env.ROOT_API}/posts`;
 export default {
+  components : { NewsComponent},
   data() {
     return {
       terms: null,
@@ -122,6 +148,7 @@ export default {
     
   },
   computed: {
+    currentNews() { return this.$store.state.current_news; },
     news() {return this.$store.state.news; },
     totalPages() {
       return this.$store.state.total_pages;
@@ -148,6 +175,12 @@ export default {
     }
   },
   methods: {
+    getNewsDetail(newsUrl) {
+      console.log(newsUrl);
+      console.log('You gonna see news content from hacker news');
+      this.$store.dispatch('getPostDetail', {postUrl: newsUrl});
+    },
+
     getPosts(page) {
       this.$store.dispatch("getPosts", { page: page, terms: this.terms });
     },
