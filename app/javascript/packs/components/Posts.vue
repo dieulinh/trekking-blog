@@ -56,8 +56,11 @@
               <div class="cover-wrapper" v-if="!post.thumb_url">
                 <img class="cover" :src="emptyImage">
               </div>
-              <div class="post-short-desc">
-                {{post.description}}
+              <div class="post-short-desc" v-if="news" v-html="post.description">
+                
+              </div>
+              <div class="post-short-desc" v-if="!news">
+                {{ post.description }}
               </div>
               <router-link
                     :to='{name: "Post", params: {"postId": post.slug}}'
