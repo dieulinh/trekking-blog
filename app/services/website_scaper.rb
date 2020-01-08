@@ -35,7 +35,7 @@ class WebsiteScaper
   def self.parse_article(url)
     begin
       source = open(url).read
-      rbody = Readability::Document.new(source, :tags => %w[div p img a], :attributes => %w[src], :remove_empty_nodes => true)
+      rbody = Readability::Document.new(source, :tags => %w[div p img a], :attributes => %w[src href], :remove_empty_nodes => true)
       images = rbody.images
       thumbnail = images.present? ? images[0] : nil
       short_desc = rbody.content

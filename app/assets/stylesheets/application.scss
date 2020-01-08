@@ -80,9 +80,7 @@ body {
   display: flex;
   flex-direction: row;
 }
-#sidebar {
-  float: right;
-}
+
 #app {
   margin-top: 80px;
   margin-bottom: 80px;
@@ -124,7 +122,6 @@ a:hover {
   position: fixed;
   display: flex;
   width: 100%;
-
   top: 0px;
   right: 0;
   left: 0;
@@ -147,14 +144,9 @@ a:hover {
   }
 }
 .burger-menu-wrapper {
-
   display: none;
-  cursor: pointer;
-  .active {
-    display: block;
-    z-index: 3;
-  }
 }
+
 .burger-menu-item {
   width: 35px;
   height: 5px;
@@ -162,8 +154,37 @@ a:hover {
   margin: 6px 0;
 }
 @media (max-width: 500px) {
+  .menu-fixed-top .menu-right {
+    display: none;
+  }
   .burger-menu-wrapper {
     display: block;
+  }
+  .burger-menu-wrapper {
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    width: 100px;
+    .active {
+      display: flex;
+      justify-content: flex-start;
+      z-index: 3;
+      cursor: pointer;
+    }
+    .menu-expand {
+      display: none;
+
+      height: 100px;
+      width: 140px;
+      background-color: white;
+      &.active {
+        display: flex;
+        flex-flow: column nowrap;
+      }
+      li {
+        cursor: pointer;
+      }
+    }
   }
 }
 nav .nav {
@@ -267,15 +288,6 @@ h4 {
   }
 }
 
-/* Wrapper */
-
-#wrapper.menuDisplayed #sidebar-wrapper {
-  width: 150px;
-}
-
-#wrapper.menuDisplayed #page-content-wrapper {
-  padding-left: 150px;
-}
 
 /* Sidebar styling */
 
@@ -358,6 +370,7 @@ h4 {
 }
 
 .border-wrapper {
+  cursor: pointer;
   border-radius: 5px;
   border: 1px solid #fff;
   padding: 8px 8px 0px;

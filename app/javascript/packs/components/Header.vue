@@ -7,10 +7,22 @@
     <li v-if="isLoggin"><a href="javascript:void(0);" @click="logout()">Logout</a></li>
     <li><a href="#">About</a></li>
   </ul>
-  <div class="burger-menu-wrapper">
-    <div class="burger-menu-item"></div>
-    <div class="burger-menu-item"></div>
-    <div class="burger-menu-item"></div>
+
+  <div class="burger-menu-wrapper" @click="toggleMenu($event)">
+    <div class="collaped-menu">
+      <div class="burger-menu-item"></div>
+      <div class="burger-menu-item"></div>
+      <div class="burger-menu-item"></div>
+    </div>
+    <div class="expanded-menu">
+      <ul class="menu-expand">
+        <li><a href="/">Works</a></li>
+        <li><a href="javascript:void(0);" @click="toggleHackerNews()">News</a></li>
+        <li v-if="!isLoggin"><a href="javascript:void(0);" @click="toggleLogin()">Sign in</a></li>
+        <li v-if="isLoggin"><a href="javascript:void(0);" @click="logout()">Logout</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+    </div>
   </div>
   <div>
     <login-component></login-component>
@@ -33,11 +45,14 @@ export default {
     }
   },
   methods: {
+    toggleMenu(event) {
+      console.log(event);
+      $('.menu-expand').toggleClass("active");
+    },
     toggleHackerNews() {
       console.log("navigate to hacker news")
       this.$store.dispatch("getNews");
     },
-
     logout() {
       this.$store.dispatch("logout");
     },

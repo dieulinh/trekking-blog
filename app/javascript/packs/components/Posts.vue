@@ -71,7 +71,7 @@
           </div>
         </router-link>
         <div v-if="news">
-          <div class="border-wrapper">
+          <div class="border-wrapper" @click="getNewsDetail(post.link)">
             <h1 class="post-title">{{ post.title }}</h1>
 
             <div class="post-desc">
