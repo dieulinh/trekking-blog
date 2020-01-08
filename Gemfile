@@ -32,6 +32,7 @@ gem 'sitemap_generator'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 gem 'elasticsearch-persistence'
+gem 'whenever', require: false
 
 
 # For Partial

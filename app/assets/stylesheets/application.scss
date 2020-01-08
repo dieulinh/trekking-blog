@@ -18,9 +18,6 @@ body {
   font-family: Graphik Web,Helvetica Neue,Helvetica,Arial,Verdana,sans-serif;
   color: rgb(36, 28, 21);
 }
-.post-overlay {
-  z-index: 5;
-}
 .overlay {
   position: fixed;
   overflow: auto;
@@ -62,7 +59,14 @@ body {
 .white-bg {
   background: #fff;
 }
-
+.post-overlay {
+  z-index: 5;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  display: flex;
+  justify-content: flex-start;
+  text-align: left;
+}
 .users-container {
   display: flex;
   flex-direction: row;
@@ -143,7 +147,13 @@ a:hover {
   }
 }
 .burger-menu-wrapper {
+
   display: none;
+  cursor: pointer;
+  .active {
+    display: block;
+    z-index: 3;
+  }
 }
 .burger-menu-item {
   width: 35px;
@@ -372,7 +382,7 @@ h4 {
   width: 210px;
   text-overflow: ellipsis;
   height: 60px;
-  color: #113344;
+  color: #1e98d4;
   font-size: 13px;
 }
 .cover {
@@ -397,3 +407,4 @@ h4 {
   margin: 10px;
   overflow-x: hidden;
 }
+
