@@ -57,12 +57,10 @@
               <div class="cover-wrapper" v-if="!post.thumb_url">
                 <img class="cover" :src="emptyImage">
               </div>
-              <div class="post-short-desc" v-if="news" v-html="post.description">
+              <div class="post-short-desc" v-html="post.description">
 
               </div>
-              <div class="post-short-desc" v-if="!news">
-                {{ post.description }}
-              </div>
+              
               <router-link
                     :to='{name: "Post", params: {"postId": post.slug}}'
                     class="post-item"
@@ -81,12 +79,10 @@
               <div class="cover-wrapper" v-if="!post.thumb_url">
                 <img class="cover" :src="emptyImage">
               </div>
-              <div class="post-short-desc" v-if="news" v-html="post.description">
+              <div class="post-short-desc" v-html="post.description">
 
               </div>
-              <div class="post-short-desc" v-if="!news">
-                {{ post.description }}
-              </div>
+      
               <a href="javascript:void(0);" @click="getNewsDetail(post.link)"
                   class="post-item"
                   >Read more...</a>
