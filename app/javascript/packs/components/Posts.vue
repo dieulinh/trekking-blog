@@ -1,7 +1,7 @@
 <template>
   <div>
     <news-component v-if="currentNews"></news-component>
-    <div class="app-header">
+    <div class="app-header" v-if="!news">
       <div class="relative-search">
         <label for="search_query" class="sr-only">Search for:</label>
         <input
@@ -58,7 +58,7 @@
                 <img class="cover" :src="emptyImage">
               </div>
               <div class="post-short-desc" v-if="news" v-html="post.description">
-                
+
               </div>
               <div class="post-short-desc" v-if="!news">
                 {{ post.description }}
@@ -82,7 +82,7 @@
                 <img class="cover" :src="emptyImage">
               </div>
               <div class="post-short-desc" v-if="news" v-html="post.description">
-                
+
               </div>
               <div class="post-short-desc" v-if="!news">
                 {{ post.description }}
@@ -145,7 +145,7 @@ export default {
     } else {
       this.$store.dispatch("getPosts", { page: this.page, terms: this.terms });
     }
-    
+
   },
   computed: {
     currentNews() { return this.$store.state.current_news; },

@@ -21,3 +21,7 @@
 every 1.hours do
   rake "crawler:craw_news"
 end
+
+every 1.day do
+  rake "crawler:save_news"
+end
