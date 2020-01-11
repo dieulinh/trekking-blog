@@ -21,7 +21,7 @@ module V1
           res[:posts] = results.map { |post| post.options }
           res[:total_pages] = post_count/params[:size] + (post_count%params[:size] > 0 ? 1 : 0)
         rescue Exception => e
-          results = params[:terms].present? ? Post.search_term(params[:terms]).map(&:attributes) : Post.where(is_private: false).map(&:attributes)
+          results = params[:terms].present? ? Post.search_term(params[:terms]).map(&:attributes) : Post.where(is_private: false).order('updated_at DESC').map(&:attributes)
           post_count = results.size
           res[:posts] = results
           res[:total_pages] = post_count/params[:size] + (post_count%params[:size] > 0 ? 1 : 0)
