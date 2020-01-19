@@ -18,6 +18,7 @@ class PostRepositoryV1 < ApplicationRepository
         indexes :thumb_url, type: 'text'
         indexes :mobile_thumb_url, type: 'text'
         indexes :updated_at, type: 'date'
+        indexes :post_cover, type: 'text'
       end
     end
   end
@@ -31,6 +32,7 @@ class PostRepositoryV1 < ApplicationRepository
       thumb_url: "#{document.thumb_url}",
       mobile_thumb_url: "#{document.mobile_thumb_url}",
       is_private: document.is_private,
+      post_cover: document.post_cover,
       updated_at: document.updated_at
     }.as_json
   end
