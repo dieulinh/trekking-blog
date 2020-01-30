@@ -55,7 +55,7 @@
                 <img class="cover" :src="post.thumb_url">
               </div>
               <div class="cover-wrapper" v-if="!post.thumb_url">
-                <img class="cover" :src="emptyImage">
+                <img class="cover" :src="post.post_cover||emptyImage">
               </div>
               <div class="post-short-desc" v-html="post.description">
 
