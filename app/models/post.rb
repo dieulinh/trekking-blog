@@ -94,7 +94,14 @@ class Post < ApplicationRecord
     repositories = repositories.empty? ? Post.elasticsearch_repositories : repositories
     Post.find_in_batches(batch_size: batch_size) do |posts|
       repositories.each do |repository|
-        posts.each { |post| repository.save(post) }
+        posts.each do |post|
+          begin
+            repository.save(post)
+          rescue => error
+            puts error
+            next
+          end
+        end
       end
     end
   end
