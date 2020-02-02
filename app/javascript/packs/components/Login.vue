@@ -3,7 +3,12 @@
     <div v-if="showLogin">
       <div class="overlay" v-if="(!userAuthenticated)">
         <div class="close-btn pull-right">
-          <i class="fa fa-2x fa-window-close" @click="closeLogin()"></i>
+          <span class="closeLogin" @click="closeLogin()">
+            <svg class="tcb-icon" viewBox="0 0 30 32" data-name="close">
+              <path d="M0.655 2.801l1.257-1.257 27.655 27.655-1.257 1.257-27.655-27.655z"></path>
+              <path d="M28.31 1.543l1.257 1.257-27.655 27.655-1.257-1.257 27.655-27.655z"></path>
+            </svg>
+          </span>
         </div>
         <b-form class="login-form">
           <b-col cols="12">

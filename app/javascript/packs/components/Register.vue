@@ -2,10 +2,15 @@
   <div>
     <div class="overlay" v-if="showForm">
       <div class="close-btn pull-right">
-        <i class="fa fa-2x fa-window-close" @click="closeRegisterForm()"></i>
+        <span class="closeLogin" @click="closeRegisterForm()">
+          <svg class="tcb-icon" viewBox="0 0 30 32" data-name="close">
+            <path d="M0.655 2.801l1.257-1.257 27.655 27.655-1.257 1.257-27.655-27.655z"></path>
+            <path d="M28.31 1.543l1.257 1.257-27.655 27.655-1.257-1.257 27.655-27.655z"></path>
+          </svg>
+        </span>
       </div>
       <b-form class="login-form">
-       
+
           <b-col cols="12">
             <h4>Register User Information</h4>
           </b-col>
@@ -92,6 +97,5 @@ export default {
         }
       }
   }
-
 }
 </script>
