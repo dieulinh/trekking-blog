@@ -1,5 +1,5 @@
 <template>
-<div class="menu-fixed-top white-bg">
+<div class="white-bg sm-column-lo">
   <ul class="menu-right">
     <li class="active"><a href="/">Works</a></li>
     <li> <a href="javascript:void(0);" @click="toggleHackerNews()">News</a></li>
@@ -7,21 +7,25 @@
     <li v-if="isLoggin"><a href="javascript:void(0);" @click="logout()">Logout</a></li>
     <li><a href="#">About</a></li>
   </ul>
-
-  <div class="burger-menu-wrapper" @click="toggleMenu($event)">
-    <div class="collaped-menu">
-      <div class="burger-menu-item"></div>
-      <div class="burger-menu-item"></div>
-      <div class="burger-menu-item"></div>
+  <div class="main-menu-sm">
+    <div class="toggle-menu-btn-wrapper">
+      <div class="toggle-menu-btn" @click="toggleMenu($event)">
+        <div class="burger-menu-item"></div>
+        <div class="burger-menu-item"></div>
+        <div class="burger-menu-item"></div>
+      </div>
     </div>
-    <div class="expanded-menu">
-      <ul class="menu-expand">
-        <li><a href="/">Works</a></li>
-        <li><a href="javascript:void(0);" @click="toggleHackerNews()">News</a></li>
-        <li v-if="!isLoggin"><a href="javascript:void(0);" @click="toggleLogin()">Sign in</a></li>
-        <li v-if="isLoggin"><a href="javascript:void(0);" @click="logout()">Logout</a></li>
-        <li><a href="#">About</a></li>
-      </ul>
+    <div class="burger-menu-wrapper">
+      <div class="menu-expanded">
+        <a href="/" @click="">Home</a>
+        <a href="javascript:void(0);" @click="toggleHackerNews()">News</a>
+        <a  v-if="!isLoggin" href="javascript:void(0);" @click="toggleLogin()">Sign in</a>
+
+        <a  v-if="isLoggin"href="javascript:void(0);" @click="logout()">Logout</a>
+
+        <a href="/">About</a>
+
+      </div>
     </div>
   </div>
   <div>
@@ -46,11 +50,9 @@ export default {
   },
   methods: {
     toggleMenu(event) {
-      console.log(event);
-      $('.menu-expand').toggleClass("active");
+      $('.menu-expanded').toggleClass("active");
     },
     toggleHackerNews() {
-      console.log("navigate to hacker news")
       this.$store.dispatch("getNews");
     },
     logout() {
