@@ -76,6 +76,17 @@ module V1
         post = Post.create(title: params[:title], category: params[:category], content: params[:content].html_safe, user_id: current_user.id, description: params[:description])
         present post, with: V1::Entities::Post
       end
+      desc 'Comment'
+      params do
+        requires :body, type: String
+        requires :auth_token, type: String
+      end
+      post '/:post_id/comments' do
+        authenticate_user!
+        post = Post.friendly.find(params[:post_id])
+        comment = post.comments.create(user_id: current_user.id, body: params[:body])
+        present comment.attributes.merge(user: current_user.name), status: 201
+      end
 
       get '/:id' do
         post = Post.friendly.find(params[:id])

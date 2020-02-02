@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
   include Elasticsearchable
   extend FriendlyId
+  has_many :comments, as: :commentable
   after_save :update_repository
 
   after_destroy_commit :destroy_post_record
