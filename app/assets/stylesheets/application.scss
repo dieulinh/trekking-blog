@@ -278,11 +278,11 @@ h4 {
   flex-wrap: wrap;
   text-decoration: none;
   box-sizing: border-box;
-  color: #052314;
+  color: #016992;
   cursor: pointer;
   font-family: "Open Sans", Helvetica, "Helvetica Neue", "Segoe UI", Roboto, sans-serif;
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 15px;
+  font-weight: 600;
   height: 15px;
   margin: 5px 6px 15px 0px;
   text-overflow: ellipsis;
@@ -311,13 +311,25 @@ h4 {
   margin-top: 50px;
   max-height: 980px;
 }
+.read-more {
+  color: orangered;
+  line-height: 20px;
+  display: flex;
+  justify-content: flex-end;
+  &:hover {
+    text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+  }
+}
 .card-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   padding: 12px;
   width: 260px;
   box-sizing: border-box;
   border-radius: 5px;
   background-color: #fff;
-  border: 1px solid #ebefe5;
+  border: 1px solid #e1e6d8;
   margin: 4px 4px 16px;
   &:hover{
     background-color: #ecedf1;
@@ -333,10 +345,9 @@ h4 {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  height: 308px;
   border-radius: 5px;
   justify-content: space-between;
-  border: solid 1px rgba(45,45,45,0.4);
+  border: solid 1px rgb(234,244,245);
   &:hover{
     background-color: #ffeef1;
     border-color: #442200;
@@ -351,7 +362,7 @@ h4 {
   width: 210px;
   text-overflow: ellipsis;
   height: 60px;
-  color: #1e98d4;
+  color: #2d4d5d;
   font-size: 13px;
 }
 .cover {

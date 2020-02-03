@@ -61,11 +61,10 @@
 
               </div>
               
-              <router-link
-                    :to='{name: "Post", params: {"postId": post.slug}}'
-                    class="post-item"
-                  >Read more...</router-link>
+              
             </div>
+            <div class="read-more">Read &nbsp;<i class="fa fa-2x fa-angle-double-right"
+                  ></i></div>
           </div>
         </router-link>
         <div v-if="news">
