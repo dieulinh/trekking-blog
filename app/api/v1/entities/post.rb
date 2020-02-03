@@ -13,6 +13,7 @@ module V1
       expose :updated_at, format_with: :timestamp
       expose :slug
       expose :thumb_url
+      expose :comments
     end
   end
 end

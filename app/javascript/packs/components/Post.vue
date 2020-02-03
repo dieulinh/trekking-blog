@@ -8,8 +8,10 @@
     </div>
     <div v-html="post.content" class="post-content"></div>
     <div>
-      <span>Comment</span>
-      <span v-if="comment">{{comment}}</span>
+      <hr>
+      <div><strong>Comments:</strong></div>
+      <p v-for="com in post.comments" :key="com.id">{{com.body}}</p>
+      <div><strong>Your comment:</strong></div>
       <input type="text" class="form-control" v-model="comment" @keyup.enter="saveComment"/>
     </div>
   </div>
