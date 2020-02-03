@@ -79,7 +79,6 @@ module V1
       desc 'Comment'
       params do
         requires :body, type: String
-        requires :auth_token, type: String
       end
       post '/:post_id/comments' do
         authenticate_user!
