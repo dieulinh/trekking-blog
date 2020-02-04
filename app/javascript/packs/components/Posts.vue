@@ -82,9 +82,10 @@
 
               </div>
       
-              <a href="javascript:void(0);" @click="getNewsDetail(post.link)"
-                  class="post-item"
-                  >Read more...</a>
+              
+              <a href="javascript:void(0);" class="read-more">Read &nbsp;<i @click="getNewsDetail(post.link)" class="fa fa-2x fa-angle-double-right"
+                  ></i></a>
+
             </div>
           </div>
         </div>
