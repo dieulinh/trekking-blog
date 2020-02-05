@@ -48,7 +48,6 @@ module V1
             end
           end
         end
-
         present res
       end
 

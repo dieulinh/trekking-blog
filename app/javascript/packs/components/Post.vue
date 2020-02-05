@@ -10,7 +10,7 @@
     <div>
       <hr>
       <div><strong>Comments:</strong></div>
-      <p v-for="com in post.comments" :key="com.id">{{com.body}}</p>
+      <p v-for="com in comments" :key="com.id">{{com.body}}</p>
       <div><strong>Your comment:</strong></div>
       <input type="text" class="form-control" v-model="comment" @keyup.enter="saveComment"/>
     </div>
@@ -24,7 +24,8 @@ export default {
   data() {
     return {
       comment: null,
-      post: {}
+      post: {},
+      comments: []
     }
   },
   computed: {
@@ -47,7 +48,8 @@ export default {
             'Authorization': `Bearer ${this.auth_token}`
           }
       }).then((response) => {
-      this.comment = response.data.body;
+        this.comments.push(response.data);
+        this.comment = null;
       }).catch((err) => {
         console.log(err);
       });
@@ -56,6 +58,7 @@ export default {
   mounted() {
     axios.get(`${process.env.ROOT_API}/posts/${this.postId}`).then((response) => {
       this.post = response.data;
+      this.comments = this.post.comments;
     }).catch((err) => {
       console.log(err);
     });
