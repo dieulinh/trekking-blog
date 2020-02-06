@@ -7,5 +7,6 @@ module Types
     field :content, String, null: true
     field :slug, String, null: false
     field :category, String, null: true
+    field :post_cover, String, null: true
   end
 end

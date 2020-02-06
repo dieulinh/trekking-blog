@@ -14,6 +14,7 @@ module V1
       expose :slug
       expose :thumb_url
       expose :comments
+      expose :post_cover
     end
   end
 end
