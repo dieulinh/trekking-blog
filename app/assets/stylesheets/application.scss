@@ -52,6 +52,14 @@ body {
     padding-right: 20vw;
   }
 }
+.triangle {
+  width: 0px;
+  cursor: pointer;
+  height: 0px;
+  border-top: 40px solid transparent;
+  border-left: 80px solid lightsteelblue;
+  border-bottom: 40px solid transparent;
+}
 #main {
   float: left;
   padding-right: 30px;
@@ -82,6 +90,16 @@ body {
 .relative-search {
   display: flex;
   flex-direction: row;
+  padding: 5px;
+  .search-box {
+    border-radius: 5px;
+    margin-left: -20px;
+
+  }
+  .s-icon {
+    width: 20px;
+    padding: 4px;
+  }
 }
 
 #app {
@@ -267,6 +285,7 @@ h4 {
 }
 .search-icon {
   margin-left: -33px;
+  padding: 3px;
 }
 
 .post-title {
