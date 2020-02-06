@@ -3,7 +3,6 @@
     <news-component v-if="currentNews"></news-component>
     <div class="app-header" v-if="!news">
       <div class="relative-search">
-        <label for="search_query" class="sr-only">Search for:</label>
         <input
           placeholder="Search for..."
           v-model="terms"
