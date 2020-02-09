@@ -1,4 +1,6 @@
 # README
+Sample demo
+http://www.eagertrekker.com
 
 Search Engine
 ======
@@ -25,5 +27,6 @@ Dependencies
 1.  elasticsearch
 2.  minimagic
 3.  aws-sdk
-4.  webpack
+4.  webpack (bundler for vuejs)
 5.  postgresql
+6.  graphql
