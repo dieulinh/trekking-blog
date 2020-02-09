@@ -7,8 +7,13 @@ import router from './routes';
 import App from './components/App';
 import store from './store';
 import Axios from 'axios';
-import VueSession from 'vue-session';
-Vue.use(VueSession);
+import VueProgressBar from 'vue-progressbar';
+
+Vue.use(VueProgressBar, {
+  color: 'rgb(143, 255, 199)',
+  failedColor: 'red',
+  height: '2px'
+})
 
 Vue.use(Vuex);
 Vue.use(BootstrapVue);

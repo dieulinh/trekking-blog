@@ -138,10 +138,15 @@ export default {
     };
   },
   mounted() {
+    this.start();
     if (this.news) {
       this.$store.dispatch("getNews");
     } else {
-      this.$store.dispatch("getPosts", { page: this.page, terms: this.terms });
+      this.$store.dispatch("getPosts", { page: this.page, terms: this.terms }).then((data)=>{
+        this.finish();
+      }).catch((err)=> {
+        this.fail();
+      });
     }
 
   },
@@ -173,6 +178,35 @@ export default {
     }
   },
   methods: {
+    start () {
+      console.log('ever start');
+        this.$Progress.start();
+    },
+    set (num) {
+        this.$Progress.set(num)
+    },
+    increase (num) {
+        this.$Progress.increase(num)
+    },
+    decrease (num) {
+        this.$Progress.decrease(num)
+    },
+    finish () {
+        this.$Progress.finish()
+    },
+    fail () {
+        this.$Progress.fail()
+    },
+    test(){
+      this.$Progress.start()
+
+      this.$http.jsonp('http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json?apikey=7waqfqbprs7pajbz28mqf6vz')
+      .then((response) => {
+          this.$Progress.finish()
+      }, (response) => {
+          this.$Progress.fail()
+      })
+    },
     showLog() {
       console.log('you click it, don\'t you?');
     },
@@ -183,7 +217,28 @@ export default {
     },
 
     getPosts(page) {
-      this.$store.dispatch("getPosts", { page: page, terms: this.terms });
+      this.start();
+
+      // this.$http.jsonp('http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json?apikey=7waqfqbprs7pajbz28mqf6vz')
+      // .then((response) => {
+      //     this.$Progress.finish()
+      // }, (response) => {
+      //     this.$Progress.fail()
+      // })
+      var posts = this.$store.dispatch("getPosts", { page: page, terms: this.terms });
+      try {
+        console.log(posts);
+        console.log('not error');
+        this.$Progress.finish();
+      } catch(err) {
+        this.$Progress.fail();
+      }
+      posts.success((data)=> {
+        console.log('error not found');
+        this.$Progress.finish();
+      }).error((err) => {
+        this.$Progress.fail();
+      })
     },
     getNextPosts() {
       this.$store.dispatch("getPosts", {

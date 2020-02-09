@@ -12,6 +12,7 @@
     "serialize-javascript": "^2.1.1",
     "vue": "^2.6.10",
     "vue-loader": "^15.7.0",
+    "vue-progressbar": "^0.7.5",
     "vue-router": "^3.0.5",
     "vue-session": "^1.0.0",
     "vue-template-compiler": "^2.6.10",
