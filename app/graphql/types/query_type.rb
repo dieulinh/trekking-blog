@@ -21,7 +21,7 @@ module Types
     end
 
     def posts
-      Post.all
+      Post.order('updated_at desc').limit(100)
     end
 
     def post(id:)
