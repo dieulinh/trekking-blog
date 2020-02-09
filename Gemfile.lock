@@ -915,6 +915,9 @@ GEM
       railties
       sprockets-rails
     graphql (1.9.14)
+    graphql-client (0.16.0)
+      activesupport (>= 3.0)
+      graphql (~> 1.8)
     guess_html_encoding (0.0.11)
     haml (5.1.1)
       temple (>= 0.8.0)
@@ -1136,6 +1139,7 @@ DEPENDENCIES
   grape-entity
   graphiql-rails
   graphql (~> 1.9)
+  graphql-client
   haml
   jbuilder (~> 2.5)
   jquery-rails

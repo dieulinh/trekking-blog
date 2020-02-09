@@ -33,6 +33,7 @@ gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 gem 'elasticsearch-persistence'
 gem 'whenever', require: false
+gem 'graphql-client'
 
 
 # For Partial

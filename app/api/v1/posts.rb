@@ -21,12 +21,27 @@ module V1
           res[:posts] = results.map { |post| post.options }
           res[:total_pages] = post_count/params[:size] + (post_count%params[:size] > 0 ? 1 : 0)
         rescue Exception => e
-          results = params[:terms].present? ? Post.search_term(params[:terms]).order('updated_at DESC').map(&:attributes) : Post.where(is_private: false).order('updated_at DESC').map(&:attributes)
-          post_count = results.size
-          res[:posts] = results
-          res[:total_pages] = post_count/params[:size] + (post_count%params[:size] > 0 ? 1 : 0)
-        end
+          query = <<-'GRAPHQL'
+            query {
+              posts {
+                id,
+                title,
+                slug,
+                isPrivate,
+                postCover,
+                updatedAt,
+                content,
+                description
+              }
+            }
+          GRAPHQL
 
+          result = TrekkingBlogSchema.execute(query, variables: {}, context: {}, operation_name: nil)
+
+          res[:posts] = result["data"]["posts"]
+          post_count = res[:posts].size
+          res[:total_pages] = 1
+        end
         present res
       end
       desc 'Hacker news endpoint'
