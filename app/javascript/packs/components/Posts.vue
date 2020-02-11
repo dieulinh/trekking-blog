@@ -83,8 +83,6 @@
               <div class="post-short-desc" v-html="post.description">
 
               </div>
-      
-              
               <a href="javascript:void(0);" class="read-more">Read &nbsp;<i @click="getNewsDetail(post.link)" class="fa fa-2x fa-angle-double-right"
                   ></i></a>
 
@@ -93,8 +91,7 @@
         </div>
       </div>
     </div>
-
-    <div class="row mt-5">
+    <div class="row mt-5" v-if="!this.news">
       <div class="col-md-12 text-center">
         <nav aria-label="Page navigation" class="text-center">
           <ul class="pagination post-paging">
@@ -129,7 +126,7 @@ import axios from "axios";
 import NewsComponent from './PostReader';
 const postApiUrl = `${process.env.ROOT_API}/posts`;
 export default {
-  components : { NewsComponent},
+  components : { NewsComponent },
   data() {
     return {
       terms: null,
@@ -197,21 +194,10 @@ export default {
     fail () {
         this.$Progress.fail()
     },
-    test(){
-      this.$Progress.start()
-
-      this.$http.jsonp('http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json?apikey=7waqfqbprs7pajbz28mqf6vz')
-      .then((response) => {
-          this.$Progress.finish()
-      }, (response) => {
-          this.$Progress.fail()
-      })
-    },
     showLog() {
       console.log('you click it, don\'t you?');
     },
     getNewsDetail(newsUrl) {
-      console.log(newsUrl);
       console.log('You gonna see news content from hacker news');
       this.$store.dispatch('getPostDetail', {postUrl: newsUrl});
     },
@@ -219,22 +205,13 @@ export default {
     getPosts(page) {
       this.start();
 
-      // this.$http.jsonp('http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json?apikey=7waqfqbprs7pajbz28mqf6vz')
-      // .then((response) => {
-      //     this.$Progress.finish()
-      // }, (response) => {
-      //     this.$Progress.fail()
-      // })
       var posts = this.$store.dispatch("getPosts", { page: page, terms: this.terms });
       try {
-        console.log(posts);
-        console.log('not error');
         this.$Progress.finish();
       } catch(err) {
         this.$Progress.fail();
       }
       posts.success((data)=> {
-        console.log('error not found');
         this.$Progress.finish();
       }).error((err) => {
         this.$Progress.fail();

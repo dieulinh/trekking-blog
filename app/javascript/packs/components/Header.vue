@@ -17,11 +17,10 @@
     </div>
     <div class="burger-menu-wrapper">
       <div class="menu-expanded">
-        <a href="/" @click="">Home</a>
+        <a href="/">Home</a>
         <a href="javascript:void(0);" @click="toggleHackerNews()">News</a>
         <a  v-if="!isLoggin" href="javascript:void(0);" @click="toggleLogin()">Sign in</a>
-
-        <a  v-if="isLoggin"href="javascript:void(0);" @click="logout()">Logout</a>
+        <a  v-if="isLoggin" href="javascript:void(0);" @click="logout()">Logout</a>
 
         <a href="/">About</a>
 
@@ -53,7 +52,8 @@ export default {
       $('.menu-expanded').toggleClass("active");
     },
     toggleHackerNews() {
-      this.$store.dispatch("getNews");
+      // this.$store.dispatch("getNews");
+      this.$store.dispatch("getPosts", { page: 1});
     },
     logout() {
       this.$store.dispatch("logout");

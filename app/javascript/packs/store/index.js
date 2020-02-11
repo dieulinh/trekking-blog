@@ -164,7 +164,7 @@ const state = {
   showLogin: false,
   showRegisterForm: false,
   added: [],
-  news: false,
+  news: true,
   all: [],
   user: null,
   auth: {},
