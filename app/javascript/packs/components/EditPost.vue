@@ -113,7 +113,7 @@ export default {
       })
     },
     handleUpdatePost() {
-      axios.put(`${postApiUrl}/${this.postId}`, { title: this.post.title, category: this.post.category, description: this.post.description, auth_token: this.authToken, content: this.post.content }).then((response) => {
+      axios.put(`${postApiUrl}/${this.postId}`, { title: this.post.title, category: this.post.category, description: this.post.description, content: this.post.content }).then((response) => {
         this.$router.push(`/posts/${this.postId}`);
       }).catch((err) => {
         console.log(`Error: ${err}`);

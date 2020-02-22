@@ -8,6 +8,9 @@ const debug = process.env.NODE_ENV !== 'production';
 const API_URL = process.env.ROOT_API;
 
 const mutations = {
+  searchTerm(state, term) {
+    this.state.searchTerm = term;
+  },
   currentNews(state, payload) {
     state.current_news = payload;
   },
@@ -51,6 +54,9 @@ const mutations = {
 };
 
 const actions = {
+  searchTerm({commit}, term){
+    commit('searchTerm', term);
+  },
   clearCurrentNews({commit}) {
     commit("currentNews", null);
   },
@@ -82,6 +88,7 @@ const actions = {
         searchParams = `${searchParams}&terms=${postParams.terms}`;
       }
       let response = await axios.get(searchParams);
+        if (postParams.terms) commit('searchTerm',postParams.terms);
         commit('setPosts', response.data);
         commit('setPostPage', +postParams.page);
         commit('setTotalPage', response.data);
@@ -151,11 +158,13 @@ const getters = {
   current_post_page: state => state.current_post_page,
   showRegisterForm: state => state.showRegisterForm,
   news: state => state.news,
-  current_news: state => state.current_news
+  current_news: state => state.current_news,
+  searchTerm: state => state.searchTerm
 };
 
 const state = {
   current_news: null,
+  searchTerm: null,
   posts: [],
   current_post_page: 0,
   total_pages: 0,

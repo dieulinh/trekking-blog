@@ -82,7 +82,6 @@ module V1
         requires :description, type: String
         requires :content, type: String
         requires :category, type: String
-        requires :auth_token, type: String
       end
 
       post '/' do

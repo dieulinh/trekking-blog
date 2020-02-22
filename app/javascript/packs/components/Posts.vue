@@ -60,13 +60,12 @@
                 <img class="cover" :src="post.post_cover||emptyImage">
               </div>
               <div class="post-short-desc" v-html="post.description">
-
               </div>
-              
-              
             </div>
-            <div class="read-more">Read &nbsp;<i class="fa fa-2x fa-angle-double-right"
-                  ></i></div>
+            <div class="read-more">
+              Read &nbsp;
+              <i class="fa fa-2x fa-angle-double-right"></i>
+            </div>
           </div>
         </router-link>
         <div v-if="news">
@@ -81,10 +80,11 @@
                 <img class="cover" :src="emptyImage">
               </div>
               <div class="post-short-desc" v-html="post.description">
-
               </div>
-              <a href="javascript:void(0);" class="read-more">Read &nbsp;<i @click="getNewsDetail(post.link)" class="fa fa-2x fa-angle-double-right"
-                  ></i></a>
+              <a href="javascript:void(0);" class="read-more">
+                Read &nbsp;
+                <i @click="getNewsDetail(post.link)" class="fa fa-2x fa-angle-double-right"></i>
+              </a>
 
             </div>
           </div>
@@ -131,7 +131,6 @@ export default {
     return {
       terms: null,
       emptyImage: require('../assets/images/see-no-evil-monkey_1f648.png')
-
     };
   },
   mounted() {
@@ -139,7 +138,7 @@ export default {
     if (this.news) {
       this.$store.dispatch("getNews");
     } else {
-      this.$store.dispatch("getPosts", { page: this.page, terms: this.terms }).then((data)=>{
+      this.$store.dispatch("getPosts", { page: this.page, terms: this.$store.state.searchTerm }).then((data)=>{
         this.finish();
       }).catch((err)=> {
         this.fail();
@@ -148,6 +147,7 @@ export default {
 
   },
   computed: {
+    searchTerm() { return this.terms | this.$store.state.searchTerm; },
     currentNews() { return this.$store.state.current_news; },
     news() {return this.$store.state.news; },
     totalPages() {
@@ -201,10 +201,8 @@ export default {
       console.log('You gonna see news content from hacker news');
       this.$store.dispatch('getPostDetail', {postUrl: newsUrl});
     },
-
     getPosts(page) {
       this.start();
-
       var posts = this.$store.dispatch("getPosts", { page: page, terms: this.terms });
       try {
         this.$Progress.finish();
