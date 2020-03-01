@@ -34,11 +34,11 @@
     
   </div>
   <div class="homepage-categories">
-    <div class="category" @click="getTechnologyPosts('technology')">Technology</div>
+    <div class="category travel" @click="getTechnologyPosts('technology')">Technology</div>
     <div class="category" @click="getTechnologyPosts('green')">Green</div>
-    <div class="category" @click="getTechnologyPosts('science')">Science</div>
+    <div class="category travel" @click="getTechnologyPosts('science')">Science</div>
     <div class="category" @click="getTechnologyPosts('education')">Education</div>
-    <div class="category" @click="getTechnologyPosts('travel')">Travel</div>
+    <div class="category travel" @click="getTechnologyPosts('travel')">Travel</div>
     <div class="category" @click="getTechnologyPosts('art')">Art</div>
   </div>
 </div>

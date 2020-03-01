@@ -13,5 +13,11 @@
     align-items: center;
     justify-content: center;
     display: flex;
+    margin: 4px;
+    font-size: 1.3em;
+  }
+  .travel {
+    background: url('travel-thumb.jpg');
+    object-fit: cover;
   }
 }
