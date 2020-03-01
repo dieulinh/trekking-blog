@@ -6,6 +6,7 @@ module V1
       params :tags_params do
           optional :tag1, type: Array[String]
           optional :terms, type: String
+          optional :category, type: String
       end
     end
   end

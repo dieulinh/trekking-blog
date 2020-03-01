@@ -1,0 +1,17 @@
+.homepage-categories {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+  justify-content: space-around;
+  .category {
+    cursor: pointer;
+    border: 1px solid rgba(12, 23, 34, 0.5);
+    border-radius: 4px;
+    max-height: 300px;
+    min-height: 200px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
+}

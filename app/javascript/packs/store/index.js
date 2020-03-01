@@ -8,6 +8,9 @@ const debug = process.env.NODE_ENV !== 'production';
 const API_URL = process.env.ROOT_API;
 
 const mutations = {
+  categoryPost(state, category) {
+    this.state.category = category;
+  },
   searchTerm(state, term) {
     this.state.searchTerm = term;
   },
@@ -86,6 +89,11 @@ const actions = {
       let searchParams = `${process.env.ROOT_API}/posts?page=${postParams.page+1}`;
       if (postParams.terms) {
         searchParams = `${searchParams}&terms=${postParams.terms}`;
+      }
+      console.log(postParams);
+      if (postParams.category) {
+        console.log(postParams.category)
+        searchParams = `${searchParams}&category=${postParams.category}`;
       }
       let response = await axios.get(searchParams);
         if (postParams.terms) commit('searchTerm',postParams.terms);

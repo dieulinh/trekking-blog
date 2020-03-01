@@ -3,10 +3,11 @@ module Types
 
     # Add root-level fields here.
     # They will be entry points for queries on your schema.
-    field :posts,
-      [Types::PostType],
-      null: false,
-      description: "Return of list all posts"
+    field :posts, [Types::PostType], null: false do
+      description "Return of list all posts"
+      argument :category, String, required: false
+
+    end
     field :trekkers,
       [Types::TrekkerType],
       null: false,
@@ -20,8 +21,11 @@ module Types
       Trekker.all
     end
 
-    def posts
+    def posts(category: nil)
       Post.order('updated_at desc').limit(100)
+      if category
+        Post.where(category: category).order('updated_at desc').limit(100)
+      end
     end
 
     def post(id:)

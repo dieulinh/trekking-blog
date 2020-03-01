@@ -1,34 +1,45 @@
 <template>
-<div class="white-bg sm-column-lo">
-  <ul class="menu-right">
-    <li class="active"><a href="/">Works</a></li>
-    <li> <a href="javascript:void(0);" @click="toggleHackerNews()">News</a></li>
-    <li v-if="!isLoggin"><a href="javascript:void(0);" @click="toggleLogin()">Sign in</a></li>
-    <li v-if="isLoggin"><a href="javascript:void(0);" @click="logout()">Logout</a></li>
-    <li><a href="#">About</a></li>
-  </ul>
-  <div class="main-menu-sm">
-    <div class="toggle-menu-btn-wrapper">
-      <div class="toggle-menu-btn" @click="toggleMenu($event)">
-        <div class="burger-menu-item"></div>
-        <div class="burger-menu-item"></div>
-        <div class="burger-menu-item"></div>
+<div>
+  <div class="white-bg sm-column-lo">
+    <ul class="menu-right">
+      <li class="active"><a href="/">Works</a></li>
+      <li> <a href="javascript:void(0);" @click="toggleHackerNews()">News</a></li>
+      <li v-if="!isLoggin"><a href="javascript:void(0);" @click="toggleLogin()">Sign in</a></li>
+      <li v-if="isLoggin"><a href="javascript:void(0);" @click="logout()">Logout</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+    <div class="main-menu-sm">
+      <div class="toggle-menu-btn-wrapper">
+        <div class="toggle-menu-btn" @click="toggleMenu($event)">
+          <div class="burger-menu-item"></div>
+          <div class="burger-menu-item"></div>
+          <div class="burger-menu-item"></div>
+        </div>
+      </div>
+      <div class="burger-menu-wrapper">
+        <div class="menu-expanded">
+          <a href="/">Home</a>
+          <a href="javascript:void(0);" @click="toggleHackerNews()">News</a>
+          <a  v-if="!isLoggin" href="javascript:void(0);" @click="toggleLogin()">Sign in</a>
+          <a  v-if="isLoggin" href="javascript:void(0);" @click="logout()">Logout</a>
+
+          <a href="/">About</a>
+
+        </div>
       </div>
     </div>
-    <div class="burger-menu-wrapper">
-      <div class="menu-expanded">
-        <a href="/">Home</a>
-        <a href="javascript:void(0);" @click="toggleHackerNews()">News</a>
-        <a  v-if="!isLoggin" href="javascript:void(0);" @click="toggleLogin()">Sign in</a>
-        <a  v-if="isLoggin" href="javascript:void(0);" @click="logout()">Logout</a>
-
-        <a href="/">About</a>
-
-      </div>
+    <div>
+      <login-component></login-component>
     </div>
+    
   </div>
-  <div>
-    <login-component></login-component>
+  <div class="homepage-categories">
+    <div class="category" @click="getTechnologyPosts('technology')">Technology</div>
+    <div class="category" @click="getTechnologyPosts('green')">Green</div>
+    <div class="category" @click="getTechnologyPosts('science')">Science</div>
+    <div class="category" @click="getTechnologyPosts('education')">Education</div>
+    <div class="category" @click="getTechnologyPosts('travel')">Travel</div>
+    <div class="category" @click="getTechnologyPosts('art')">Art</div>
   </div>
 </div>
 </template>
@@ -50,6 +61,9 @@ export default {
   methods: {
     toggleMenu(event) {
       $('.menu-expanded').toggleClass("active");
+    },
+    getTechnologyPosts(category) {
+      this.$store.dispatch("getPosts", { page: 1, category: category});
     },
     toggleHackerNews() {
       // this.$store.dispatch("getNews");

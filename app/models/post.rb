@@ -53,7 +53,7 @@ class Post < ApplicationRecord
     )
   end
 
-  def self.search(query, query_size=5, page=1)
+  def self.search(query, category=nil, query_size=5, page=1)
     from = page*query_size - query_size
     condition = {
       query: {
@@ -65,15 +65,26 @@ class Post < ApplicationRecord
       from: from,
       size: query_size
     }
-    return current_elasticsearch_repository.search(condition) unless query
-    condition[:query] = {
-      query_string: {
-        query: "*#{query.downcase}*",
-        analyze_wildcard: true,
-        analyzer: 'standard',
-        fields: ['title', 'description']
+    return current_elasticsearch_repository.search(condition) unless query || category
+    if category.present?
+      condition[:query] = {
+        query_string: {
+          query: "#{query.downcase}",
+          analyze_wildcard: true,
+          analyzer: 'standard',
+          fields: ['category']
+        }
       }
-    }
+    else
+      condition[:query] = {
+        query_string: {
+          query: "*#{query.downcase}*",
+          analyze_wildcard: true,
+          analyzer: 'standard',
+          fields: ['title', 'description']
+        }
+      }
+    end
     current_elasticsearch_repository.search(condition)
   end
 

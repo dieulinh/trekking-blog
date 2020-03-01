@@ -15,7 +15,7 @@ module V1
       get '/' do
         res = {}
         begin
-          posts = Post.search(params[:terms], params[:size], params[:page])
+          posts = Post.search(params[:terms], params[:category], params[:size], params[:page])
           post_count = posts.total.value
           results = posts.results
           res[:posts] = results.map { |post| post.options }
@@ -35,9 +35,24 @@ module V1
               }
             }
           GRAPHQL
+          if params[:category].present?
+            query = %Q(
+              query {
+                posts (category: \"#{params[:category]}\"){
+                  id,
+                  title,
+                  slug,
+                  isPrivate,
+                  postCover,
+                  updatedAt,
+                  content,
+                  description
+                }
+              }
+            )
+          end
 
           result = TrekkingBlogSchema.execute(query, variables: {}, context: {}, operation_name: nil)
-
           res[:posts] = result["data"]["posts"]
           post_count = res[:posts].size
           res[:total_pages] = 1
