@@ -122,7 +122,7 @@
     </div>
     <div class="right-sidebar">
       <ul>
-        <li class="category travel" @click="getTechnologyPosts('technology')">Technology</li>
+        <li class="category travel" @click="getTechnologyPosts('technology')"><a>Technology</a></li>
         <li class="category" @click="getTechnologyPosts('green')">Green</li>
         <li class="category travel" @click="getTechnologyPosts('science')">Science</li>
         <li class="category" @click="getTechnologyPosts('education')">Education</li>

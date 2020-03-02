@@ -2,7 +2,7 @@
   display: flex;
 }
 .page-content {
-  min-width: 80%;
+  width: 85%;
 }
 .right-sidebar {
   display: flex;
@@ -10,8 +10,13 @@
   // border: 1px solid #323421;
   li {
     cursor: pointer;
+    padding: 10px;
     line-height: 35px;
     border-bottom: 1px solid #445621;
     margin-right: 20px;
+    min-width: 150px;
+    a:hover {
+      color: #2cb82f;
+    }
   }
 }
