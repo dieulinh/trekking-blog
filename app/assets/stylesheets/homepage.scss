@@ -1,24 +1,17 @@
-.homepage-categories {
+.main-post-content {
   display: flex;
-  flex-flow: row nowrap;
-  width: 100%;
-  justify-content: space-around;
-  .category {
+}
+.page-content {
+  min-width: 80%;
+}
+.right-sidebar {
+  display: flex;
+  flex-flow: column nowrap;
+  // border: 1px solid #323421;
+  li {
     cursor: pointer;
-    border: 1px solid rgba(12, 23, 34, 0.5);
-    border-radius: 4px;
-    max-height: 300px;
-    min-height: 200px;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    margin: 4px;
-    font-size: 1.2em;
-    box-shadow: 10px 5px #bec3dc;
-  }
-  .travel {
-    background: image-url('travel-thumb.jpg');
-    object-fit: cover;
+    line-height: 35px;
+    border-bottom: 1px solid #445621;
+    margin-right: 20px;
   }
 }
