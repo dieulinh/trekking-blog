@@ -1,8 +1,9 @@
 .main-post-content {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 100px;
 }
 .page-content {
-  width: 85%;
+
 }
 .right-sidebar {
   display: flex;
@@ -15,8 +16,16 @@
     border-bottom: 1px solid #445621;
     margin-right: 20px;
     min-width: 150px;
+    display: flex;
+    align-items: stretch;
+    a {
+      width: 100%;
+      color: rgb(36,28,21);
+    }
     a:hover {
-      color: #2cb82f;
+      color: #455561;
+      font-style: italic;
+      background-color: #778812;
     }
   }
 }

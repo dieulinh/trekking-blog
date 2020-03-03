@@ -122,12 +122,12 @@
     </div>
     <div class="right-sidebar">
       <ul>
-        <li class="category travel" @click="getTechnologyPosts('technology')"><a>Technology</a></li>
-        <li class="category" @click="getTechnologyPosts('green')">Green</li>
-        <li class="category travel" @click="getTechnologyPosts('science')">Science</li>
-        <li class="category" @click="getTechnologyPosts('education')">Education</li>
-        <li class="category travel" @click="getTechnologyPosts('travel')">Travel</li>
-        <li class="category" @click="getTechnologyPosts('art')">Art</li>
+        <li class="category"><a href="javascript:void();" @click="getTechnologyPosts('technology')">Technology</a></li>
+        <li class="category"><a href="javascript:void();" @click="getTechnologyPosts('green')">Green</a></li>
+        <li class="category"><a href="javascript:void();" @click="getTechnologyPosts('science')">Science</a></li>
+        <li class="category"><a href="javascript:void();" @click="getTechnologyPosts('education')">Education</a></li>
+        <li class="category"><a href="javascript:void();" @click="getTechnologyPosts('travel')">Travel</a></li>
+        <li class="category"><a @click="getTechnologyPosts('art')" href="javascript:void();">Art</a></li>
       </ul>
     </div>
   </div>
