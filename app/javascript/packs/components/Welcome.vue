@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import axios from "../common/axios";
 import PostsComponent from './Posts.vue';
 
 export default {

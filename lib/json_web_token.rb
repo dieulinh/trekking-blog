@@ -7,6 +7,7 @@ class JsonWebToken
 
   # Decodes the JWT with the signed secret
   def self.decode(token)
+    puts JWT.decode(token, Rails.application.secrets.secret_key_base)
     JWT.decode(token, Rails.application.secrets.secret_key_base)
   end
 

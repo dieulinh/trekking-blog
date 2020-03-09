@@ -8,6 +8,7 @@ module Shared
       return unauthorized! unless token_header
 
       decoded_token = JsonWebToken.decode(token_header)[0].to_h.symbolize_keys
+      puts decoded_token
       return unauthorized! unless decoded_token.key?(:user_id)
       @user = User.find decoded_token[:user_id]
       return unauthorized! unless @user
