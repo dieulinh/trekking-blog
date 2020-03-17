@@ -83,7 +83,7 @@
                 <div class="post-short-desc" v-html="post.description">
                 </div>
                 <a href="javascript:void(0);" class="read-more">
-                  {{post.updated_at}}
+                  {{post.updated_at | formatDate}}
                   <i @click="getNewsDetail(post.link)" class="fa fa-2x fa-angle-double-right"></i>
                 </a>
 

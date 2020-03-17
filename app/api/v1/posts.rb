@@ -46,7 +46,8 @@ module V1
                   postCover,
                   updatedAt,
                   content,
-                  description
+                  description,
+                  updated_at
                 }
               }
             )
@@ -65,7 +66,7 @@ module V1
         if Rails.cache.redis.keys.any? {|k| k=~/hacker_posts:*/}
           posts = Rails.cache.redis.keys.map {|k| k=~/hacker_posts:*/ ? JSON.parse(Rails.cache.redis.get(k)) : nil }.compact
           # {"link"=>"https://d2l.ai/", "text"=>"Dive into Deep Learning", "short_content"=>{"title"=>"", "content"=>"", "thumbnail"=>"", "author"=>"", "short_desc"=>""}}
-          res["posts"] = posts.map {|post| {'title' => post['text'], 'thumb_url' => post['short_content']['thumbnail'], 'description' => post['short_content']['short_desc'], 'link' => post['link']}}
+          res["posts"] = posts.map {|post| {'title' => post['text'], 'thumb_url' => post['short_content']['thumbnail'], 'description' => post['short_content']['short_desc'], 'link' => post['link'], 'updated_at' => post['updated_at']}}
         else
           res = WebsiteScaper.read_page_content
 

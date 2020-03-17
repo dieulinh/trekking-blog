@@ -10,7 +10,7 @@ namespace :crawler do
       # Rails.cache.redis.set("hacker_posts:#{link['link']}", link.to_json)
       cache_key = "hacker_posts:#{link['link']}"
       unless Rails.cache.redis.get(cache_key)
-        Rails.cache.redis.set(cache_key, link.to_json)
+        Rails.cache.redis.set(cache_key, link.merge('updated_at'=>DateTime.now.to_s).to_json)
       end
     end
   end
