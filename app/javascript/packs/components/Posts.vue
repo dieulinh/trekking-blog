@@ -64,7 +64,7 @@
                 </div>
               </div>
               <div class="read-more">
-                Read &nbsp;
+                {{ post.updated_at | formatDate }}
                 <i class="fa fa-2x fa-angle-double-right"></i>
               </div>
             </div>
@@ -83,7 +83,7 @@
                 <div class="post-short-desc" v-html="post.description">
                 </div>
                 <a href="javascript:void(0);" class="read-more">
-                  Read &nbsp;
+                  {{post.updated_at}}
                   <i @click="getNewsDetail(post.link)" class="fa fa-2x fa-angle-double-right"></i>
                 </a>
 
