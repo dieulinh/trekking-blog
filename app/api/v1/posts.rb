@@ -46,8 +46,7 @@ module V1
                   postCover,
                   updatedAt,
                   content,
-                  description,
-                  updated_at
+                  description
                 }
               }
             )
