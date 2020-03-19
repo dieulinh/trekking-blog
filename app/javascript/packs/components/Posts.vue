@@ -10,7 +10,7 @@
             name="search_query"
             type="text"
             v-on:keyup.enter="getPosts(0)"
-            class="search-box input-focus all-animate w-100 bg-white db shadow-inset-2 ba bw1 br2 pv3 pl4 pr6 lh-solid sans-serif b--gray3 fw6 f5 gray7"
+            class="search-box all-animate w-100 bg-white db sans-serif"
           />
           <span class="s-icon">
             <svg
