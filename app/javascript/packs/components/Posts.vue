@@ -65,7 +65,6 @@
               </div>
               <div class="read-more">
                 {{ post.updated_at | formatDate }}
-                <i class="fa fa-2x fa-angle-double-right"></i>
               </div>
             </div>
           </router-link>
@@ -83,8 +82,7 @@
                 <div class="post-short-desc" v-html="post.description">
                 </div>
                 <a href="javascript:void(0);" class="read-more">
-                  {{post.updated_at | formatDate}}
-                  <i @click="getNewsDetail(post.link)" class="fa fa-2x fa-angle-double-right"></i>
+                 Posted: {{post.updated_at | formatDate}}
                 </a>
 
               </div>
