@@ -3,19 +3,24 @@
   grid-template-columns: 1fr 100px;
 }
 .page-content {
-
+  display: flex;
+  flex-flow: column nowrap;
 }
 .right-sidebar {
   display: flex;
   flex-flow: column nowrap;
   // border: 1px solid #323421;
+  .list-category-wrapper {
+    list-style-type: none;
+    margin: 0px;
+    padding: 2px;
+  }
   li {
     cursor: pointer;
     padding: 10px;
     line-height: 35px;
-    border-bottom: 1px solid #445621;
+
     margin-right: 20px;
-    min-width: 150px;
     display: flex;
     align-items: stretch;
     a {

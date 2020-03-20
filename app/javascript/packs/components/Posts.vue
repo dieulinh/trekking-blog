@@ -33,18 +33,18 @@
           
         </div>
       </div>
+      <div class="app-header" v-if="news">
+        <h1>Lastest news from Hacker News</h1>
+        <hr/>
+      </div>
 
       <div v-if="authenticated" class="row mt-5">
         <div class="col-md-12 mb-5 float-left">
           <router-link class="btn btn-primary" :to="{ name: 'NewPost'}">
             <i class="fa fa-plus"></i> Add Post
           </router-link>
-          
         </div>
       </div>
-      <hr />
-      <h5>Latest Posts</h5>
-      <hr />
       <div class="post-container">
         <div class="card-wrapper" v-for="post in posts" v-bind:key="post.id" v-show="authenticated||(!post.is_private)">
           <router-link v-if="!news"
@@ -90,32 +90,28 @@
           </div>
         </div>
       </div>
-      <div class="row mt-5" v-if="!this.news">
-        <div class="col-md-12 text-center">
-          <nav aria-label="Page navigation" class="text-center">
-            <ul class="pagination post-paging">
-              <li class="page-item">
-                <button class="page-link" :disabled="page===0" @click="getPreviousPosts()">&lt;</button>
-              </li>
-              <li
-                class="page-item"
-                v-bind:class="{ active: page===index }"
-                v-for="(item, index) in pages"
-                v-bind:key="index"
-              >
-                <button class="page-link" @click="getPosts(index)">{{ item + 1 }}</button>
-              </li>
+      <div v-if="!news" class="paging-wrapper">
+        <ul class="pagination">
+            <li class="page-item">
+              <button class="page-link" :disabled="page===0" @click="getPreviousPosts()">&lt;</button>
+            </li>
+            <li
+              class="page-item"
+              v-bind:class="{ active: page===index }"
+              v-for="(item, index) in pages"
+              v-bind:key="index"
+            >
+              <button class="page-link" @click="getPosts(index)">{{ item + 1 }}</button>
+            </li>
 
-              <li class="page-item">
-                <button
-                  class="page-link"
-                  :disabled="page===(totalPages-1)"
-                  @click="getNextPosts()"
-                >&gt;</button>
-              </li>
-            </ul>
-          </nav>
-        </div>
+            <li class="page-item">
+              <button
+                class="page-link"
+                :disabled="page===(totalPages-1)"
+                @click="getNextPosts()"
+              >&gt;</button>
+            </li>
+          </ul>
       </div>
     </div>
     <div class="right-sidebar">
