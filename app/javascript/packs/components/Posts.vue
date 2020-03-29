@@ -34,7 +34,7 @@
         </div>
       </div>
       <div class="app-header" v-if="news">
-        <h1>Lastest news from Hacker News</h1>
+        <h1>Hacker News</h1>
         <hr/>
       </div>
 
