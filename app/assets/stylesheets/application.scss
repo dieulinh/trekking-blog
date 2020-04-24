@@ -290,13 +290,11 @@ h4 {
 }
 .post-view {
   width: 100%;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding: 10px 30px 10px 30px;
 }
 .post-desc {
-  max-width: 90%;
-  padding-left: 30px;
-  padding-right: 30px;
+  max-width: 100vw;
+
 }
 .post-item {
   color: #296cb3;
